@@ -11,7 +11,7 @@ import java.util.Date;
  * @author david
  */
 public class Empleado {
-    private int numRutEmpleado, celularEmpleado,codRegion,codProvincia,codComuna,numRazonSocialEmpresa;
+    private int numRutEmpleado, celularEmpleado,codRegion,codProvincia,codComuna,numRazonSocialEmpresa,codRol;
     private String dvRutEmpleado, pNombreEmpleado, pApellidoEmpleado, sApellidoEmpleado, emailEmpleado, direccionEmpleado, usuarioEmpleado, contrasenaEmpleado;
     private Date fechaNacEmpleado;
 
@@ -33,7 +33,8 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
         this.usuarioEmpleado = usuarioEmpleado;
         this.contrasenaEmpleado = contrasenaEmpleado;
-        this.fechaNacEmpleado = fechaNacEmpleado;
+        this.fechaNacEmpleado = fechaNacEmpleado;        
+        this.codRol = codRol;        
     }
 
     public int getNumRutEmpleado() {
@@ -156,6 +157,20 @@ public class Empleado {
         this.fechaNacEmpleado = fechaNacEmpleado;
     }
 
+    public int getCodRol() {
+        return codRol;
+    }
+
+    public void setCodRol(int codRol) {
+        this.codRol = codRol;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "numRutEmpleado=" + numRutEmpleado + ", celularEmpleado=" + celularEmpleado + ", codRegion=" + codRegion + ", codProvincia=" + codProvincia + ", codComuna=" + codComuna + ", numRazonSocialEmpresa=" + numRazonSocialEmpresa + ", codRol=" + codRol + ", dvRutEmpleado=" + dvRutEmpleado + ", pNombreEmpleado=" + pNombreEmpleado + ", pApellidoEmpleado=" + pApellidoEmpleado + ", sApellidoEmpleado=" + sApellidoEmpleado + ", emailEmpleado=" + emailEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", usuarioEmpleado=" + usuarioEmpleado + ", contrasenaEmpleado=" + contrasenaEmpleado + ", fechaNacEmpleado=" + fechaNacEmpleado + '}';
+    }
+
+    
     
     
     

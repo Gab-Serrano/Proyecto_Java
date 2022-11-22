@@ -95,31 +95,6 @@ public class RegistroEmpleado {
         }
     }
     
-    public Empleado log(String usuarioEmpleado, String contraseñaEmpleado){
-        Connection con;
-        PreparedStatement ps;
-        ResultSet rs;
-        Empleado e = new Empleado(); 
-        Conexion cn = new Conexion(); 
-        String sql = "SELECT FROM empleado WHERE usuarioEmpleado = ? AND contraseñaEmpleado = ?";
-        
-    try {
-        con = cn.obtenerConexion();
-        ps= con.prepareStatement(sql);
-        ps.setString(1, usuarioEmpleado);
-        ps.setString(2, contraseñaEmpleado);
-        rs = ps.executeQuery();
-        if (rs.next()) {
-            e.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
-            e.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
-        }
-
-    } catch (SQLException ex) {
-        System.out.println("Error en la sentencia SQL logear: " +ex.toString());
-    }
-    return e;
-    }
-
     public Empleado buscarEmpleado(String numRutEmpleado) {
 
         Empleado empleado = new Empleado();
@@ -155,6 +130,7 @@ public class RegistroEmpleado {
                 empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
                 empleado.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
                 empleado.setNumRazonSocialEmpresa(rs.getInt("numRazonSocialEmpresa"));
+                empleado.setCodRol(rs.getInt("codRol"));
 
             }
 
@@ -182,11 +158,10 @@ public class RegistroEmpleado {
         //Se declara sentencia
         String sentencia = "UPDATE empleado SET numRutEmpleado = ?, dvRutEmpleado = ?, pNombreEmpleado = ?, pApellidoEmpleado = ?, sApellidoEmpleado = ?, "
                 + "emailEmpleado = ?, celularEmpleado = ?, fechaNacEmpleado = ?, direccionEmpleado = ?, codRegion = ?, codProvincia = ?, codComuna = ?, "
-                + "usuarioEmpleado = ?, contraseñaEmpleado = ? WHERE numRutEmpleado = ?";
+                + "usuarioEmpleado = ?, contraseñaEmpleado = ?, codRol = ? WHERE numRutEmpleado = ?";
         //Se carga la plantilla de sentencia
-        PreparedStatement stmt;
         try {
-            stmt = cnx.obtenerConexion().prepareStatement(sentencia);
+            PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
 
             stmt.setInt(1, empleado.getNumRutEmpleado());
             stmt.setString(2, empleado.getDvRutEmpleado());
@@ -204,7 +179,9 @@ public class RegistroEmpleado {
             stmt.setInt(12, empleado.getCodComuna());
             stmt.setString(13, empleado.getUsuarioEmpleado());
             stmt.setString(14, empleado.getContrasenaEmpleado());
-            stmt.setInt(15, empleado.getNumRutEmpleado());
+            stmt.setInt(15, empleado.getCodRol());
+            stmt.setInt(16, empleado.getNumRutEmpleado());
+            
             
             if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas modificar este usuario?", "Modificar usuario", 0) == 0) {
                 //Se ejecuta la consulta

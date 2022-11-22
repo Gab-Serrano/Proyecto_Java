@@ -78,23 +78,29 @@ public class RegistroProducto {
     
     }
       
-    public boolean actualizarProducto(String nombre,String nombreNew){      
+    public boolean actualizarProducto(Producto producto){      
         
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
             
-            String query = "UPDATE producto SET descripcionProducto = ? WHERE descripcionProducto = ? ";
-            PreparedStatement stmt = cnx.prepareCall(query);
-            stmt.setString(1, nombreNew);
-            stmt.setString(2, nombre);             
+            String query = "UPDATE producto SET codProducto = ?, descripcionProducto = ?, precioUnitario = ?, stock = ?, codCategoria = ?, numRazonSocialProv = ?, porcentajeDescuento = ? WHERE descripcionProducto = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, producto.getCodProducto());
+            stmt.setString(2, producto.getDescripcionProducto());
+            stmt.setInt(3, producto.getPrecioUnitario());
+            stmt.setInt(4, producto.getStock());
+            stmt.setInt(5, producto.getCodigoCategoria());
+            stmt.setInt(6, producto.getNumRazonSocialProv());
+            stmt.setDouble(7, producto.getPorcentajeDescuento());
+            stmt.setString(8, producto.getDescripcionProducto());
             stmt.executeUpdate();
             stmt.close();
             cnx.close();
             return true;
 
         } catch (SQLException e) {          
-            System.out.println("Error en la consulta SQL en actualizar, "+ e.getMessage());
+            System.out.println("Error en la consulta SQL en actualizar producto, "+ e.getMessage());
             return false;
         }
     
@@ -117,12 +123,19 @@ public class RegistroProducto {
             if (rs.next()) {
                 pro.setCodProducto(rs.getInt("codProducto"));
                 pro.setDescripcionProducto(rs.getString("descripcionProducto"));
+                pro.setPrecioUnitario(rs.getInt("precioUnitario"));
+                pro.setStock(rs.getInt("stock"));
+                pro.setCodigoCategoria(rs.getInt("codCategoria"));
+                pro.setNumRazonSocialProv(rs.getInt("numRazonSocialProv"));
+                pro.setPorcentajeDescuento(rs.getDouble("porcentajeDescuento"));
                 
             }
             
             stmt.executeUpdate();
             stmt.close();
             cnx.close();
+            
+            return pro;
 
         } catch (SQLException e) {          
             System.out.println("Error en la consulta SQL consultar por nombre, "+ e.getMessage());
@@ -158,7 +171,6 @@ public class RegistroProducto {
                 
             }
             
-            stmt.executeUpdate();
             stmt.close();
             cnx.close();
 

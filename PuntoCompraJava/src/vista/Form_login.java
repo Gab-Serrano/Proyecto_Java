@@ -27,19 +27,21 @@ public class Form_login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+
+
 //    public void validar(){
 //        String usuarioEmpleado = jtxt_nombreUsuario.getText();
-//        String contraseñaEmpleado = String.valueOf(jtxt_pass.getPassword());
-//        if (!"".equals(usuarioEmpleado)|| !"".equals(contraseñaEmpleado)) {
+//        String contraseÃ±aEmpleado = String.valueOf(jtxt_pass.getPassword());
+//        if (!"".equals(usuarioEmpleado)|| !"".equals(contraseÃ±aEmpleado)) {
 //            
-//            em = regEmp.log(usuarioEmpleado, contraseñaEmpleado);
+//            em = regEmp.log(usuarioEmpleado, contraseÃ±aEmpleado);
 //            if(em.getUsuarioEmpleado()!= null && em.getContrasenaEmpleado()!=null){
 //                Form_MenuPpal fg = new Form_MenuPpal();
 //                fg.setVisible(true);
 //                dispose();
 //            }
 //            else{
-//                JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecta","Ingresar",1); 
+//                JOptionPane.showMessageDialog(null,"Usuario o ContraseÃ±a incorrecta","Ingresar",1); 
 //            }         
 //        }    
 //    } 
@@ -102,7 +104,7 @@ public class Form_login extends javax.swing.JFrame {
             }
         });
 
-        jchk_mostraContra.setText("Mostrar contraseña");
+        jchk_mostraContra.setText("Mostrar contraseÃ±a");
         jchk_mostraContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jchk_mostraContraActionPerformed(evt);

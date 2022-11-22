@@ -12,6 +12,8 @@ import modelo.Empleado;
  *
  * @author david
  */
+
+/*Comment*/
 public class Form_login extends javax.swing.JFrame {
     Empleado em = new Empleado();
     RegistroProducto rp =new RegistroProducto();

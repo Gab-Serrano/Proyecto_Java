@@ -8,12 +8,16 @@ import bd.Conexion;
 import java.sql.Connection;
 import modelo.Empleado;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +33,8 @@ public class RegistroEmpleado {
      * @param empleado
      * @return boolean
      */
+    
+    /*hola*/
     public boolean agregarEmpleado(Empleado empleado) {
 
         //Instancia conexion
@@ -94,7 +100,7 @@ public class RegistroEmpleado {
 
         }
     }
-    
+
     public Empleado buscarEmpleado(String numRutEmpleado) {
 
         Empleado empleado = new Empleado();
@@ -126,7 +132,6 @@ public class RegistroEmpleado {
                 empleado.setCodComuna(rs.getInt("codComuna"));
                 empleado.setCodProvincia(rs.getInt("codProvincia"));
                 empleado.setCodRegion(rs.getInt("codRegion"));
-                empleado.setDireccionEmpleado(rs.getString("direccionEmpleado"));
                 empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
                 empleado.setContrasenaEmpleado(rs.getString("contraseÃ±aEmpleado"));
                 empleado.setNumRazonSocialEmpresa(rs.getInt("numRazonSocialEmpresa"));
@@ -180,9 +185,8 @@ public class RegistroEmpleado {
             stmt.setString(14, empleado.getContrasenaEmpleado());
             stmt.setInt(15, empleado.getCodRol());
             stmt.setInt(16, empleado.getNumRutEmpleado());
-            
-            
-            if (JOptionPane.showConfirmDialog(null, "Â¿EstÃ¡s seguro que deseas modificar este usuario?", "Modificar usuario", 0) == 0) {
+
+            if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas modificar este usuario?", "Modificar usuario", 0) == 0) {
                 //Se ejecuta la consulta
                 stmt.executeUpdate();
 
@@ -207,7 +211,7 @@ public class RegistroEmpleado {
                 //Retorna booleano exitoso
                 return false;
             }
- 
+
         } catch (SQLException ex) {
             Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
             //Mensaje de alerta de error
@@ -217,6 +221,95 @@ public class RegistroEmpleado {
             return false;
         }
 
+    }
+
+    public List<Empleado> buscarPorFiltro(String condicion, String Busqueda) {
+        List<Empleado> listaEmpleado = new ArrayList<>();
+
+        //Instancia conexion
+        Conexion cnx = new Conexion();
+        //Se declara sentencia
+        String sentencia = "SELECT * FROM empleado WHERE " + condicion + " = ?";
+
+        try {
+            //Se cargan las variables paramétricas
+            PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
+            stmt.setString(1, Busqueda);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setNumRutEmpleado(rs.getInt("numRutEmpleado"));
+                empleado.setDvRutEmpleado(rs.getString("dvRutEmpleado"));
+                empleado.setpNombreEmpleado(rs.getString("pNombreEmpleado"));
+                empleado.setpApellidoEmpleado(rs.getString("pApellidoEmpleado"));
+                empleado.setsApellidoEmpleado(rs.getString("sApellidoEmpleado"));
+                empleado.setEmailEmpleado(rs.getString("emailEmpleado"));
+                empleado.setCelularEmpleado(rs.getInt("celularEmpleado"));
+                empleado.setFechaNacEmpleado(rs.getDate("fechaNacEmpleado"));
+                empleado.setDireccionEmpleado(rs.getString("direccionEmpleado"));
+                empleado.setCodComuna(rs.getInt("codComuna"));
+                empleado.setCodProvincia(rs.getInt("codProvincia"));
+                empleado.setCodRegion(rs.getInt("codRegion"));
+                empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
+                empleado.setCodRol(rs.getInt("codRol"));
+                listaEmpleado.add(empleado);
+            }
+
+            stmt.close();
+            rs.close();
+            cnx.obtenerConexion().close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaEmpleado;
+    }
+
+    public List<Empleado> buscarTodos() {
+        List<Empleado> listaEmpleado = new ArrayList<>();
+
+        //Instancia conexion
+        Conexion cnx = new Conexion();
+        //Se declara sentencia
+        String sentencia = "SELECT * FROM empleado";
+
+        Statement stmt;
+        try {
+            stmt = cnx.obtenerConexion().createStatement();
+            ResultSet rs = stmt.executeQuery(sentencia);
+
+            while (rs.next()) {
+                Empleado empleado = new Empleado();
+
+                empleado.setNumRutEmpleado(rs.getInt("numRutEmpleado"));
+                empleado.setDvRutEmpleado(rs.getString("dvRutEmpleado"));
+                empleado.setpNombreEmpleado(rs.getString("pNombreEmpleado"));
+                empleado.setpApellidoEmpleado(rs.getString("pApellidoEmpleado"));
+                empleado.setsApellidoEmpleado(rs.getString("sApellidoEmpleado"));
+                empleado.setEmailEmpleado(rs.getString("emailEmpleado"));
+                empleado.setCelularEmpleado(rs.getInt("celularEmpleado"));
+                empleado.setFechaNacEmpleado(rs.getDate("fechaNacEmpleado"));
+                empleado.setDireccionEmpleado(rs.getString("direccionEmpleado"));
+                empleado.setCodComuna(rs.getInt("codComuna"));
+                empleado.setCodProvincia(rs.getInt("codProvincia"));
+                empleado.setCodRegion(rs.getInt("codRegion"));
+                empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
+                empleado.setCodRol(rs.getInt("codRol"));
+                listaEmpleado.add(empleado);
+            }
+
+            stmt.close();
+            rs.close();
+            cnx.obtenerConexion().close();
+        } catch (SQLException ex) {
+
+            Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaEmpleado;
     }
 
 }

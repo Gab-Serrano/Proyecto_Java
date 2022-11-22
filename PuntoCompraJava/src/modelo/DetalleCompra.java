@@ -9,23 +9,14 @@ package modelo;
  * @author david
  */
 public class DetalleCompra {
-    private int idCompra, codProducto, cantidad;
+    private int codProducto, cantidad;
 
     public DetalleCompra() {
     }
 
-    public DetalleCompra(int idCompra, int codProducto, int cantidad) {
-        this.idCompra = idCompra;
+    public DetalleCompra(int codProducto, int cantidad) {
         this.codProducto = codProducto;
         this.cantidad = cantidad;
-    }
-
-    public int getIdCompra() {
-        return idCompra;
-    }
-
-    public void setIdCompra(int idCompra) {
-        this.idCompra = idCompra;
     }
 
     public int getCodProducto() {
@@ -46,8 +37,10 @@ public class DetalleCompra {
 
     @Override
     public String toString() {
-        return "DetalleCompra{" + "idCompra=" + idCompra + ", codProducto=" + codProducto + ", cantidad=" + cantidad + '}';
+        return "DetalleCompra{" + "codProducto=" + codProducto + ", cantidad=" + cantidad + '}';
     }
+
+
     
     
 }

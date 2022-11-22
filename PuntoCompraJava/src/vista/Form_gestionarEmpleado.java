@@ -1322,6 +1322,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         }
 
+        //Hola
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_busquedaFiltro.getModel();
         modelo.setRowCount(0);
 

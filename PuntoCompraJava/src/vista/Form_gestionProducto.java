@@ -4,12 +4,20 @@
  */
 package vista;
 
+import controlador.RegistroCliente;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.Usuario;
+
 /**
  *
  * @author david
  */
 public class Form_gestionProducto extends javax.swing.JFrame {
-
+     Usuario us= new Usuario();
+     RegistroCliente rc = new RegistroCliente();
+     DefaultTableModel model = new DefaultTableModel();
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -36,7 +44,9 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         jbtn_gestionProd = new javax.swing.JButton();
         jbtn_gestionEmp = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+      
         jLabel5 = new javax.swing.JLabel();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +106,7 @@ public class Form_gestionProducto extends javax.swing.JFrame {
                 .addGap(165, 165, 165)
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +127,7 @@ public class Form_gestionProducto extends javax.swing.JFrame {
                 .addComponent(jbtn_gestionProd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
-
+       
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,6 +171,7 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_gestionProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_gestionProdActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_gestionProdActionPerformed
 
@@ -168,6 +180,70 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         fgp.setVisible(true);
     }//GEN-LAST:event_jBtn_gestionProvActionPerformed
 
+    private void btn_guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarClienteActionPerformed
+        if (!"".equals(txt_rutCliente.getText())||!"".equals(txt_nombreCliente.getText())|| !"".equals(txt_email)) {
+            us.setCodUsuario(Integer.parseInt(txt_rutCliente.getText()));
+            us.setpNombreUsuario(txt_nombreCliente.getText());
+            us.setEmailUsuario(txt_email.getText());
+            rc.registrarCliente(us);
+            limpiarTable();
+            listarCliente();
+            JOptionPane.showConfirmDialog(null, "Cliente Registrado");
+        }else{
+            JOptionPane.showConfirmDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_btn_guardarClienteActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        limpiarTable();
+        listarCliente();
+       jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Table_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_clienteMouseClicked
+        int fila = Table_cliente.rowAtPoint(evt.getPoint());
+        txt_rutCliente.setText(Table_cliente.getValueAt(fila, 0).toString());
+        txt_nombreCliente.setText(Table_cliente.getValueAt(fila, 1).toString());
+        txt_email.setText(Table_cliente.getValueAt(fila, 2).toString());
+    }//GEN-LAST:event_Table_clienteMouseClicked
+
+    private void btn_eliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarClienteActionPerformed
+        if (!"".equals(txt_rutCliente.getText())) {
+            int pregunta = JOptionPane.showConfirmDialog(null, "estas seguro de eliminar");
+            if (pregunta == 0 ) {
+                int id =Integer.parseInt( txt_rutCliente.getText());
+                rc.eliminarCliente();
+                limpiarTable();
+                listarCliente();
+            }
+        }
+    }//GEN-LAST:event_btn_eliminarClienteActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    public void listarCliente(){
+        List<Usuario> lista = rc.listarCliente();
+        model =(DefaultTableModel) Table_cliente.getModel();
+        Object[] ob = new Object[3];
+        
+        for (int i = 0; i < lista.size(); i++) {
+            ob[0] = lista.get(i).getNumRutUsuario();
+            ob[1] = lista.get(i).getpNombreUsuario();
+            ob[2] = lista.get(i).getEmailUsuario(); 
+            model.addRow(ob);
+           
+        }
+        Table_cliente.setModel(model);
+    }
+    public void limpiarTable(){
+        for (int i = 0; i < model.getRowCount(); i++) {
+            model.removeRow(i);
+            i = i-1;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -223,12 +299,15 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     private javax.swing.JButton jBtn_gestionProv;
     private javax.swing.JButton jBtn_sisVenta;
     private javax.swing.JLabel jLabel1;
+
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
+
     private javax.swing.JButton jbtn_gestionEmp;
     private javax.swing.JButton jbtn_gestionProd;
+
     // End of variables declaration//GEN-END:variables
 }

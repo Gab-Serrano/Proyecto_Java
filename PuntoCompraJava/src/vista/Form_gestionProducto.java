@@ -5,7 +5,9 @@
 package vista;
 
 import controlador.RegistroCliente;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Usuario;
 
 /**
@@ -15,6 +17,7 @@ import modelo.Usuario;
 public class Form_gestionProducto extends javax.swing.JFrame {
      Usuario us= new Usuario();
      RegistroCliente rc = new RegistroCliente();
+     DefaultTableModel model;
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -875,6 +878,11 @@ public class Form_gestionProducto extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Clientes.png"))); // NOI18N
         jButton2.setText("Cliente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor.png"))); // NOI18N
         jButton3.setText("Proveedor");
@@ -1000,6 +1008,27 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_guardarClienteActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       listarCliente();
+       jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    public void listarCliente(){
+        List<Usuario> lista = rc.listarCliente();
+        model =(DefaultTableModel) Table_cliente.getModel();
+        Object[] ob = new Object[3];
+        
+        for (int i = 0; i < lista.size(); i++) {
+            ob[0] = lista.get(i).getNumRutUsuario();
+            ob[1] = lista.get(i).getpNombreUsuario();
+            ob[2] = lista.get(i).getEmailUsuario(); 
+            model.addRow(ob);
+           
+        }
+        Table_cliente.setModel(model);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

@@ -1033,7 +1033,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
         pr.setCodigoCategoria((Integer.valueOf(this.jtxt_codCategoria1.getText())));
         pr.setNumRazonSocialProv((Integer.valueOf(this.jtxt_codProveedor1.getText())));
         pr.setPorcentajeDescuento((Double.valueOf(this.jtxt_porcentajeDescuento1.getText())));
-        if (rp.actualizarProducto(pr)) {
+        if (rp.actualizarProducto(pr,jtxt_nombreBuscar.getText())) {
             JOptionPane.showMessageDialog(null,"Producto Actualizado","Actualizar producto",1);
             System.out.println(pr.toString());
         }

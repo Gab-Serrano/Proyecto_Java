@@ -78,7 +78,7 @@ public class RegistroProducto {
     
     }
       
-    public boolean actualizarProducto(Producto producto){      
+    public boolean actualizarProducto(Producto producto, String consulta){      
         
         try {
             Conexion con = new Conexion();
@@ -93,7 +93,7 @@ public class RegistroProducto {
             stmt.setInt(5, producto.getCodigoCategoria());
             stmt.setInt(6, producto.getNumRazonSocialProv());
             stmt.setDouble(7, producto.getPorcentajeDescuento());
-            stmt.setString(8, producto.getDescripcionProducto());
+            stmt.setString(8, consulta);
             stmt.executeUpdate();
             stmt.close();
             cnx.close();
@@ -130,8 +130,6 @@ public class RegistroProducto {
                 pro.setPorcentajeDescuento(rs.getDouble("porcentajeDescuento"));
                 
             }
-            
-            stmt.executeUpdate();
             stmt.close();
             cnx.close();
             

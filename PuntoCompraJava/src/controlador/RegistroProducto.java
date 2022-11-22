@@ -168,4 +168,8 @@ public class RegistroProducto {
     
     }
     
+    
+    
+    public login log(String Nombre, String usuarioEmpleado)
+    
 }

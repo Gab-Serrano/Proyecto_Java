@@ -9,13 +9,12 @@ package modelo;
  * @author david
  */
 public class DetalleSello {
-    private int codProducto;
-    private String codSello;
-
+    private int codProducto,codSello;
+    
     public DetalleSello() {
     }
 
-    public DetalleSello(int codProducto, String codSello) {
+    public DetalleSello(int codProducto, int codSello) {
         this.codProducto = codProducto;
         this.codSello = codSello;
     }
@@ -28,18 +27,15 @@ public class DetalleSello {
         this.codProducto = codProducto;
     }
 
-    public String getCodSello() {
+    public int getCodSello() {
         return codSello;
     }
 
-    public void setCodSello(String codSello) {
+    public void setCodSello(int codSello) {
         this.codSello = codSello;
     }
 
-    @Override
-    public String toString() {
-        return "DetalleSello{" + "codProducto=" + codProducto + ", codSello=" + codSello + '}';
-    }
+    
     
     
 }

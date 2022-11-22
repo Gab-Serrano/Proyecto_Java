@@ -103,7 +103,7 @@ CREATE TABLE `comuna` (
 --
 
 INSERT INTO `comuna` (`codComuna`, `nomComuna`, `codProvincia`, `codRegion`) VALUES
-(100, 'Viña del Mar', 100, 10);
+(100, 'Viï¿½a del Mar', 100, 10);
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,7 @@ CREATE TABLE `empleado` (
   `codProvincia` int(4) NOT NULL,
   `codComuna` int(4) NOT NULL,
   `usuarioEmpleado` varchar(25) NOT NULL,
-  `contraseñaEmpleado` varchar(25) NOT NULL,
+  `contraseï¿½aEmpleado` varchar(25) NOT NULL,
   `numRazonSocialEmpresa` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -186,7 +186,7 @@ CREATE TABLE `empleado` (
 -- Dumping data for table `empleado`
 --
 
-INSERT INTO `empleado` (`numRutEmpleado`, `dvRutEmpleado`, `pNombreEmpleado`, `pApellidoEmpleado`, `sApellidoEmpleado`, `emailEmpleado`, `celularEmpleado`, `fechaNacEmpleado`, `direccionEmpleado`, `codRegion`, `codProvincia`, `codComuna`, `usuarioEmpleado`, `contraseñaEmpleado`, `numRazonSocialEmpresa`) VALUES
+INSERT INTO `empleado` (`numRutEmpleado`, `dvRutEmpleado`, `pNombreEmpleado`, `pApellidoEmpleado`, `sApellidoEmpleado`, `emailEmpleado`, `celularEmpleado`, `fechaNacEmpleado`, `direccionEmpleado`, `codRegion`, `codProvincia`, `codComuna`, `usuarioEmpleado`, `contraseï¿½aEmpleado`, `numRazonSocialEmpresa`) VALUES
 (18612264, 'K', 'Gabriel', 'Serrano', 'Mena', 'gab@hola.cl', 98765432, '1993-11-17', 'Jorge Ross 234', 10, 100, 100, 'gabSerrano', 'pass1234', 79547632);
 
 -- --------------------------------------------------------

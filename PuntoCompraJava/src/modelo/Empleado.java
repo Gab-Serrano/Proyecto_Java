@@ -4,7 +4,7 @@
  */
 package modelo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -13,12 +13,12 @@ import java.time.LocalDate;
 public class Empleado {
     private int numRutEmpleado, celularEmpleado,codRegion,codProvincia,codComuna,numRazonSocialEmpresa;
     private String dvRutEmpleado, pNombreEmpleado, pApellidoEmpleado, sApellidoEmpleado, emailEmpleado, direccionEmpleado, usuarioEmpleado, contrasenaEmpleado;
-    private LocalDate fechaNacEmpleado;
+    private Date fechaNacEmpleado;
 
     public Empleado() {
     }
 
-    public Empleado(int numRutEmpleado, int celularEmpleado, int codRegion, int codProvincia, int codComuna, int numRazonSocialEmpresa, String dvRutEmpleado, String pNombreEmpleado, String pApellidoEmpleado, String sApellidoEmpleado, String emailEmpleado, String direccionEmpleado, String usuarioEmpleado, String contrasenaEmpleado, LocalDate fechaNacEmpleado) {
+    public Empleado(int numRutEmpleado, int celularEmpleado, int codRegion, int codProvincia, int codComuna, int numRazonSocialEmpresa, String dvRutEmpleado, String pNombreEmpleado, String pApellidoEmpleado, String sApellidoEmpleado, String emailEmpleado, String direccionEmpleado, String usuarioEmpleado, String contrasenaEmpleado, Date fechaNacEmpleado) {
         this.numRutEmpleado = numRutEmpleado;
         this.celularEmpleado = celularEmpleado;
         this.codRegion = codRegion;
@@ -148,11 +148,11 @@ public class Empleado {
         this.contrasenaEmpleado = contrasenaEmpleado;
     }
 
-    public LocalDate getFechaNacEmpleado() {
+    public Date getFechaNacEmpleado() {
         return fechaNacEmpleado;
     }
 
-    public void setFechaNacEmpleado(LocalDate fechaNacEmpleado) {
+    public void setFechaNacEmpleado(Date fechaNacEmpleado) {
         this.fechaNacEmpleado = fechaNacEmpleado;
     }
 

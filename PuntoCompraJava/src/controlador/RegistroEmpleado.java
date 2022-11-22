@@ -40,7 +40,7 @@ public class RegistroEmpleado {
         //Instancia conexion
         Conexion cnx = new Conexion();
         //Se declara sentencia
-        String sentencia = "INSERT INTO empleado VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sentencia = "INSERT INTO empleado VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             //Se carga la plantilla de sentencia
@@ -63,8 +63,9 @@ public class RegistroEmpleado {
             stmt.setString(13, empleado.getUsuarioEmpleado());
             stmt.setString(14, empleado.getContrasenaEmpleado());
             stmt.setInt(15, 79547632);
+            stmt.setInt(16, empleado.getCodRol());
 
-            if (JOptionPane.showConfirmDialog(null, "Â¿EstÃ¡s seguro que deseas agregar este usuario?", "Agregar usuario", 0) == 0) {
+            if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas agregar este usuario?", "Agregar usuario", 0) == 0) {
                 //Se ejecuta la consulta
                 stmt.executeUpdate();
 
@@ -84,7 +85,7 @@ public class RegistroEmpleado {
                 cnx.obtenerConexion().close();
 
                 //Mensaje de Ã©xito
-                JOptionPane.showMessageDialog(null, "Se ha cancelado la operaciÃ³n.", "Agregar empleado", 1);
+                JOptionPane.showMessageDialog(null, "Se ha cancelado la operación.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return false;
@@ -133,7 +134,7 @@ public class RegistroEmpleado {
                 empleado.setCodProvincia(rs.getInt("codProvincia"));
                 empleado.setCodRegion(rs.getInt("codRegion"));
                 empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
-                empleado.setContrasenaEmpleado(rs.getString("contraseÃ±aEmpleado"));
+                empleado.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
                 empleado.setNumRazonSocialEmpresa(rs.getInt("numRazonSocialEmpresa"));
                 empleado.setCodRol(rs.getInt("codRol"));
 
@@ -163,7 +164,7 @@ public class RegistroEmpleado {
         //Se declara sentencia
         String sentencia = "UPDATE empleado SET numRutEmpleado = ?, dvRutEmpleado = ?, pNombreEmpleado = ?, pApellidoEmpleado = ?, sApellidoEmpleado = ?, "
                 + "emailEmpleado = ?, celularEmpleado = ?, fechaNacEmpleado = ?, direccionEmpleado = ?, codRegion = ?, codProvincia = ?, codComuna = ?, "
-                + "usuarioEmpleado = ?, contraseÃ±aEmpleado = ?, codRol = ? WHERE numRutEmpleado = ?";
+                + "usuarioEmpleado = ?, contraseñaEmpleado = ?, codRol = ? WHERE numRutEmpleado = ?";
         //Se carga la plantilla de sentencia
         try {
             PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);

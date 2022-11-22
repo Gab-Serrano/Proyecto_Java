@@ -1262,7 +1262,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             case 100:
                 jcmbo_rol2.setSelectedIndex(1);
                 break;
-            case 2:
+            case 101:
                 jcmbo_rol2.setSelectedIndex(2);
                 break;
             default:

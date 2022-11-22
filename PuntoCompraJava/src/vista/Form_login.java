@@ -5,6 +5,7 @@
 package vista;
 
 import controlador.RegistroEmpleado;
+import controlador.RegistroLogIn;
 import javax.swing.JOptionPane;
 import modelo.Empleado;
 
@@ -15,8 +16,9 @@ import modelo.Empleado;
 
 /*Comment*/
 public class Form_login extends javax.swing.JFrame {
-    Empleado em = new Empleado();
-    RegistroEmpleado regEmp = new RegistroEmpleado();
+    
+    public static int rolEmp = 0;
+
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -24,26 +26,23 @@ public class Form_login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public void validar(){
-        String usuarioEmpleado = jtxt_nombreUsuario.getText();
-        String contraseñaEmpleado = String.valueOf(jtxt_pass.getPassword());
-        if (!"".equals(usuarioEmpleado)|| !"".equals(contraseñaEmpleado)) {
-            
-            em = regEmp.log(usuarioEmpleado, contraseñaEmpleado);
-            if(em.getUsuarioEmpleado()!= null && em.getContrasenaEmpleado()!=null){
-                Form_gestionProducto fg = new Form_gestionProducto();
-                fg.setVisible(true);
-                dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecta","Ingresar",1); 
-            }        
-                
-                
-        }
-        
-    } 
 
+//    public void validar(){
+//        String usuarioEmpleado = jtxt_nombreUsuario.getText();
+//        String contraseñaEmpleado = String.valueOf(jtxt_pass.getPassword());
+//        if (!"".equals(usuarioEmpleado)|| !"".equals(contraseñaEmpleado)) {
+//            
+//            em = regEmp.log(usuarioEmpleado, contraseñaEmpleado);
+//            if(em.getUsuarioEmpleado()!= null && em.getContrasenaEmpleado()!=null){
+//                Form_MenuPpal fg = new Form_MenuPpal();
+//                fg.setVisible(true);
+//                dispose();
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecta","Ingresar",1); 
+//            }         
+//        }    
+//    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +66,7 @@ public class Form_login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -125,32 +124,33 @@ public class Form_login extends javax.swing.JFrame {
                     .addComponent(jchk_mostraContra))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(114, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))))
+                        .addGap(112, 112, 112))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jchk_mostraContra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 310, 340));
@@ -206,19 +206,25 @@ public class Form_login extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_passActionPerformed
 
     private void jbtn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_loginActionPerformed
-       validar();
+        this.dispose();
+        RegistroLogIn regLog = new RegistroLogIn();
+        Empleado empleado = regLog.obtenerRolLog(jtxt_nombreUsuario.getText(), jtxt_pass.getText());
+        rolEmp = empleado.getCodRol();
+        this.setVisible(false);
+        
+
     }//GEN-LAST:event_jbtn_loginActionPerformed
 
     private void jchk_mostraContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_mostraContraActionPerformed
-        if(jchk_mostraContra.isSelected()){
-            
-            jtxt_pass.setEchoChar((char)0);
-            
-        }else{
+        if (jchk_mostraContra.isSelected()) {
+
+            jtxt_pass.setEchoChar((char) 0);
+
+        } else {
             jtxt_pass.setEchoChar('*');
         }
-                
-                
+
+
     }//GEN-LAST:event_jchk_mostraContraActionPerformed
 
     /**

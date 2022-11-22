@@ -5,8 +5,10 @@
 package controlador;
 
 import bd.Conexion;
+import java.sql.Connection;
 import modelo.Empleado;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.logging.Level;
@@ -91,6 +93,31 @@ public class RegistroEmpleado {
             return false;
 
         }
+    }
+    
+    public Empleado log(String usuarioEmpleado, String contraseñaEmpleado){
+        Connection con;
+        PreparedStatement ps;
+        ResultSet rs;
+        Empleado e = new Empleado(); 
+        Conexion cn = new Conexion(); 
+        String sql = "SELECT FROM empleado WHERE usuarioEmpleado = ? AND contraseñaEmpleado = ?";
+        
+    try {
+        con = cn.obtenerConexion();
+        ps= con.prepareStatement(sql);
+        ps.setString(1, usuarioEmpleado);
+        ps.setString(2, contraseñaEmpleado);
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            e.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
+            e.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
+        }
+
+    } catch (SQLException ex) {
+        System.out.println("Error en la sentencia SQL logear: " +ex.toString());
+    }
+    return e;
     }
 
     public Empleado buscarEmpleado(String numRutEmpleado) {

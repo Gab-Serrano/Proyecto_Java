@@ -4,7 +4,6 @@
  */
 package modelo;
 
-import java.time.LocalDate;
 
 /**
  *
@@ -13,12 +12,11 @@ import java.time.LocalDate;
 public class Proveedor {
     private int numRazonSocialProv, teleFonoProv,codRegion,codProvincia,codComuna;
     private String nombreProv, emailProv, direccionProv,dvRazonSocialprov;
-    private LocalDate FechaNacProv;
 
     public Proveedor() {
     }
 
-    public Proveedor(int numRazonSocialProv, int teleFonoProv, int codRegion, int codProvincia, int codComuna, String nombreProv, String emailProv, String direccionProv, String dvRazonSocialprov, LocalDate FechaNacProv) {
+    public Proveedor(int numRazonSocialProv, int teleFonoProv, int codRegion, int codProvincia, int codComuna, String nombreProv, String emailProv, String direccionProv, String dvRazonSocialprov) {
         this.numRazonSocialProv = numRazonSocialProv;
         this.teleFonoProv = teleFonoProv;
         this.codRegion = codRegion;
@@ -28,7 +26,6 @@ public class Proveedor {
         this.emailProv = emailProv;
         this.direccionProv = direccionProv;
         this.dvRazonSocialprov = dvRazonSocialprov;
-        this.FechaNacProv = FechaNacProv;
     }
 
     public int getNumRazonSocialProv() {
@@ -101,14 +98,6 @@ public class Proveedor {
 
     public void setDvRazonSocialprov(String dvRazonSocialprov) {
         this.dvRazonSocialprov = dvRazonSocialprov;
-    }
-
-    public LocalDate getFechaNacProv() {
-        return FechaNacProv;
-    }
-
-    public void setFechaNacProv(LocalDate FechaNacProv) {
-        this.FechaNacProv = FechaNacProv;
     }
 
     

@@ -4,14 +4,16 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author nearQ
+ * @author david
  */
 public class Form_MenuPpal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Form_MenuPpal
+     * Creates new form Form_menuPrincipal
      */
     public Form_MenuPpal() {
         initComponents();
@@ -26,110 +28,177 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jmi_ingresarProducto = new javax.swing.JMenuItem();
-        jmi_eliminarProducto = new javax.swing.JMenuItem();
-        jmi_actualizarProducto = new javax.swing.JMenuItem();
-        jmi_listarProducto = new javax.swing.JMenuItem();
-        jmi_salir = new javax.swing.JMenu();
-        jbtn_salir = new javax.swing.JMenuItem();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jBtn_sisVenta = new javax.swing.JButton();
+        jBtn_gestionCli = new javax.swing.JButton();
+        jbtn_gestionEmp = new javax.swing.JButton();
+        jbtn_gestionProd = new javax.swing.JButton();
+        jBtn_gestionProv = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Archivo");
+        jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jMenu3.setText("Productos");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagemm.png"))); // NOI18N
 
-        jmi_ingresarProducto.setText("Ingresar");
-        jmi_ingresarProducto.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("La mercadona");
+
+        jBtn_sisVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nventa.png"))); // NOI18N
+        jBtn_sisVenta.setText("Sistema de venta");
+
+        jBtn_gestionCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Clientes.png"))); // NOI18N
+        jBtn_gestionCli.setText("Clientes");
+
+        jbtn_gestionEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/employee.png"))); // NOI18N
+        jbtn_gestionEmp.setText("Empleados");
+        jbtn_gestionEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_ingresarProductoActionPerformed(evt);
+                jbtn_gestionEmpActionPerformed(evt);
             }
         });
-        jMenu3.add(jmi_ingresarProducto);
 
-        jmi_eliminarProducto.setText("Eliminar");
-        jmi_eliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_gestionProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
+        jbtn_gestionProd.setText("Productos");
+        jbtn_gestionProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_eliminarProductoActionPerformed(evt);
+                jbtn_gestionProdActionPerformed(evt);
             }
         });
-        jMenu3.add(jmi_eliminarProducto);
 
-        jmi_actualizarProducto.setText("Actualizar");
-        jmi_actualizarProducto.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_gestionProv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor.png"))); // NOI18N
+        jBtn_gestionProv.setText("Proveedores");
+        jBtn_gestionProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_actualizarProductoActionPerformed(evt);
+                jBtn_gestionProvActionPerformed(evt);
             }
         });
-        jMenu3.add(jmi_actualizarProducto);
 
-        jmi_listarProducto.setText("Listar");
-        jmi_listarProducto.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBtn_sisVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbtn_gestionEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn_gestionCli, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn_gestionProv, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtn_gestionProd, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jBtn_sisVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBtn_gestionCli, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_gestionEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBtn_gestionProv, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_gestionProd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        jButton1.setText("Log-in");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_listarProductoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jMenu3.add(jmi_listarProducto);
 
-        jMenu1.add(jMenu3);
-
-        jMenuBar1.add(jMenu1);
-
-        jmi_salir.setText("Salir");
-
-        jbtn_salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jbtn_salir.setText("Salir");
-        jbtn_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_salirActionPerformed(evt);
-            }
-        });
-        jmi_salir.add(jbtn_salir);
-
-        jMenuBar1.add(jmi_salir);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(427, 427, 427))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addGap(304, 304, 304)
+                .addComponent(jLabel6)
+                .addContainerGap(413, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmi_ingresarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ingresarProductoActionPerformed
-        Form_ingresarProducto fip = new Form_ingresarProducto();
-        fip.setVisible(true);
-    }//GEN-LAST:event_jmi_ingresarProductoActionPerformed
+    private void jBtn_gestionProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_gestionProvActionPerformed
+        Form_gestionarProveedor fgp = new Form_gestionarProveedor();
+        fgp.setVisible(true);
+    }//GEN-LAST:event_jBtn_gestionProvActionPerformed
 
-    private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jbtn_salirActionPerformed
+    private void jbtn_gestionProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_gestionProdActionPerformed
 
-    private void jmi_eliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarProductoActionPerformed
-        Form_eliminarProducto fip = new Form_eliminarProducto();
-        fip.setVisible(true);
-    }//GEN-LAST:event_jmi_eliminarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_gestionProdActionPerformed
 
-    private void jmi_actualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_actualizarProductoActionPerformed
-        Form_actualizarProducto fip = new Form_actualizarProducto();
-        fip.setVisible(true);
-    }//GEN-LAST:event_jmi_actualizarProductoActionPerformed
+    private void jbtn_gestionEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_gestionEmpActionPerformed
+        Form_login log = new Form_login();
+        if (log.rolEmp == 100) {            
+            Form_gestionarEmpleado gestEmp = new Form_gestionarEmpleado();
+            gestEmp.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "No tienes acceso a esta opcion.", "Error de acceso", 0);
+        }
+        
+        
+    }//GEN-LAST:event_jbtn_gestionEmpActionPerformed
 
-    private void jmi_listarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_listarProductoActionPerformed
-        Form_listarProducto fip = new Form_listarProducto();
-        fip.setVisible(true);
-    }//GEN-LAST:event_jmi_listarProductoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Form_login log = new Form_login();
+        log.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -157,6 +226,37 @@ public class Form_MenuPpal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Form_MenuPpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -167,14 +267,15 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jbtn_salir;
-    private javax.swing.JMenuItem jmi_actualizarProducto;
-    private javax.swing.JMenuItem jmi_eliminarProducto;
-    private javax.swing.JMenuItem jmi_ingresarProducto;
-    private javax.swing.JMenuItem jmi_listarProducto;
-    private javax.swing.JMenu jmi_salir;
+    private javax.swing.JButton jBtn_gestionCli;
+    private javax.swing.JButton jBtn_gestionProv;
+    private javax.swing.JButton jBtn_sisVenta;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JButton jbtn_gestionEmp;
+    private javax.swing.JButton jbtn_gestionProd;
     // End of variables declaration//GEN-END:variables
 }

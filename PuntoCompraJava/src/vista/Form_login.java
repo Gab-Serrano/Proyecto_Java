@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.RegistroProducto;
+import controlador.RegistroEmpleado;
 import javax.swing.JOptionPane;
 import modelo.Empleado;
 
@@ -16,7 +16,7 @@ import modelo.Empleado;
 /*Comment*/
 public class Form_login extends javax.swing.JFrame {
     Empleado em = new Empleado();
-    RegistroProducto rp =new RegistroProducto();
+    RegistroEmpleado regEmp = new RegistroEmpleado();
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -25,18 +25,18 @@ public class Form_login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     public void validar(){
-        String usuarioEmpleado = txtNombreUsuario.getText();
-        String contrasenaEmpleado = String.valueOf(txtPass.getPassword());
-        if (!"".equals(usuarioEmpleado)|| !"".equals(contrasenaEmpleado)) {
+        String usuarioEmpleado = jtxt_nombreUsuario.getText();
+        String contraseñaEmpleado = String.valueOf(jtxt_pass.getPassword());
+        if (!"".equals(usuarioEmpleado)|| !"".equals(contraseñaEmpleado)) {
             
-            em = rp.log(usuarioEmpleado, contrasenaEmpleado);
+            em = regEmp.log(usuarioEmpleado, contraseñaEmpleado);
             if(em.getUsuarioEmpleado()!= null && em.getContrasenaEmpleado()!=null){
                 Form_gestionProducto fg = new Form_gestionProducto();
                 fg.setVisible(true);
                 dispose();
             }
             else{
-                JOptionPane.showConfirmDialog(null, "Usuario o Contraseña incorrecta");
+                JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecta","Ingresar",1); 
             }        
                 
                 
@@ -57,9 +57,9 @@ public class Form_login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNombreUsuario = new javax.swing.JTextField();
-        txtPass = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        jtxt_nombreUsuario = new javax.swing.JTextField();
+        jtxt_pass = new javax.swing.JPasswordField();
+        jbtn_login = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -81,24 +81,24 @@ public class Form_login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Password");
 
-        txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreUsuarioActionPerformed(evt);
+                jtxt_nombreUsuarioActionPerformed(evt);
             }
         });
 
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
+                jtxt_passActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Iniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_login.setBackground(new java.awt.Color(0, 0, 255));
+        jbtn_login.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_login.setText("Iniciar");
+        jbtn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtn_loginActionPerformed(evt);
             }
         });
 
@@ -111,18 +111,18 @@ public class Form_login extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
-                    .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                    .addComponent(txtNombreUsuario))
+                    .addComponent(jtxt_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                    .addComponent(jtxt_nombreUsuario))
                 .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))))
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,19 +131,17 @@ public class Form_login extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxt_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 310, 340));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\login.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 240, 400));
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
@@ -187,17 +185,17 @@ public class Form_login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
+    private void jtxt_nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreUsuarioActionPerformed
+    }//GEN-LAST:event_jtxt_nombreUsuarioActionPerformed
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+    private void jtxt_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_passActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
+    }//GEN-LAST:event_jtxt_passActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_loginActionPerformed
        validar();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtn_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +236,6 @@ public class Form_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -248,7 +245,8 @@ public class Form_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txtNombreUsuario;
-    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JButton jbtn_login;
+    private javax.swing.JTextField jtxt_nombreUsuario;
+    private javax.swing.JPasswordField jtxt_pass;
     // End of variables declaration//GEN-END:variables
 }

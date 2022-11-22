@@ -171,32 +171,6 @@ public class RegistroProducto {
     }
     
     
-    
-    public Empleado log(String usuarioEmpleado, String contrasenaEmpleado){
-        Connection con;
-        PreparedStatement ps;
-        ResultSet rs;
-        Empleado e = new Empleado(); 
-        Conexion cn = new Conexion(); 
-        
-        String sql = "SELECT * FROM pNombreEmpleado WHERE usuarioEmpleado = ? AND contrasenaEmpleado = ?";
-        try {
-            con = cn.obtenerConexion();
-            ps= con.prepareStatement(sql);
-            ps.setString(1, usuarioEmpleado);
-            ps.setString(2, contrasenaEmpleado);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                e.setNumRutEmpleado(rs.getInt("id"));
-                e.setpNombreEmpleado(rs.getString("nombre"));
-                e.setUsuarioEmpleado(rs.getString("usuario"));
-                e.setContrasenaEmpleado(rs.getString("pass"));
-            }
-            
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-        return e;
-    }
+ 
     
 }

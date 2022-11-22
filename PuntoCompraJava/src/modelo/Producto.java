@@ -9,13 +9,14 @@ package modelo;
  * @author david
  */
 public class Producto {
-    private int codProducto, precioUnitario, stock, cantidadSellos,codigoCategoria,numRazonSocialProv,porcentajeDescuento;
+    private int codProducto, precioUnitario, stock, cantidadSellos,codigoCategoria,numRazonSocialProv;
+    private double porcentajeDescuento;
     private String descripcionProducto;
 
     public Producto() {
     }
 
-    public Producto(int codProducto, int precioUnitario, int stock, int cantidadSellos, int codigoCategoria, int numRazonSocialProv, int porcentajeDescuento, String descripcionProducto) {
+    public Producto(int codProducto, int precioUnitario, int stock, int cantidadSellos, int codigoCategoria, int numRazonSocialProv, double porcentajeDescuento, String descripcionProducto) {
         this.codProducto = codProducto;
         this.precioUnitario = precioUnitario;
         this.stock = stock;
@@ -74,11 +75,11 @@ public class Producto {
         this.numRazonSocialProv = numRazonSocialProv;
     }
 
-    public int getPorcentajeDescuento() {
+    public double getPorcentajeDescuento() {
         return porcentajeDescuento;
     }
 
-    public void setPorcentajeDescuento(int porcentajeDescuento) {
+    public void setPorcentajeDescuento(double porcentajeDescuento) {
         this.porcentajeDescuento = porcentajeDescuento;
     }
 

@@ -115,14 +115,14 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Nombre");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\print.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/print.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Total a pagar");
 
         jLabel11.setText("----");
 
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\eliminar.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -291,19 +291,19 @@ public class Form_gestionProducto extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel7);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\Nventa.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nventa.png"))); // NOI18N
         jButton1.setText("Nueva Venta");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\Clientes.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Clientes.png"))); // NOI18N
         jButton2.setText("Cliente");
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\proveedor.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/compras.png"))); // NOI18N
         jButton3.setText("Proveedor");
 
         jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\compras.png")); // NOI18N
         jButton4.setText("Ventas");
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\config.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/config.png"))); // NOI18N
         jButton5.setText("Config");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

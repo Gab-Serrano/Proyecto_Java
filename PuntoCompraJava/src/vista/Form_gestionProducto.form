@@ -378,7 +378,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\print.png"/>
+                      <Image iconType="3" name="/img/print.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -398,7 +398,7 @@
                 <Component class="javax.swing.JButton" name="jButton6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\eliminar.png"/>
+                      <Image iconType="3" name="/img/eliminar.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -519,7 +519,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\Nventa.png"/>
+              <Image iconType="3" name="/img/Nventa.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nueva Venta"/>
           </Properties>
@@ -527,7 +527,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\Clientes.png"/>
+              <Image iconType="3" name="/img/Clientes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
           </Properties>
@@ -535,7 +535,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\proveedor.png"/>
+              <Image iconType="3" name="/img/compras.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Proveedor"/>
           </Properties>
@@ -551,7 +551,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\config.png"/>
+              <Image iconType="3" name="/img/config.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Config"/>
           </Properties>

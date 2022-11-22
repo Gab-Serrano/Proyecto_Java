@@ -88,7 +88,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\iniciar.png"/>
+              <Image iconType="3" name="/img/iniciar.png"/>
             </Property>
           </Properties>
         </Component>
@@ -200,7 +200,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\david\Downloads\Img\Img\logo.png"/>
+              <Image iconType="3" name="/img/logo.png"/>
             </Property>
           </Properties>
         </Component>

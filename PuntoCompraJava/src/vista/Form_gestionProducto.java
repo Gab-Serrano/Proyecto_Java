@@ -4,12 +4,17 @@
  */
 package vista;
 
+import controlador.RegistroCliente;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+
 /**
  *
  * @author david
  */
 public class Form_gestionProducto extends javax.swing.JFrame {
-
+     Usuario us= new Usuario();
+     RegistroCliente rc = new RegistroCliente();
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -58,13 +63,9 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         txt_rutCliente = new javax.swing.JTextField();
         txt_nombreCliente = new javax.swing.JTextField();
-        txt_dirrecionCliente = new javax.swing.JTextField();
-        txt_telefonoCliente = new javax.swing.JTextField();
-        txt_razonSocialCliente = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         Table_cliente = new javax.swing.JTable();
         btn_guardarCliente = new javax.swing.JButton();
@@ -326,35 +327,23 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         jLabel12.setText("Nombre:");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setText("Dirección:");
+        jLabel13.setText("Email");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Telefono:");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setText("Razón Social:");
-
-        txt_dirrecionCliente.addActionListener(new java.awt.event.ActionListener() {
+        txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_dirrecionClienteActionPerformed(evt);
-            }
-        });
-
-        txt_razonSocialCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_razonSocialClienteActionPerformed(evt);
+                txt_emailActionPerformed(evt);
             }
         });
 
         Table_cliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Rut", "Nombre", "Direccion", "Telefono", "Razon Social"
+                "Rut", "Nombre", "Email"
             }
         ));
         jScrollPane2.setViewportView(Table_cliente);
@@ -362,11 +351,14 @@ public class Form_gestionProducto extends javax.swing.JFrame {
             Table_cliente.getColumnModel().getColumn(0).setPreferredWidth(40);
             Table_cliente.getColumnModel().getColumn(1).setPreferredWidth(100);
             Table_cliente.getColumnModel().getColumn(2).setPreferredWidth(50);
-            Table_cliente.getColumnModel().getColumn(3).setPreferredWidth(50);
-            Table_cliente.getColumnModel().getColumn(4).setPreferredWidth(70);
         }
 
         btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/GuardarTodo.png"))); // NOI18N
+        btn_guardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarClienteActionPerformed(evt);
+            }
+        });
 
         btn_editarCliente.setIcon(new javax.swing.ImageIcon("A:\\Users\\david\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto_Java\\PuntoCompraJava\\src\\img\\Actualizar (2).png")); // NOI18N
 
@@ -383,32 +375,27 @@ public class Form_gestionProducto extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_razonSocialCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_dirrecionCliente)
-                                    .addComponent(txt_nombreCliente)
-                                    .addComponent(txt_rutCliente)
-                                    .addComponent(txt_telefonoCliente))))
-                        .addGap(18, 18, 18))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel12))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_nombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                            .addComponent(txt_rutCliente)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_guardarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                            .addComponent(btn_eliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btn_guardarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                                .addComponent(btn_eliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                            .addComponent(btn_nuevoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(47, 47, 47)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                                    .addComponent(btn_nuevoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(29, 29, 29))
+                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -417,27 +404,19 @@ public class Form_gestionProducto extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(75, 75, 75)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txt_rutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(txt_nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(43, 43, 43)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(txt_dirrecionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txt_telefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txt_razonSocialCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_guardarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                             .addComponent(btn_editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -451,7 +430,7 @@ public class Form_gestionProducto extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(429, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", jPanel3);
@@ -985,13 +964,9 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         if(c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_txt_codigoVentaKeyTyped
 
-    private void txt_dirrecionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dirrecionClienteActionPerformed
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dirrecionClienteActionPerformed
-
-    private void txt_razonSocialClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_razonSocialClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_razonSocialClienteActionPerformed
+    }//GEN-LAST:event_txt_emailActionPerformed
 
     private void txt_cantidadProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cantidadProductoActionPerformed
         // TODO add your handling code here:
@@ -1012,6 +987,18 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void btn_guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarClienteActionPerformed
+        if (!"".equals(txt_rutCliente.getText())||!"".equals(txt_nombreCliente.getText())|| !"".equals(txt_email)) {
+            us.setCodUsuario(Integer.parseInt(txt_rutCliente.getText()));
+            us.setpNombreUsuario(txt_nombreCliente.getText());
+            us.setEmailUsuario(txt_email.getText());
+            rc.registrarCliente(us);
+            JOptionPane.showConfirmDialog(null, "Cliente Registrado");
+        }else{
+            JOptionPane.showConfirmDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_btn_guardarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1085,8 +1072,6 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -1140,7 +1125,7 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     private javax.swing.JTextField txt_descripcionProducto;
     private javax.swing.JTextField txt_direccionProveedor;
     private javax.swing.JTextField txt_direccionUsuario;
-    private javax.swing.JTextField txt_dirrecionCliente;
+    private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_idPro;
     private javax.swing.JTextField txt_idProv;
     private javax.swing.JTextField txt_idProveedor;
@@ -1149,13 +1134,11 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombreProveedor;
     private javax.swing.JTextField txt_precio;
     private javax.swing.JTextField txt_precioProducto;
-    private javax.swing.JTextField txt_razonSocialCliente;
     private javax.swing.JTextField txt_razonSocialProveedor;
     private javax.swing.JTextField txt_razonSocialUsuario;
     private javax.swing.JTextField txt_rutCliente;
     private javax.swing.JTextField txt_rutProveedor;
     private javax.swing.JTextField txt_stockDisponible;
-    private javax.swing.JTextField txt_telefonoCliente;
     private javax.swing.JTextField txt_telefonoProveedor;
     private javax.swing.JTextField txt_telefonoUsuario;
     // End of variables declaration//GEN-END:variables

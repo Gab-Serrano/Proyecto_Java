@@ -7,7 +7,7 @@
 /*Nos vemos git*/
 package modelo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -15,12 +15,13 @@ import java.time.LocalDate;
  */
 public class Compra {
     private int idCompra, total, descuentoTotal, totalFinal, codUsuario,codMedioPago,numRutEmpleado,numRazonSocialEmpresa;
-    private LocalDate fechaCompra;
+    private DetalleCompra detalleCompra;
+    private Date fechaCompra;
 
     public Compra() {
     }
 
-    public Compra(int idCompra, int total, int descuentoTotal, int totalFinal, int codUsuario, int codMedioPago, int numRutEmpleado, int numRazonSocialEmpresa, LocalDate fechaCompra) {
+    public Compra(int idCompra, int total, int descuentoTotal, int totalFinal, int codUsuario, int codMedioPago, int numRutEmpleado, int numRazonSocialEmpresa, DetalleCompra detalleCompra, Date fechaCompra) {
         this.idCompra = idCompra;
         this.total = total;
         this.descuentoTotal = descuentoTotal;
@@ -29,6 +30,7 @@ public class Compra {
         this.codMedioPago = codMedioPago;
         this.numRutEmpleado = numRutEmpleado;
         this.numRazonSocialEmpresa = numRazonSocialEmpresa;
+        this.detalleCompra = detalleCompra;
         this.fechaCompra = fechaCompra;
     }
 
@@ -96,13 +98,25 @@ public class Compra {
         this.numRazonSocialEmpresa = numRazonSocialEmpresa;
     }
 
-    public LocalDate getFechaCompra() {
+    public DetalleCompra getDetalleCompra() {
+        return detalleCompra;
+    }
+
+    public void setDetalleCompra(DetalleCompra detalleCompra) {
+        this.detalleCompra = detalleCompra;
+    }
+
+    public Date getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(LocalDate fechaCompra) {
+    public void setFechaCompra(Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
+
+    
+
+    
 
     
 }

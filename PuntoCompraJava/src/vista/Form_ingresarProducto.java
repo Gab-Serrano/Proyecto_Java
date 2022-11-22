@@ -31,14 +31,12 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jbtn_ingresar = new javax.swing.JButton();
         jtxt_codigo = new javax.swing.JTextField();
         jtxt_precio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jtxt_stock = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jtxt_cantidadSellos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtxt_descripcion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -53,8 +51,6 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Ingresar Producto");
-
-        jLabel2.setText("Cantidad Sellos");
 
         jbtn_ingresar.setText("Ingresar");
         jbtn_ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +92,6 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
@@ -119,7 +111,6 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
                     .addComponent(jtxt_codCategoria)
                     .addComponent(jtxt_precio, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jtxt_stock, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtxt_cantidadSellos, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jtxt_descripcion, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jtxt_codigo)
                     .addComponent(jtxt_porcentajeDescuento))
@@ -131,15 +122,15 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
+                        .addGap(149, 149, 149)
                         .addComponent(jbtn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -148,27 +139,23 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxt_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jtxt_cantidadSellos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_codCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jtxt_codProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jtxt_porcentajeDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                            .addComponent(jLabel6))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxt_codCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jtxt_codProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jtxt_porcentajeDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(82, 82, 82))
         );
 
         pack();
@@ -182,15 +169,12 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
         int codigoProducto = Integer.parseInt(this.jtxt_codigo.getText());
         int precioProducto = Integer.parseInt(this.jtxt_precio.getText());
         int stock = Integer.parseInt(this.jtxt_stock.getText());
-        int cantidadSellos = Integer.parseInt(this.jtxt_cantidadSellos.getText());
-        int porcentajeDescuento = Integer.parseInt(this.jtxt_porcentajeDescuento.getText());
+        double porcentajeDescuento = Double.parseDouble(this.jtxt_porcentajeDescuento.getText());
         int codigoCategoria = Integer.parseInt(this.jtxt_codCategoria.getText());
-        int numRazonSocialProv = Integer.parseInt(this.jtxt_codProveedor.getText());
-        Producto pro = new Producto(codigoProducto, precioProducto, stock, cantidadSellos, codigoCategoria, numRazonSocialProv, cantidadSellos, descripcionProducto);
+        int numRazonSocialProv = Integer.parseInt(this.jtxt_codProveedor.getText());    
         RegistroProducto reg = new RegistroProducto();
-        
-        if (reg.agregarProducto(pro)) {
-            
+        Producto pro = new Producto(codigoProducto, precioProducto, stock, codigoCategoria, numRazonSocialProv, porcentajeDescuento, descripcionProducto);
+        if (reg.agregarProducto(pro)) {         
             JOptionPane.showMessageDialog(null,"Codigo ingresado","Ingresar codidgo",1);         
         }
         else{
@@ -236,7 +220,6 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -245,7 +228,6 @@ public class Form_ingresarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbtn_ingresar;
-    private javax.swing.JTextField jtxt_cantidadSellos;
     private javax.swing.JTextField jtxt_codCategoria;
     private javax.swing.JTextField jtxt_codProveedor;
     private javax.swing.JTextField jtxt_codigo;

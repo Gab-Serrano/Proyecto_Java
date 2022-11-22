@@ -12,6 +12,8 @@ import java.sql.SQLException;
  * @author nearQ
  */
 public class Conexion {
+
+    
     
     public Connection obtenerConexion(){
         

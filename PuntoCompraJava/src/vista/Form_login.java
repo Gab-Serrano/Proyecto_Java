@@ -45,7 +45,7 @@ public class Form_login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\iniciar.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iniciar.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
@@ -117,7 +117,7 @@ public class Form_login extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\logo.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));

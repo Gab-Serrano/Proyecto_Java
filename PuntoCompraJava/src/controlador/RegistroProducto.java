@@ -26,16 +26,15 @@ public class RegistroProducto {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
             
-            String query = "INSERT INTO producto(codProducto,descripcionProducto,precioUnitario,stock,cantidadSellos,codCategoria,numRazonSocialProv,porcentajeDescuento) VALUES (?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO producto(codProducto,descripcionProducto,precioUnitario,stock,codCategoria,numRazonSocialProv,porcentajeDescuento) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareCall(query);
             stmt.setInt(1, producto.getCodProducto());
             stmt.setString(2, producto.getDescripcionProducto());
             stmt.setInt(3, producto.getPrecioUnitario());
             stmt.setInt(4, producto.getStock());
-            stmt.setInt(5, producto.getCantidadSellos());
-            stmt.setInt(6, producto.getCodigoCategoria());
-            stmt.setInt(7, producto.getNumRazonSocialProv());
-            stmt.setDouble(8, producto.getPorcentajeDescuento());
+            stmt.setInt(5, producto.getCodigoCategoria());
+            stmt.setInt(6, producto.getNumRazonSocialProv());
+            stmt.setDouble(7, producto.getPorcentajeDescuento());
             
             
             stmt.executeUpdate();
@@ -45,11 +44,11 @@ public class RegistroProducto {
             
         } catch (SQLException e) {
             
-            System.out.println("Error en la consulta SQL agregar, "+ e.getMessage());
+            System.out.println("Error en la consulta SQL agregar producto, "+ e.getMessage());
             return false;
         }
     
-    }
+    }  
     public boolean eliminarProducto(String nombre){      
         
         boolean flag = false;
@@ -61,7 +60,7 @@ public class RegistroProducto {
             PreparedStatement stmt = cnx.prepareCall(query);
             stmt.setString(1, nombre);
             
-            int resp = JOptionPane.showConfirmDialog(null, "Â¿Seguro que deseas eliminar?","Eliminar producto",1);
+            int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar?","Eliminar producto",1);
             if (resp == 0) {           
                 stmt.executeUpdate();
                 stmt.close();
@@ -71,13 +70,13 @@ public class RegistroProducto {
             
         } catch (SQLException e) {
             
-            System.out.println("Error en la consulta SQL eliminar, "+ e.getMessage());
+            System.out.println("Error en la consulta SQL eliminar producto, "+ e.getMessage());
             flag = false;
         }
         return flag;
     
     }
-    
+      
     public boolean actualizarProducto(String nombre,String nombreNew){      
         
         try {
@@ -135,7 +134,7 @@ public class RegistroProducto {
     
     public List<Producto> buscarTodos(){
         
-        List<Producto> lista = new ArrayList<>();
+        List<Producto> listaProd = new ArrayList<>();
         
         try {
             Conexion con = new Conexion();
@@ -150,9 +149,11 @@ public class RegistroProducto {
                 pro.setCodProducto(rs.getInt("codProducto"));
                 pro.setDescripcionProducto(rs.getString("descripcionProducto"));
                 pro.setPrecioUnitario(rs.getInt("precioUnitario"));
-                pro.setStock(rs.getInt("stock"));
-                pro.setCantidadSellos(rs.getInt("cantidadSellos"));  
-                lista.add(pro);
+                pro.setStock(rs.getInt("stock")); 
+                pro.setCodigoCategoria(rs.getInt("codCategoria")); 
+                pro.setNumRazonSocialProv(rs.getInt("numRazonSocialProv"));
+                pro.setPorcentajeDescuento(rs.getInt("porcentajeDescuento")); 
+                listaProd.add(pro);
                 
             }
             
@@ -164,7 +165,7 @@ public class RegistroProducto {
             System.out.println("Error en la consulta SQL consultar todos los datos, "+ e.getMessage());
         }
         
-        return lista;
+        return listaProd;
     
     }
     

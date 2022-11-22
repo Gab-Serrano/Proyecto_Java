@@ -100,7 +100,8 @@ public class Form_listarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listarActionPerformed
-        int codProducto,precioUnitario,stock,cantidadSellos;
+        int codProducto,precioUnitario,stock,codCategoria,numRazonSocialProv;
+        double porcentajeDescuento;
         String descripcionProducto;
         
         RegistroProducto rp = new RegistroProducto();
@@ -113,8 +114,11 @@ public class Form_listarProducto extends javax.swing.JFrame {
             descripcionProducto = producto.getDescripcionProducto();
             precioUnitario = producto.getPrecioUnitario();
             stock = producto.getStock();
-            cantidadSellos = producto.getCantidadSellos();
-            modelo.addRow(new Object[]{codProducto,descripcionProducto,precioUnitario,stock,cantidadSellos});
+            codCategoria  = producto.getCodigoCategoria();
+            numRazonSocialProv = producto.getNumRazonSocialProv();
+            porcentajeDescuento = producto.getPorcentajeDescuento();
+            
+            modelo.addRow(new Object[]{codProducto,descripcionProducto,precioUnitario,stock,codCategoria,numRazonSocialProv,porcentajeDescuento});
             
         }
         

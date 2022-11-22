@@ -12,20 +12,20 @@ import java.time.LocalDate;
  */
 public class Proveedor {
     private int numRazonSocialProv, teleFonoProv,codRegion,codProvincia,codComuna;
-    private String nombreProv, emialProv, direccionProv,dvRazonSocialprov;
+    private String nombreProv, emailProv, direccionProv,dvRazonSocialprov;
     private LocalDate FechaNacProv;
 
     public Proveedor() {
     }
 
-    public Proveedor(int numRazonSocialProv, int teleFonoProv, int codRegion, int codProvincia, int codComuna, String nombreProv, String emialProv, String direccionProv, String dvRazonSocialprov, LocalDate FechaNacProv) {
+    public Proveedor(int numRazonSocialProv, int teleFonoProv, int codRegion, int codProvincia, int codComuna, String nombreProv, String emailProv, String direccionProv, String dvRazonSocialprov, LocalDate FechaNacProv) {
         this.numRazonSocialProv = numRazonSocialProv;
         this.teleFonoProv = teleFonoProv;
         this.codRegion = codRegion;
         this.codProvincia = codProvincia;
         this.codComuna = codComuna;
         this.nombreProv = nombreProv;
-        this.emialProv = emialProv;
+        this.emailProv = emailProv;
         this.direccionProv = direccionProv;
         this.dvRazonSocialprov = dvRazonSocialprov;
         this.FechaNacProv = FechaNacProv;
@@ -79,12 +79,12 @@ public class Proveedor {
         this.nombreProv = nombreProv;
     }
 
-    public String getEmialProv() {
-        return emialProv;
+    public String getEmailProv() {
+        return emailProv;
     }
 
-    public void setEmialProv(String emialProv) {
-        this.emialProv = emialProv;
+    public void setEmailProv(String emailProv) {
+        this.emailProv = emailProv;
     }
 
     public String getDireccionProv() {

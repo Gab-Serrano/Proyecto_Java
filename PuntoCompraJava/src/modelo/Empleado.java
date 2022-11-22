@@ -11,25 +11,26 @@ import java.time.LocalDate;
  * @author david
  */
 public class Empleado {
-    private int numRutEmpleado, celularEmpleado;  
-    private String dvRutEmpleado, pNombreEmpleado, pApellidoEmpleado, sApellidoEmpleado, emailEmpleado, direccionEmpleado, regionEmpleado, provinciaEmpleado, comunaEmpleado, usuarioEmpleado, contrasenaEmpleado;
+    private int numRutEmpleado, celularEmpleado,codRegion,codProvincia,codComuna,numRazonSocialEmpresa;
+    private String dvRutEmpleado, pNombreEmpleado, pApellidoEmpleado, sApellidoEmpleado, emailEmpleado, direccionEmpleado, usuarioEmpleado, contrasenaEmpleado;
     private LocalDate fechaNacEmpleado;
 
     public Empleado() {
     }
 
-    public Empleado(int numRutEmpleado, int celularEmpleado, String dvRutEmpleado, String pNombreEmpleado, String pApellidoEmpleado, String sApellidoEmpleado, String emailEmpleado, String direccionEmpleado, String regionEmpleado, String provinciaEmpleado, String comunaEmpleado, String usuarioEmpleado, String contrasenaEmpleado, LocalDate fechaNacEmpleado) {
+    public Empleado(int numRutEmpleado, int celularEmpleado, int codRegion, int codProvincia, int codComuna, int numRazonSocialEmpresa, String dvRutEmpleado, String pNombreEmpleado, String pApellidoEmpleado, String sApellidoEmpleado, String emailEmpleado, String direccionEmpleado, String usuarioEmpleado, String contrasenaEmpleado, LocalDate fechaNacEmpleado) {
         this.numRutEmpleado = numRutEmpleado;
         this.celularEmpleado = celularEmpleado;
+        this.codRegion = codRegion;
+        this.codProvincia = codProvincia;
+        this.codComuna = codComuna;
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
         this.dvRutEmpleado = dvRutEmpleado;
         this.pNombreEmpleado = pNombreEmpleado;
         this.pApellidoEmpleado = pApellidoEmpleado;
         this.sApellidoEmpleado = sApellidoEmpleado;
         this.emailEmpleado = emailEmpleado;
         this.direccionEmpleado = direccionEmpleado;
-        this.regionEmpleado = regionEmpleado;
-        this.provinciaEmpleado = provinciaEmpleado;
-        this.comunaEmpleado = comunaEmpleado;
         this.usuarioEmpleado = usuarioEmpleado;
         this.contrasenaEmpleado = contrasenaEmpleado;
         this.fechaNacEmpleado = fechaNacEmpleado;
@@ -49,6 +50,38 @@ public class Empleado {
 
     public void setCelularEmpleado(int celularEmpleado) {
         this.celularEmpleado = celularEmpleado;
+    }
+
+    public int getCodRegion() {
+        return codRegion;
+    }
+
+    public void setCodRegion(int codRegion) {
+        this.codRegion = codRegion;
+    }
+
+    public int getCodProvincia() {
+        return codProvincia;
+    }
+
+    public void setCodProvincia(int codProvincia) {
+        this.codProvincia = codProvincia;
+    }
+
+    public int getCodComuna() {
+        return codComuna;
+    }
+
+    public void setCodComuna(int codComuna) {
+        this.codComuna = codComuna;
+    }
+
+    public int getNumRazonSocialEmpresa() {
+        return numRazonSocialEmpresa;
+    }
+
+    public void setNumRazonSocialEmpresa(int numRazonSocialEmpresa) {
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
     }
 
     public String getDvRutEmpleado() {
@@ -99,30 +132,6 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
     }
 
-    public String getRegionEmpleado() {
-        return regionEmpleado;
-    }
-
-    public void setRegionEmpleado(String regionEmpleado) {
-        this.regionEmpleado = regionEmpleado;
-    }
-
-    public String getProvinciaEmpleado() {
-        return provinciaEmpleado;
-    }
-
-    public void setProvinciaEmpleado(String provinciaEmpleado) {
-        this.provinciaEmpleado = provinciaEmpleado;
-    }
-
-    public String getComunaEmpleado() {
-        return comunaEmpleado;
-    }
-
-    public void setComunaEmpleado(String comunaEmpleado) {
-        this.comunaEmpleado = comunaEmpleado;
-    }
-
     public String getUsuarioEmpleado() {
         return usuarioEmpleado;
     }
@@ -147,10 +156,7 @@ public class Empleado {
         this.fechaNacEmpleado = fechaNacEmpleado;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" + "numRutEmpleado=" + numRutEmpleado + ", celularEmpleado=" + celularEmpleado + ", dvRutEmpleado=" + dvRutEmpleado + ", pNombreEmpleado=" + pNombreEmpleado + ", pApellidoEmpleado=" + pApellidoEmpleado + ", sApellidoEmpleado=" + sApellidoEmpleado + ", emailEmpleado=" + emailEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", regionEmpleado=" + regionEmpleado + ", provinciaEmpleado=" + provinciaEmpleado + ", comunaEmpleado=" + comunaEmpleado + ", usuarioEmpleado=" + usuarioEmpleado + ", contrasenaEmpleado=" + contrasenaEmpleado + ", fechaNacEmpleado=" + fechaNacEmpleado + '}';
-    }
+    
     
     
 }

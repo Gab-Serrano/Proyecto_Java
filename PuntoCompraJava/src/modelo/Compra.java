@@ -14,20 +14,21 @@ import java.time.LocalDate;
  * @author david
  */
 public class Compra {
-    private int idCompra, total, descuento, totalFinal, codUsuario,codMedioPago,numRutEmpleado;
+    private int idCompra, total, descuentoTotal, totalFinal, codUsuario,codMedioPago,numRutEmpleado,numRazonSocialEmpresa;
     private LocalDate fechaCompra;
 
     public Compra() {
     }
 
-    public Compra(int idCompra, int total, int descuento, int totalFinal, int codUsuario, int codMedioPago, int numRutEmpleado, LocalDate fechaCompra) {
+    public Compra(int idCompra, int total, int descuentoTotal, int totalFinal, int codUsuario, int codMedioPago, int numRutEmpleado, int numRazonSocialEmpresa, LocalDate fechaCompra) {
         this.idCompra = idCompra;
         this.total = total;
-        this.descuento = descuento;
+        this.descuentoTotal = descuentoTotal;
         this.totalFinal = totalFinal;
         this.codUsuario = codUsuario;
         this.codMedioPago = codMedioPago;
         this.numRutEmpleado = numRutEmpleado;
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
         this.fechaCompra = fechaCompra;
     }
 
@@ -47,18 +48,18 @@ public class Compra {
         this.total = total;
     }
 
-    public int getDescuento() {
-        return descuento;
+    public int getDescuentoTotal() {
+        return descuentoTotal;
     }
 
-    public void setDescuento(int descuento) {
-        this.descuento = descuento;
+    public void setDescuentoTotal(int descuentoTotal) {
+        this.descuentoTotal = descuentoTotal;
     }
 
     public int getTotalFinal() {
         return totalFinal;
     }
-//COdigo
+
     public void setTotalFinal(int totalFinal) {
         this.totalFinal = totalFinal;
     }
@@ -87,6 +88,14 @@ public class Compra {
         this.numRutEmpleado = numRutEmpleado;
     }
 
+    public int getNumRazonSocialEmpresa() {
+        return numRazonSocialEmpresa;
+    }
+
+    public void setNumRazonSocialEmpresa(int numRazonSocialEmpresa) {
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
+    }
+
     public LocalDate getFechaCompra() {
         return fechaCompra;
     }
@@ -95,9 +104,5 @@ public class Compra {
         this.fechaCompra = fechaCompra;
     }
 
-    @Override
-    public String toString() {
-        return "Compra{" + "idCompra=" + idCompra + ", total=" + total + ", descuento=" + descuento + ", totalFinal=" + totalFinal + ", codUsuario=" + codUsuario + ", codMedioPago=" + codMedioPago + ", numRutEmpleado=" + numRutEmpleado + ", fechaCompra=" + fechaCompra + '}';
-    }
     
 }

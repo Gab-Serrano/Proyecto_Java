@@ -35,7 +35,7 @@ public class RegistroProducto {
             stmt.setInt(5, producto.getCantidadSellos());
             stmt.setInt(6, producto.getCodigoCategoria());
             stmt.setInt(7, producto.getNumRazonSocialProv());
-            stmt.setInt(8, producto.getPorcentajeDescuento());
+            stmt.setDouble(8, producto.getPorcentajeDescuento());
             
             
             stmt.executeUpdate();

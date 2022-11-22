@@ -17,7 +17,7 @@ import modelo.Usuario;
 public class Form_gestionProducto extends javax.swing.JFrame {
      Usuario us= new Usuario();
      RegistroCliente rc = new RegistroCliente();
-     DefaultTableModel model;
+     DefaultTableModel model = new DefaultTableModel();
     /**
      * Creates new form Form_menuPrincipal
      */
@@ -349,6 +349,11 @@ public class Form_gestionProducto extends javax.swing.JFrame {
                 "Rut", "Nombre", "Email"
             }
         ));
+        Table_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_clienteMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Table_cliente);
         if (Table_cliente.getColumnModel().getColumnCount() > 0) {
             Table_cliente.getColumnModel().getColumn(0).setPreferredWidth(40);
@@ -366,6 +371,11 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         btn_editarCliente.setIcon(new javax.swing.ImageIcon("A:\\Users\\david\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto_Java\\PuntoCompraJava\\src\\img\\Actualizar (2).png")); // NOI18N
 
         btn_eliminarCliente.setIcon(new javax.swing.ImageIcon("A:\\Users\\david\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto_Java\\PuntoCompraJava\\src\\img\\eliminar.png")); // NOI18N
+        btn_eliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarClienteActionPerformed(evt);
+            }
+        });
 
         btn_nuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
 
@@ -889,6 +899,11 @@ public class Form_gestionProducto extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\david\\Downloads\\Img\\Img\\compras.png")); // NOI18N
         jButton4.setText("Ventas");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/config.png"))); // NOI18N
         jButton5.setText("Config");
@@ -1002,6 +1017,8 @@ public class Form_gestionProducto extends javax.swing.JFrame {
             us.setpNombreUsuario(txt_nombreCliente.getText());
             us.setEmailUsuario(txt_email.getText());
             rc.registrarCliente(us);
+            limpiarTable();
+            listarCliente();
             JOptionPane.showConfirmDialog(null, "Cliente Registrado");
         }else{
             JOptionPane.showConfirmDialog(null, "Los campos estan vacios");
@@ -1009,9 +1026,33 @@ public class Form_gestionProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_guardarClienteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       listarCliente();
+        limpiarTable();
+        listarCliente();
        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Table_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_clienteMouseClicked
+        int fila = Table_cliente.rowAtPoint(evt.getPoint());
+        txt_rutCliente.setText(Table_cliente.getValueAt(fila, 0).toString());
+        txt_nombreCliente.setText(Table_cliente.getValueAt(fila, 1).toString());
+        txt_email.setText(Table_cliente.getValueAt(fila, 2).toString());
+    }//GEN-LAST:event_Table_clienteMouseClicked
+
+    private void btn_eliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarClienteActionPerformed
+        if (!"".equals(txt_rutCliente.getText())) {
+            int pregunta = JOptionPane.showConfirmDialog(null, "estas seguro de eliminar");
+            if (pregunta == 0 ) {
+                int id =Integer.parseInt( txt_rutCliente.getText());
+                rc.eliminarCliente();
+                limpiarTable();
+                listarCliente();
+            }
+        }
+    }//GEN-LAST:event_btn_eliminarClienteActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     public void listarCliente(){
         List<Usuario> lista = rc.listarCliente();
@@ -1027,7 +1068,12 @@ public class Form_gestionProducto extends javax.swing.JFrame {
         }
         Table_cliente.setModel(model);
     }
-    
+    public void limpiarTable(){
+        for (int i = 0; i < model.getRowCount(); i++) {
+            model.removeRow(i);
+            i = i-1;
+        }
+    }
     
     /**
      * @param args the command line arguments

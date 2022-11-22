@@ -83,7 +83,26 @@ public class RegistroCliente {
         return lista;
     
     }
+    public boolean eliminarCliente(){
+        String sql = "DELETE FROM usuario WHERE cod  == ?";
+        try {
+            ps= con.prepareStatement(sql);
+            ps.setInt(1, 0);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+            return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex.toString());
+            }
+        
+        }
     
+    } 
     
     
     

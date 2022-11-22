@@ -187,7 +187,6 @@ public class RegistroEmpleado {
         PreparedStatement stmt;
         try {
             stmt = cnx.obtenerConexion().prepareStatement(sentencia);
-
             stmt.setInt(1, empleado.getNumRutEmpleado());
             stmt.setString(2, empleado.getDvRutEmpleado());
             stmt.setString(3, empleado.getpNombreEmpleado());

@@ -31,7 +31,7 @@ public class Form_login extends javax.swing.JFrame {
             
             em = regEmp.log(usuarioEmpleado, contraseñaEmpleado);
             if(em.getUsuarioEmpleado()!= null && em.getContrasenaEmpleado()!=null){
-                Form_gestionProducto fg = new Form_gestionProducto();
+                Form_MenuPpal fg = new Form_MenuPpal();
                 fg.setVisible(true);
                 dispose();
             }

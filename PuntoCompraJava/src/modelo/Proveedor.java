@@ -11,23 +11,23 @@ import java.time.LocalDate;
  * @author david
  */
 public class Proveedor {
-    private int numRazonSocialProv, dvRazonSocialprov, teleFonoProv;
-    private String nombreProv, emialProv, direccionProv, regionProv, provivenciaProv, comunaProv;
+    private int numRazonSocialProv, teleFonoProv,codRegion,codProvincia,codComuna;
+    private String nombreProv, emialProv, direccionProv,dvRazonSocialprov;
     private LocalDate FechaNacProv;
 
     public Proveedor() {
     }
 
-    public Proveedor(int numRazonSocialProv, int dvRazonSocialprov, int teleFonoProv, String nombreProv, String emialProv, String direccionProv, String regionProv, String provivenciaProv, String comunaProv, LocalDate FechaNacProv) {
+    public Proveedor(int numRazonSocialProv, int teleFonoProv, int codRegion, int codProvincia, int codComuna, String nombreProv, String emialProv, String direccionProv, String dvRazonSocialprov, LocalDate FechaNacProv) {
         this.numRazonSocialProv = numRazonSocialProv;
-        this.dvRazonSocialprov = dvRazonSocialprov;
         this.teleFonoProv = teleFonoProv;
+        this.codRegion = codRegion;
+        this.codProvincia = codProvincia;
+        this.codComuna = codComuna;
         this.nombreProv = nombreProv;
         this.emialProv = emialProv;
         this.direccionProv = direccionProv;
-        this.regionProv = regionProv;
-        this.provivenciaProv = provivenciaProv;
-        this.comunaProv = comunaProv;
+        this.dvRazonSocialprov = dvRazonSocialprov;
         this.FechaNacProv = FechaNacProv;
     }
 
@@ -39,20 +39,36 @@ public class Proveedor {
         this.numRazonSocialProv = numRazonSocialProv;
     }
 
-    public int getDvRazonSocialprov() {
-        return dvRazonSocialprov;
-    }
-
-    public void setDvRazonSocialprov(int dvRazonSocialprov) {
-        this.dvRazonSocialprov = dvRazonSocialprov;
-    }
-
     public int getTeleFonoProv() {
         return teleFonoProv;
     }
 
     public void setTeleFonoProv(int teleFonoProv) {
         this.teleFonoProv = teleFonoProv;
+    }
+
+    public int getCodRegion() {
+        return codRegion;
+    }
+
+    public void setCodRegion(int codRegion) {
+        this.codRegion = codRegion;
+    }
+
+    public int getCodProvincia() {
+        return codProvincia;
+    }
+
+    public void setCodProvincia(int codProvincia) {
+        this.codProvincia = codProvincia;
+    }
+
+    public int getCodComuna() {
+        return codComuna;
+    }
+
+    public void setCodComuna(int codComuna) {
+        this.codComuna = codComuna;
     }
 
     public String getNombreProv() {
@@ -79,28 +95,12 @@ public class Proveedor {
         this.direccionProv = direccionProv;
     }
 
-    public String getRegionProv() {
-        return regionProv;
+    public String getDvRazonSocialprov() {
+        return dvRazonSocialprov;
     }
 
-    public void setRegionProv(String regionProv) {
-        this.regionProv = regionProv;
-    }
-
-    public String getProvivenciaProv() {
-        return provivenciaProv;
-    }
-
-    public void setProvivenciaProv(String provivenciaProv) {
-        this.provivenciaProv = provivenciaProv;
-    }
-
-    public String getComunaProv() {
-        return comunaProv;
-    }
-
-    public void setComunaProv(String comunaProv) {
-        this.comunaProv = comunaProv;
+    public void setDvRazonSocialprov(String dvRazonSocialprov) {
+        this.dvRazonSocialprov = dvRazonSocialprov;
     }
 
     public LocalDate getFechaNacProv() {
@@ -111,10 +111,8 @@ public class Proveedor {
         this.FechaNacProv = FechaNacProv;
     }
 
-    @Override
-    public String toString() {
-        return "Proveedor{" + "numRazonSocialProv=" + numRazonSocialProv + ", dvRazonSocialprov=" + dvRazonSocialprov + ", teleFonoProv=" + teleFonoProv + ", nombreProv=" + nombreProv + ", emialProv=" + emialProv + ", direccionProv=" + direccionProv + ", regionProv=" + regionProv + ", provivenciaProv=" + provivenciaProv + ", comunaProv=" + comunaProv + ", FechaNacProv=" + FechaNacProv + '}';
-    }
+    
+
     
     
     

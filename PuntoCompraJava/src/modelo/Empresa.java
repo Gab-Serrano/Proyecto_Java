@@ -10,37 +10,30 @@ package modelo;
  */
 public class Empresa {
     
-    private int numRazonSocial, dvRazonSocial, telefonoEmpresa;
-    private String nombreEmpresa, emailEmpresa, direccionEmpresa, regionEmpresa, provinciaEmpresa;
+    private int numRazonSocialEmpresa, telefonoEmpresa,codRegion,codProvincia,codComuna;
+    private String dvRazonSocialEmpresa, nombreEmpresa, emailEmpresa, direccionEmpresa;
 
     public Empresa() {
     }
 
-    public Empresa(int numRazonSocial, int dvRazonSocial, int telefonoEmpresa, String nombreEmpresa, String emailEmpresa, String direccionEmpresa, String regionEmpresa, String provinciaEmpresa) {
-        this.numRazonSocial = numRazonSocial;
-        this.dvRazonSocial = dvRazonSocial;
+    public Empresa(int numRazonSocialEmpresa, int telefonoEmpresa, int codRegion, int codProvincia, int codComuna, String dvRazonSocialEmpresa, String nombreEmpresa, String emailEmpresa, String direccionEmpresa) {
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
+        this.codRegion = codRegion;
+        this.codProvincia = codProvincia;
+        this.codComuna = codComuna;
+        this.dvRazonSocialEmpresa = dvRazonSocialEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.emailEmpresa = emailEmpresa;
         this.direccionEmpresa = direccionEmpresa;
-        this.regionEmpresa = regionEmpresa;
-        this.provinciaEmpresa = provinciaEmpresa;
     }
 
-    public int getNumRazonSocial() {
-        return numRazonSocial;
+    public int getNumRazonSocialEmpresa() {
+        return numRazonSocialEmpresa;
     }
 
-    public void setNumRazonSocial(int numRazonSocial) {
-        this.numRazonSocial = numRazonSocial;
-    }
-
-    public int getDvRazonSocial() {
-        return dvRazonSocial;
-    }
-
-    public void setDvRazonSocial(int dvRazonSocial) {
-        this.dvRazonSocial = dvRazonSocial;
+    public void setNumRazonSocialEmpresa(int numRazonSocialEmpresa) {
+        this.numRazonSocialEmpresa = numRazonSocialEmpresa;
     }
 
     public int getTelefonoEmpresa() {
@@ -49,6 +42,38 @@ public class Empresa {
 
     public void setTelefonoEmpresa(int telefonoEmpresa) {
         this.telefonoEmpresa = telefonoEmpresa;
+    }
+
+    public int getCodRegion() {
+        return codRegion;
+    }
+
+    public void setCodRegion(int codRegion) {
+        this.codRegion = codRegion;
+    }
+
+    public int getCodProvincia() {
+        return codProvincia;
+    }
+
+    public void setCodProvincia(int codProvincia) {
+        this.codProvincia = codProvincia;
+    }
+
+    public int getCodComuna() {
+        return codComuna;
+    }
+
+    public void setCodComuna(int codComuna) {
+        this.codComuna = codComuna;
+    }
+
+    public String getDvRazonSocialEmpresa() {
+        return dvRazonSocialEmpresa;
+    }
+
+    public void setDvRazonSocialEmpresa(String dvRazonSocialEmpresa) {
+        this.dvRazonSocialEmpresa = dvRazonSocialEmpresa;
     }
 
     public String getNombreEmpresa() {
@@ -75,25 +100,6 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public String getRegionEmpresa() {
-        return regionEmpresa;
-    }
-
-    public void setRegionEmpresa(String regionEmpresa) {
-        this.regionEmpresa = regionEmpresa;
-    }
-
-    public String getProvinciaEmpresa() {
-        return provinciaEmpresa;
-    }
-
-    public void setProvinciaEmpresa(String provinciaEmpresa) {
-        this.provinciaEmpresa = provinciaEmpresa;
-    }
-
-    @Override
-    public String toString() {
-        return "Empresa{" + "numRazonSocial=" + numRazonSocial + ", dvRazonSocial=" + dvRazonSocial + ", telefonoEmpresa=" + telefonoEmpresa + ", nombreEmpresa=" + nombreEmpresa + ", emailEmpresa=" + emailEmpresa + ", direccionEmpresa=" + direccionEmpresa + ", regionEmpresa=" + regionEmpresa + ", provinciaEmpresa=" + provinciaEmpresa + '}';
-    }
+    
     
 }

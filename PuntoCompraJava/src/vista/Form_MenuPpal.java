@@ -28,6 +28,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -70,6 +71,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
             }
         });
 
+
         jBtn_gestionProv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor.png"))); // NOI18N
         jBtn_gestionProv.setText("Proveedores");
         jBtn_gestionProv.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +79,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
                 jBtn_gestionProvActionPerformed(evt);
             }
         });
+
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,12 +153,14 @@ public class Form_MenuPpal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -167,10 +172,12 @@ public class Form_MenuPpal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void jBtn_gestionProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_gestionProvActionPerformed
         Form_gestionarProveedor fgp = new Form_gestionarProveedor();
@@ -270,11 +277,13 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     private javax.swing.JButton jBtn_gestionCli;
     private javax.swing.JButton jBtn_gestionProv;
     private javax.swing.JButton jBtn_sisVenta;
+
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
+
     private javax.swing.JButton jbtn_gestionEmp;
     private javax.swing.JButton jbtn_gestionProd;
     // End of variables declaration//GEN-END:variables

@@ -82,6 +82,11 @@ public class Producto {
         this.descripcionProducto = descripcionProducto;
     }
 
+    @Override
+    public String toString() {
+        return "Producto{" + "codProducto=" + codProducto + ", precioUnitario=" + precioUnitario + ", stock=" + stock + ", codigoCategoria=" + codigoCategoria + ", numRazonSocialProv=" + numRazonSocialProv + ", porcentajeDescuento=" + porcentajeDescuento + ", descripcionProducto=" + descripcionProducto + '}';
+    }
+
     
     
     

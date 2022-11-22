@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 02:07 AM
+-- Generation Time: Nov 22, 2022 at 04:19 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -300,21 +300,24 @@ CREATE TABLE IF NOT EXISTS `proveedor` (
   `nombreProv` varchar(15) NOT NULL,
   `emailProv` varchar(25) NOT NULL,
   `direccionProv` varchar(25) NOT NULL,
-  `regionProv` varchar(25) NOT NULL,
-  `provinciaProv` varchar(25) NOT NULL,
-  `comunaProv` varchar(25) NOT NULL,
+  `codRegion` int(4) NOT NULL,
+  `codProvincia` int(4) NOT NULL,
+  `codComuna` int(4) NOT NULL,
   `telefonoProv` int(12) DEFAULT NULL,
-  PRIMARY KEY (`numRazonSocialProv`)
+  PRIMARY KEY (`numRazonSocialProv`),
+  KEY `codComuna` (`codComuna`),
+  KEY `codProvincia` (`codProvincia`),
+  KEY `codRegion` (`codRegion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proveedor`
 --
 
-INSERT INTO `proveedor` (`numRazonSocialProv`, `dvRazonSocialProv`, `nombreProv`, `emailProv`, `direccionProv`, `regionProv`, `provinciaProv`, `comunaProv`, `telefonoProv`) VALUES
-(72546744, '5', 'Coca-cola', 'coca_cola@cocacola.cl', 'direccion cocacola1234', 'RM', 'Santiago', 'Santiago', 1234565),
-(72546766, '3', ' Evercrisp', ' evercrisp@evercrisp.cl', 'direccion evercrisp 1234', 'RM', 'Santiago', 'Santiago', 3456876),
-(72546798, '5', 'CCU', 'ccu@ccu.cl', 'direccion ccu 1234', 'RM', 'Santiago', 'Santiago', 234567);
+INSERT INTO `proveedor` (`numRazonSocialProv`, `dvRazonSocialProv`, `nombreProv`, `emailProv`, `direccionProv`, `codRegion`, `codProvincia`, `codComuna`, `telefonoProv`) VALUES
+(72546744, '5', 'Coca-cola', 'coca_cola@cocacola.cl', 'direccion cocacola1234', 10, 100, 100, 1234565),
+(72546766, '3', ' Evercrisp', ' evercrisp@evercrisp.cl', 'direccion evercrisp 1234', 10, 100, 100, 3456876),
+(72546798, '5', 'CCU', 'ccu@ccu.cl', 'direccion ccu 1234', 10, 100, 100, 234567);
 
 -- --------------------------------------------------------
 
@@ -329,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `provincia` (
   `codRegion` int(4) NOT NULL,
   PRIMARY KEY (`codProvincia`),
   KEY `FK_provincia_region` (`codRegion`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `provincia`
@@ -339,7 +342,9 @@ INSERT INTO `provincia` (`codProvincia`, `nomProvincia`, `codRegion`) VALUES
 (100, 'Valparaiso', 10),
 (101, 'Marga-Marga', 10),
 (103, 'Talca', 13),
-(104, 'Putre', 12);
+(104, 'Putre', 12),
+(106, 'Limache', 10),
+(107, 'Santiago', 11);
 
 -- --------------------------------------------------------
 
@@ -462,6 +467,14 @@ ALTER TABLE `empleado`
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`numRazonSocialProv`) REFERENCES `proveedor` (`numRazonSocialProv`),
   ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`codCategoria`) REFERENCES `categoria` (`codCategoria`);
+
+--
+-- Constraints for table `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`codComuna`) REFERENCES `comuna` (`codComuna`),
+  ADD CONSTRAINT `proveedor_ibfk_2` FOREIGN KEY (`codProvincia`) REFERENCES `provincia` (`codProvincia`),
+  ADD CONSTRAINT `proveedor_ibfk_3` FOREIGN KEY (`codRegion`) REFERENCES `region` (`codRegion`);
 
 --
 -- Constraints for table `provincia`

@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Empleado;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -43,13 +44,14 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jbtn_vistaAgregar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jbtn_vistaModificar = new javax.swing.JButton();
+        jbtn_vistaBuscar = new javax.swing.JButton();
+        jbtn_vistaEliminar = new javax.swing.JButton();
+        jtabPane_gestionarEmpleado = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -82,6 +84,9 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jtxt_direccion = new javax.swing.JTextField();
         jtxt_contraseña = new javax.swing.JPasswordField();
+        jchk_mostraContra = new javax.swing.JCheckBox();
+        jLabel18 = new javax.swing.JLabel();
+        jcmbo_rol = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -118,7 +123,20 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jtxt_rutBuscado = new javax.swing.JTextField();
         jbtn_buscarRut = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jtxt_contraseña21 = new javax.swing.JPasswordField();
+        jtxt_contraseña2 = new javax.swing.JPasswordField();
+        jchk_mostraContra1 = new javax.swing.JCheckBox();
+        jcmbo_rol2 = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jtxt_busqueda = new javax.swing.JTextField();
+        jrad_rut = new javax.swing.JRadioButton();
+        jrad_rol = new javax.swing.JRadioButton();
+        jbttn_buscarFiltro = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_busquedaFiltro = new javax.swing.JTable();
+        jrad_todos = new javax.swing.JRadioButton();
 
         jLabel2.setText("jLabel2");
 
@@ -162,24 +180,24 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Modificar empleado");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_vistaModificar.setText("Modificar empleado");
+        jbtn_vistaModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbtn_vistaModificarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Buscar empleados");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_vistaBuscar.setText("Buscar empleados");
+        jbtn_vistaBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbtn_vistaBuscarActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Eliminar empleado");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_vistaEliminar.setText("Eliminar empleado");
+        jbtn_vistaEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbtn_vistaEliminarActionPerformed(evt);
             }
         });
 
@@ -195,11 +213,11 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jbtn_vistaAgregar)
                 .addGap(53, 53, 53)
-                .addComponent(jButton2)
+                .addComponent(jbtn_vistaModificar)
                 .addGap(52, 52, 52)
-                .addComponent(jButton3)
+                .addComponent(jbtn_vistaBuscar)
                 .addGap(42, 42, 42)
-                .addComponent(jButton4)
+                .addComponent(jbtn_vistaEliminar)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -209,9 +227,9 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_vistaAgregar)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jbtn_vistaModificar)
+                    .addComponent(jbtn_vistaBuscar)
+                    .addComponent(jbtn_vistaEliminar))
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
@@ -284,6 +302,17 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         });
 
+        jchk_mostraContra.setText("Mostrar contraseña");
+        jchk_mostraContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jchk_mostraContraActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Rol:");
+
+        jcmbo_rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Administrador", "Cajero" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -299,6 +328,14 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                         .addGap(548, 548, 548))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(56, 56, 56)
+                                        .addComponent(jcmbo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel11))
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel12))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -318,13 +355,17 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jbtn_guardar)
-                                            .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(14, 14, 14)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jtxt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel18)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jcmbo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
@@ -351,19 +392,13 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                             .addGap(28, 28, 28)
                                             .addComponent(jLabel13)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jcmbo_region, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jcmbo_region, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
-                                        .addComponent(jcmbo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel11))
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel12))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel15)
+                                        .addGap(35, 35, 35)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jchk_mostraContra)
+                                            .addComponent(jtxt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -391,9 +426,13 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(jtxt_mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)
+                        .addComponent(jcmbo_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
@@ -412,7 +451,9 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
+                .addComponent(jchk_mostraContra)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_guardar)
                     .addComponent(jbtn_borrar)
@@ -420,7 +461,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("Agregar empleado", jPanel2);
+        jtabPane_gestionarEmpleado.addTab("Agregar empleado", jPanel2);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -494,7 +535,23 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        jtxt_contraseña21.setToolTipText("");
+        jtxt_contraseña2.setToolTipText("");
+
+        jchk_mostraContra1.setText("Mostrar contraseña");
+        jchk_mostraContra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jchk_mostraContra1ActionPerformed(evt);
+            }
+        });
+
+        jcmbo_rol2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Administrador", "Cajero" }));
+        jcmbo_rol2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcmbo_rol2ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Rol:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -528,8 +585,17 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jtxt_rutBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(55, 55, 55)
-                                .addComponent(jbtn_buscarRut))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jbtn_buscarRut)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                    .addComponent(jLabel37)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel38)
@@ -548,44 +614,43 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                 .addGap(14, 14, 14)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel43)
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jtxt_contraseña21, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel34)
+                                        .addComponent(jLabel19)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jtxt_mail2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel36)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtxt_aPaterno2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel33)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtxt_numRut2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtxt_dvRut2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jcmbo_rol2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel7Layout.createSequentialGroup()
-                                            .addComponent(jbtn_borrar2)
+                                            .addComponent(jLabel43)
+                                            .addGap(40, 40, 40)
+                                            .addComponent(jtxt_contraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jbtn_salir2))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                                            .addComponent(jcmbo_provincia2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jLabel41)
+                                            .addComponent(jchk_mostraContra1))
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addComponent(jLabel34)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jcmbo_region2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jtxt_mail2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addComponent(jLabel36)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jtxt_aPaterno2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                            .addComponent(jLabel33)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jtxt_numRut2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jtxt_dvRut2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jbtn_borrar2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jbtn_salir2))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jcmbo_provincia2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(jLabel41)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jcmbo_region2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
@@ -620,9 +685,13 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                         .addComponent(jLabel38)
                         .addComponent(jtxt_mail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(jcmbo_rol2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel37)
+                        .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
@@ -640,24 +709,25 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                     .addComponent(jLabel32)
                     .addComponent(jLabel43)
                     .addComponent(jtxt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_contraseña21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(jtxt_contraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jchk_mostraContra1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_guardar2)
                     .addComponent(jbtn_borrar2)
                     .addComponent(jbtn_salir2))
-                .addGap(30, 30, 30))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 767, Short.MAX_VALUE)
+            .addGap(0, 947, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 3, Short.MAX_VALUE)))
+                    .addGap(0, 183, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -668,7 +738,88 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        jTabbedPane3.addTab("Modificar empleado", jPanel5);
+        jtabPane_gestionarEmpleado.addTab("Modificar empleado", jPanel5);
+
+        jLabel20.setText("Buscador de empleados");
+
+        buttonGroup1.add(jrad_rut);
+        jrad_rut.setText("RUT");
+        jrad_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrad_rutActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jrad_rol);
+        jrad_rol.setText("Rol");
+
+        jbttn_buscarFiltro.setText("Buscar");
+        jbttn_buscarFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttn_buscarFiltroActionPerformed(evt);
+            }
+        });
+
+        jtbl_busquedaFiltro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "RUT", "DV", "Nombre", "Apellido Paterno", "Apellido Materno", "Email", "Celular", "Fecha nacimiento", "Dirección", "Región", "Provincia", "Comuna", "Usuario", "Rol"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_busquedaFiltro);
+
+        jScrollPane2.setViewportView(jScrollPane1);
+
+        buttonGroup1.add(jrad_todos);
+        jrad_todos.setText("Todos");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbttn_buscarFiltro)
+                    .addComponent(jLabel20)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jrad_rut)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrad_rol)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrad_todos)))
+                .addContainerGap(226, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrad_rut)
+                    .addComponent(jrad_rol)
+                    .addComponent(jrad_todos))
+                .addGap(18, 18, 18)
+                .addComponent(jbttn_buscarFiltro)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jtabPane_gestionarEmpleado.addTab("Buscar empleados", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -677,7 +828,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -687,7 +838,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -695,23 +846,23 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_vistaAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_vistaAgregarActionPerformed
-        // TODO add your handling code here:
+        jtabPane_gestionarEmpleado.setSelectedIndex(0);
     }//GEN-LAST:event_jbtn_vistaAgregarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jbtn_vistaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_vistaModificarActionPerformed
+        jtabPane_gestionarEmpleado.setSelectedIndex(1);
+    }//GEN-LAST:event_jbtn_vistaModificarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jbtn_vistaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_vistaBuscarActionPerformed
+        jtabPane_gestionarEmpleado.setSelectedIndex(2);
+    }//GEN-LAST:event_jbtn_vistaBuscarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jbtn_vistaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_vistaEliminarActionPerformed
+        jtabPane_gestionarEmpleado.setSelectedIndex(3);
+    }//GEN-LAST:event_jbtn_vistaEliminarActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jbtn_salirActionPerformed
 
     private void jbtn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrarActionPerformed
@@ -728,6 +879,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jcmbo_region.setSelectedIndex(0);
         jtxt_direccion.setText("");
         jtxt_usuario.setText("");
+        jcmbo_rol.setSelectedIndex(0);
 
     }//GEN-LAST:event_jbtn_borrarActionPerformed
 
@@ -737,6 +889,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         int comuna = 0;
         int provincia = 0;
         int region = 0;
+        int rol = 0;
 
         empleado.setNumRutEmpleado((Integer.valueOf(jtxt_numRut.getText())));
         empleado.setDvRutEmpleado(jtxt_dvRut.getText());
@@ -807,6 +960,18 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         empleado.setDireccionEmpleado(jtxt_direccion.getText());
         empleado.setUsuarioEmpleado(jtxt_usuario.getText());
         empleado.setContrasenaEmpleado(jtxt_contraseña.getText());
+        //Seleccionar, Administrador, Cajero
+        switch (jcmbo_rol.getSelectedIndex()) {
+            case 1:
+                rol = 100;
+                break;
+            case 2:
+                rol = 101;
+                break;
+            default:
+                throw new AssertionError();
+        }
+        empleado.setCodRol(rol);
 
         regEmp.agregarEmpleado(empleado);
     }//GEN-LAST:event_jbtn_guardarActionPerformed
@@ -825,6 +990,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         int comuna = 0;
         int provincia = 0;
         int region = 0;
+        int rol = 0;
 
         empleado.setNumRutEmpleado((Integer.valueOf(jtxt_numRut2.getText())));
         empleado.setDvRutEmpleado(jtxt_dvRut2.getText());
@@ -894,32 +1060,120 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         empleado.setCodRegion(region);
         empleado.setDireccionEmpleado(jtxt_direccion2.getText());
         empleado.setUsuarioEmpleado(jtxt_usuario2.getText());
-        empleado.setContrasenaEmpleado(jtxt_contraseña21.getText());
-        
+        empleado.setContrasenaEmpleado(jtxt_contraseña2.getText());
+        //Seleccionar, Administrador, Cajero
+        switch (jcmbo_rol2.getSelectedIndex()) {
+            case 1:
+                rol = 100;
+                break;
+            case 2:
+                rol = 101;
+                break;
+            default:
+                throw new AssertionError();
+        }
+        empleado.setCodRol(rol);
+
         regEmp.actualizarEmpleado(empleado);
     }//GEN-LAST:event_jbtn_guardar2ActionPerformed
 
     private void jbtn_borrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrar2ActionPerformed
-        jtxt_numRut2.setText("");
-        jtxt_dvRut2.setText("");
-        jtxt_nombre2.setText("");
-        jtxt_aPaterno2.setText("");
-        jtxt_aMaterno2.setText("");
-        jtxt_mail2.setText("");
-        jtxt_celular2.setText("");
-        jdate_fecNac2.setDate(null);
-        jcmbo_comuna2.setSelectedIndex(0);
-        jcmbo_provincia2.setSelectedIndex(0);
-        jcmbo_region2.setSelectedIndex(0);
-        jtxt_direccion2.setText("");
-        jtxt_usuario2.setText("");
-        jtxt_contraseña21.setText("");
-        jtxt_rutBuscado.setText("");
+        RegistroEmpleado regEmp = new RegistroEmpleado();
+        String rut = jtxt_rutBuscado.getText();
+        Empleado empleado = regEmp.buscarEmpleado(rut);
+        int itemComuna = 0;
+        int itemProvincia = 0;
+        int itemRegion = 0;
+
+        jtxt_numRut2.setText(String.valueOf(empleado.getNumRutEmpleado()));
+        jtxt_dvRut2.setText(empleado.getDvRutEmpleado());
+        jtxt_nombre2.setText(empleado.getpNombreEmpleado());
+        jtxt_aPaterno2.setText(empleado.getpApellidoEmpleado());
+        jtxt_aMaterno2.setText(empleado.getsApellidoEmpleado());
+        jtxt_mail2.setText(empleado.getEmailEmpleado());
+        jtxt_celular2.setText(String.valueOf(empleado.getCelularEmpleado()));
+        jdate_fecNac2.setDate(empleado.getFechaNacEmpleado());
+
+        switch (empleado.getCodComuna()) {
+            case 100:
+                itemComuna = 2;
+                break;
+            case 101:
+                itemComuna = 3;
+                break;
+            case 102:
+                itemComuna = 1;
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        jcmbo_comuna2.setSelectedIndex(itemComuna);
+
+        //Seleccionar, Valparaíso, Marga-marga, Talca, Putre, Limache, Santiago
+        switch (empleado.getCodProvincia()) {
+            case 100:
+                itemProvincia = 1;
+                break;
+            case 101:
+                itemProvincia = 2;
+                break;
+            case 103:
+                itemProvincia = 3;
+                break;
+            case 104:
+                itemProvincia = 4;
+                break;
+            case 106:
+                itemProvincia = 5;
+                break;
+            case 107:
+                itemProvincia = 6;
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        jcmbo_provincia2.setSelectedIndex(itemProvincia);
+
+        //Seleccionar, Valparaíso, RM, Arica, Maule
+        switch (empleado.getCodRegion()) {
+            case 10:
+                itemRegion = 1;
+                break;
+            case 11:
+                itemRegion = 2;
+                break;
+            case 12:
+                itemRegion = 3;
+                break;
+            case 13:
+                itemRegion = 4;
+                break;
+            default:
+                throw new AssertionError();
+        }
+        jcmbo_region2.setSelectedIndex(itemRegion);
+
+        jtxt_direccion2.setText(empleado.getDireccionEmpleado());
+        jtxt_usuario2.setText(empleado.getUsuarioEmpleado());
+        jtxt_contraseña2.setText(empleado.getContrasenaEmpleado());
+        //Seleccionar, Administrador, Cajero
+        switch (empleado.getCodRol()) {
+            case 100:
+                jcmbo_rol2.setSelectedIndex(1);
+                break;
+            case 2:
+                jcmbo_rol2.setSelectedIndex(2);
+                break;
+            default:
+                throw new AssertionError();
+        }
 
     }//GEN-LAST:event_jbtn_borrar2ActionPerformed
 
     private void jbtn_salir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salir2ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jbtn_salir2ActionPerformed
 
     private void jbtn_buscarRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarRutActionPerformed
@@ -1002,12 +1256,118 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jtxt_direccion2.setText(empleado.getDireccionEmpleado());
         jtxt_usuario2.setText(empleado.getUsuarioEmpleado());
-        jtxt_contraseña21.setText(empleado.getContrasenaEmpleado());
+        jtxt_contraseña2.setText(empleado.getContrasenaEmpleado());
+        //Seleccionar, Administrador, Cajero
+        switch (empleado.getCodRol()) {
+            case 100:
+                jcmbo_rol2.setSelectedIndex(1);
+                break;
+            case 2:
+                jcmbo_rol2.setSelectedIndex(2);
+                break;
+            default:
+                throw new AssertionError();
+        }
     }//GEN-LAST:event_jbtn_buscarRutActionPerformed
 
     private void jtxt_contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_contraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_contraseñaActionPerformed
+
+    private void jchk_mostraContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_mostraContraActionPerformed
+        if (jchk_mostraContra.isSelected()) {
+
+            jtxt_contraseña.setEchoChar((char) 0);
+
+        } else {
+            jtxt_contraseña.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_jchk_mostraContraActionPerformed
+
+    private void jchk_mostraContra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jchk_mostraContra1ActionPerformed
+        if (jchk_mostraContra1.isSelected()) {
+
+            jtxt_contraseña2.setEchoChar((char) 0);
+
+        } else {
+            jtxt_contraseña2.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jchk_mostraContra1ActionPerformed
+
+    private void jcmbo_rol2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbo_rol2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcmbo_rol2ActionPerformed
+
+    private void jrad_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrad_rutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrad_rutActionPerformed
+
+    private void jbttn_buscarFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttn_buscarFiltroActionPerformed
+        RegistroEmpleado regEmp = new RegistroEmpleado();
+        String condicion = "";
+        String txtBusqueda = jtxt_busqueda.getText();
+
+        if (jrad_rut.isSelected()) {
+            condicion = "numRutEmpleado";
+        } else if (jrad_rol.isSelected()) {
+            condicion = "codRol";
+        }
+
+        if (jrad_rol.isSelected()) {
+            if (txtBusqueda.equalsIgnoreCase("administrador")) {
+                txtBusqueda = "100";
+            } else if (txtBusqueda.equalsIgnoreCase("cajero")) {
+                txtBusqueda = "101";
+            }
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_busquedaFiltro.getModel();
+        modelo.setRowCount(0);
+
+        if (jrad_todos.isSelected()) {
+             for (Empleado empleado : regEmp.buscarTodos()) {
+            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                empleado.getDvRutEmpleado(),
+                empleado.getpNombreEmpleado(),
+                empleado.getpApellidoEmpleado(),
+                empleado.getsApellidoEmpleado(),
+                empleado.getEmailEmpleado(),
+                empleado.getCelularEmpleado(),
+                dateSql,
+                empleado.getDireccionEmpleado(),
+                empleado.getCodComuna(),
+                empleado.getCodProvincia(),
+                empleado.getCodRegion(),
+                empleado.getUsuarioEmpleado(),
+                empleado.getCodRol()});
+            
+        }
+
+        }else{
+
+        for (Empleado empleado : regEmp.buscarPorFiltro(condicion, txtBusqueda)) {
+            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                empleado.getDvRutEmpleado(),
+                empleado.getpNombreEmpleado(),
+                empleado.getpApellidoEmpleado(),
+                empleado.getsApellidoEmpleado(),
+                empleado.getEmailEmpleado(),
+                empleado.getCelularEmpleado(),
+                dateSql,
+                empleado.getDireccionEmpleado(),
+                empleado.getCodComuna(),
+                empleado.getCodProvincia(),
+                empleado.getCodRegion(),
+                empleado.getUsuarioEmpleado(),
+                empleado.getCodRol()});
+
+        }
+        }
+
+    }//GEN-LAST:event_jbttn_buscarFiltroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1045,9 +1405,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -1059,7 +1417,10 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -1087,10 +1448,12 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JButton jbtn_borrar;
     private javax.swing.JButton jbtn_borrar2;
     private javax.swing.JButton jbtn_buscarRut;
@@ -1099,22 +1462,36 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_salir;
     private javax.swing.JButton jbtn_salir2;
     private javax.swing.JButton jbtn_vistaAgregar;
+    private javax.swing.JButton jbtn_vistaBuscar;
+    private javax.swing.JButton jbtn_vistaEliminar;
+    private javax.swing.JButton jbtn_vistaModificar;
+    private javax.swing.JButton jbttn_buscarFiltro;
+    private javax.swing.JCheckBox jchk_mostraContra;
+    private javax.swing.JCheckBox jchk_mostraContra1;
     private javax.swing.JComboBox<String> jcmbo_comuna;
     private javax.swing.JComboBox<String> jcmbo_comuna2;
     private javax.swing.JComboBox<String> jcmbo_provincia;
     private javax.swing.JComboBox<String> jcmbo_provincia2;
     private javax.swing.JComboBox<String> jcmbo_region;
     private javax.swing.JComboBox<String> jcmbo_region2;
+    private javax.swing.JComboBox<String> jcmbo_rol;
+    private javax.swing.JComboBox<String> jcmbo_rol2;
     private com.toedter.calendar.JDateChooser jdate_fecNac;
     private com.toedter.calendar.JDateChooser jdate_fecNac2;
+    private javax.swing.JRadioButton jrad_rol;
+    private javax.swing.JRadioButton jrad_rut;
+    private javax.swing.JRadioButton jrad_todos;
+    private javax.swing.JTabbedPane jtabPane_gestionarEmpleado;
+    private javax.swing.JTable jtbl_busquedaFiltro;
     private javax.swing.JTextField jtxt_aMaterno;
     private javax.swing.JTextField jtxt_aMaterno2;
     private javax.swing.JTextField jtxt_aPaterno;
     private javax.swing.JTextField jtxt_aPaterno2;
+    private javax.swing.JTextField jtxt_busqueda;
     private javax.swing.JTextField jtxt_celular;
     private javax.swing.JTextField jtxt_celular2;
     private javax.swing.JPasswordField jtxt_contraseña;
-    private javax.swing.JPasswordField jtxt_contraseña21;
+    private javax.swing.JPasswordField jtxt_contraseña2;
     private javax.swing.JTextField jtxt_direccion;
     private javax.swing.JTextField jtxt_direccion2;
     private javax.swing.JTextField jtxt_dvRut;

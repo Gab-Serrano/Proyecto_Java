@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class RegistroEmpleado {
 
     /**
-     * Método que agrega un empleado a la BD. Recibe un parámetro de clase
+     * MÃ©todo que agrega un empleado a la BD. Recibe un parÃ¡metro de clase
      * Empleado. Retorna un boolean
      *
      * @param empleado
@@ -39,7 +39,7 @@ public class RegistroEmpleado {
         try {
             //Se carga la plantilla de sentencia
             PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
-            //Se cargan las variables paramétricas
+            //Se cargan las variables paramÃ©tricas
             stmt.setInt(1, empleado.getNumRutEmpleado());
             stmt.setString(2, empleado.getDvRutEmpleado());
             stmt.setString(3, empleado.getpNombreEmpleado());
@@ -58,7 +58,7 @@ public class RegistroEmpleado {
             stmt.setString(14, empleado.getContrasenaEmpleado());
             stmt.setInt(15, 79547632);
 
-            if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas agregar este usuario?", "Agregar usuario", 0) == 0) {
+            if (JOptionPane.showConfirmDialog(null, "Â¿EstÃ¡s seguro que deseas agregar este usuario?", "Agregar usuario", 0) == 0) {
                 //Se ejecuta la consulta
                 stmt.executeUpdate();
 
@@ -66,8 +66,8 @@ public class RegistroEmpleado {
                 stmt.close();
                 cnx.obtenerConexion().close();
 
-                //Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con éxito.", "Agregar empleado", 1);
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con Ã©xito.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return true;
@@ -77,8 +77,8 @@ public class RegistroEmpleado {
                 stmt.close();
                 cnx.obtenerConexion().close();
 
-                //Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Se ha cancelado la operación.", "Agregar empleado", 1);
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha cancelado la operaciÃ³n.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return false;
@@ -95,31 +95,6 @@ public class RegistroEmpleado {
         }
     }
     
-    public Empleado log(String usuarioEmpleado, String contraseñaEmpleado){
-        Connection con;
-        PreparedStatement ps;
-        ResultSet rs;
-        Empleado e = new Empleado(); 
-        Conexion cn = new Conexion(); 
-        String sql = "SELECT FROM empleado WHERE usuarioEmpleado = ? AND contraseñaEmpleado = ?";
-        
-    try {
-        con = cn.obtenerConexion();
-        ps= con.prepareStatement(sql);
-        ps.setString(1, usuarioEmpleado);
-        ps.setString(2, contraseñaEmpleado);
-        rs = ps.executeQuery();
-        if (rs.next()) {
-            e.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
-            e.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
-        }
-
-    } catch (SQLException ex) {
-        System.out.println("Error en la sentencia SQL logear: " +ex.toString());
-    }
-    return e;
-    }
-
     public Empleado buscarEmpleado(String numRutEmpleado) {
 
         Empleado empleado = new Empleado();
@@ -132,7 +107,7 @@ public class RegistroEmpleado {
         try {
             //Se carga la plantilla de sentencia
             PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
-            //Se cargan las variables paramétricas
+            //Se cargan las variables paramÃ©tricas
             stmt.setString(1, numRutEmpleado);
             //Se ejecuta la consulta
             ResultSet rs = stmt.executeQuery();
@@ -153,8 +128,9 @@ public class RegistroEmpleado {
                 empleado.setCodRegion(rs.getInt("codRegion"));
                 empleado.setDireccionEmpleado(rs.getString("direccionEmpleado"));
                 empleado.setUsuarioEmpleado(rs.getString("usuarioEmpleado"));
-                empleado.setContrasenaEmpleado(rs.getString("contraseñaEmpleado"));
+                empleado.setContrasenaEmpleado(rs.getString("contraseÃ±aEmpleado"));
                 empleado.setNumRazonSocialEmpresa(rs.getInt("numRazonSocialEmpresa"));
+                empleado.setCodRol(rs.getInt("codRol"));
 
             }
 
@@ -182,11 +158,10 @@ public class RegistroEmpleado {
         //Se declara sentencia
         String sentencia = "UPDATE empleado SET numRutEmpleado = ?, dvRutEmpleado = ?, pNombreEmpleado = ?, pApellidoEmpleado = ?, sApellidoEmpleado = ?, "
                 + "emailEmpleado = ?, celularEmpleado = ?, fechaNacEmpleado = ?, direccionEmpleado = ?, codRegion = ?, codProvincia = ?, codComuna = ?, "
-                + "usuarioEmpleado = ?, contraseñaEmpleado = ? WHERE numRutEmpleado = ?";
+                + "usuarioEmpleado = ?, contraseÃ±aEmpleado = ?, codRol = ? WHERE numRutEmpleado = ?";
         //Se carga la plantilla de sentencia
-        PreparedStatement stmt;
         try {
-            stmt = cnx.obtenerConexion().prepareStatement(sentencia);
+            PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
             stmt.setInt(1, empleado.getNumRutEmpleado());
             stmt.setString(2, empleado.getDvRutEmpleado());
             stmt.setString(3, empleado.getpNombreEmpleado());
@@ -203,9 +178,11 @@ public class RegistroEmpleado {
             stmt.setInt(12, empleado.getCodComuna());
             stmt.setString(13, empleado.getUsuarioEmpleado());
             stmt.setString(14, empleado.getContrasenaEmpleado());
-            stmt.setInt(15, empleado.getNumRutEmpleado());
+            stmt.setInt(15, empleado.getCodRol());
+            stmt.setInt(16, empleado.getNumRutEmpleado());
             
-            if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas modificar este usuario?", "Modificar usuario", 0) == 0) {
+            
+            if (JOptionPane.showConfirmDialog(null, "Â¿EstÃ¡s seguro que deseas modificar este usuario?", "Modificar usuario", 0) == 0) {
                 //Se ejecuta la consulta
                 stmt.executeUpdate();
 
@@ -213,8 +190,8 @@ public class RegistroEmpleado {
                 stmt.close();
                 cnx.obtenerConexion().close();
 
-                //Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Se ha modificado el empleado con éxito.", "Modificar empleado", 1);
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha modificado el empleado con Ã©xito.", "Modificar empleado", 1);
 
                 //Retorna booleano exitoso
                 return true;
@@ -224,8 +201,8 @@ public class RegistroEmpleado {
                 stmt.close();
                 cnx.obtenerConexion().close();
 
-                //Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Se ha cancelado la operación.", "Agregar empleado", 1);
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha cancelado la operaciÃ³n.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return false;

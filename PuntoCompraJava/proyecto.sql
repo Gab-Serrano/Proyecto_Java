@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 04:09 AM
+-- Generation Time: Nov 22, 2022 at 04:19 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -30,10 +30,11 @@ USE `proyecto`;
 --
 
 DROP TABLE IF EXISTS `categoria`;
-CREATE TABLE `categoria` (
-  `codCategoria` int(12) NOT NULL,
-  `nombreCategoria` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `codCategoria` int(12) NOT NULL AUTO_INCREMENT,
+  `nombreCategoria` varchar(20) NOT NULL,
+  PRIMARY KEY (`codCategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categoria`
@@ -64,8 +65,8 @@ INSERT INTO `categoria` (`codCategoria`, `nombreCategoria`) VALUES
 --
 
 DROP TABLE IF EXISTS `compra`;
-CREATE TABLE `compra` (
-  `idCompra` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `compra` (
+  `idCompra` int(11) NOT NULL AUTO_INCREMENT,
   `fechaCompra` date NOT NULL,
   `total` int(6) NOT NULL,
   `descuentoTotal` int(6) DEFAULT NULL,
@@ -73,8 +74,13 @@ CREATE TABLE `compra` (
   `codUsuario` int(8) NOT NULL,
   `codMedioPago` int(4) NOT NULL,
   `numRutEmpleado` int(8) NOT NULL,
-  `numRazonSocialEmpresa` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `numRazonSocialEmpresa` int(8) NOT NULL,
+  PRIMARY KEY (`idCompra`),
+  KEY `codUsuario` (`codUsuario`),
+  KEY `codMedioPago` (`codMedioPago`),
+  KEY `numRutEmpleado` (`numRutEmpleado`),
+  KEY `numRazonSocialEmpresa` (`numRazonSocialEmpresa`)
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `compra`
@@ -91,19 +97,22 @@ INSERT INTO `compra` (`idCompra`, `fechaCompra`, `total`, `descuentoTotal`, `tot
 --
 
 DROP TABLE IF EXISTS `comuna`;
-CREATE TABLE `comuna` (
-  `codComuna` int(4) NOT NULL,
+CREATE TABLE IF NOT EXISTS `comuna` (
+  `codComuna` int(4) NOT NULL AUTO_INCREMENT,
   `nomComuna` varchar(30) NOT NULL,
   `codProvincia` int(4) NOT NULL,
-  `codRegion` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `codRegion` int(4) NOT NULL,
+  PRIMARY KEY (`codComuna`),
+  KEY `FK_comuna_provincia` (`codProvincia`),
+  KEY `FK_comuna_region` (`codRegion`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `comuna`
 --
 
 INSERT INTO `comuna` (`codComuna`, `nomComuna`, `codProvincia`, `codRegion`) VALUES
-(100, 'Vi�a del Mar', 100, 10);
+(100, 'Viña del Mar', 100, 10);
 
 -- --------------------------------------------------------
 
@@ -112,10 +121,12 @@ INSERT INTO `comuna` (`codComuna`, `nomComuna`, `codProvincia`, `codRegion`) VAL
 --
 
 DROP TABLE IF EXISTS `detallecompra`;
-CREATE TABLE `detallecompra` (
+CREATE TABLE IF NOT EXISTS `detallecompra` (
   `idCompra` int(12) NOT NULL,
   `codProducto` int(12) NOT NULL,
-  `cantidad` int(2) NOT NULL
+  `cantidad` int(2) NOT NULL,
+  KEY `idCompra` (`idCompra`),
+  KEY `codProducto` (`codProducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -139,9 +150,11 @@ INSERT INTO `detallecompra` (`idCompra`, `codProducto`, `cantidad`) VALUES
 --
 
 DROP TABLE IF EXISTS `detallesello`;
-CREATE TABLE `detallesello` (
+CREATE TABLE IF NOT EXISTS `detallesello` (
   `codProducto` int(12) NOT NULL,
-  `codSello` int(5) DEFAULT NULL
+  `codSello` int(5) DEFAULT NULL,
+  KEY `codProducto` (`codProducto`),
+  KEY `codSello` (`codSello`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -164,7 +177,7 @@ INSERT INTO `detallesello` (`codProducto`, `codSello`) VALUES
 --
 
 DROP TABLE IF EXISTS `empleado`;
-CREATE TABLE `empleado` (
+CREATE TABLE IF NOT EXISTS `empleado` (
   `numRutEmpleado` int(8) NOT NULL,
   `dvRutEmpleado` varchar(1) NOT NULL,
   `pNombreEmpleado` varchar(15) NOT NULL,
@@ -178,15 +191,20 @@ CREATE TABLE `empleado` (
   `codProvincia` int(4) NOT NULL,
   `codComuna` int(4) NOT NULL,
   `usuarioEmpleado` varchar(25) NOT NULL,
-  `contrase�aEmpleado` varchar(25) NOT NULL,
-  `numRazonSocialEmpresa` int(8) NOT NULL
+  `contraseñaEmpleado` varchar(25) NOT NULL,
+  `numRazonSocialEmpresa` int(8) NOT NULL,
+  PRIMARY KEY (`numRutEmpleado`),
+  KEY `numRazonSocialEmpresa` (`numRazonSocialEmpresa`),
+  KEY `codComuna` (`codComuna`),
+  KEY `codProvincia` (`codProvincia`),
+  KEY `codRegion` (`codRegion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `empleado`
 --
 
-INSERT INTO `empleado` (`numRutEmpleado`, `dvRutEmpleado`, `pNombreEmpleado`, `pApellidoEmpleado`, `sApellidoEmpleado`, `emailEmpleado`, `celularEmpleado`, `fechaNacEmpleado`, `direccionEmpleado`, `codRegion`, `codProvincia`, `codComuna`, `usuarioEmpleado`, `contrase�aEmpleado`, `numRazonSocialEmpresa`) VALUES
+INSERT INTO `empleado` (`numRutEmpleado`, `dvRutEmpleado`, `pNombreEmpleado`, `pApellidoEmpleado`, `sApellidoEmpleado`, `emailEmpleado`, `celularEmpleado`, `fechaNacEmpleado`, `direccionEmpleado`, `codRegion`, `codProvincia`, `codComuna`, `usuarioEmpleado`, `contraseñaEmpleado`, `numRazonSocialEmpresa`) VALUES
 (18612264, 'K', 'Gabriel', 'Serrano', 'Mena', 'gab@hola.cl', 98765432, '1993-11-17', 'Jorge Ross 234', 10, 100, 100, 'gabSerrano', 'pass1234', 79547632);
 
 -- --------------------------------------------------------
@@ -196,7 +214,7 @@ INSERT INTO `empleado` (`numRutEmpleado`, `dvRutEmpleado`, `pNombreEmpleado`, `p
 --
 
 DROP TABLE IF EXISTS `empresa`;
-CREATE TABLE `empresa` (
+CREATE TABLE IF NOT EXISTS `empresa` (
   `numRazonSocialEmpresa` int(8) NOT NULL,
   `dvRazonSocialEmpresa` varchar(1) NOT NULL,
   `nombreEmpresa` varchar(15) NOT NULL,
@@ -205,7 +223,8 @@ CREATE TABLE `empresa` (
   `codRegion` int(4) NOT NULL,
   `codProvincia` int(4) NOT NULL,
   `codComuna` int(4) NOT NULL,
-  `telefonoEmpresa` int(12) NOT NULL
+  `telefonoEmpresa` int(12) NOT NULL,
+  PRIMARY KEY (`numRazonSocialEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -222,10 +241,11 @@ INSERT INTO `empresa` (`numRazonSocialEmpresa`, `dvRazonSocialEmpresa`, `nombreE
 --
 
 DROP TABLE IF EXISTS `mediopago`;
-CREATE TABLE `mediopago` (
-  `codMedioPago` int(5) NOT NULL,
-  `nombreMedioPago` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `mediopago` (
+  `codMedioPago` int(5) NOT NULL AUTO_INCREMENT,
+  `nombreMedioPago` varchar(20) NOT NULL,
+  PRIMARY KEY (`codMedioPago`)
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mediopago`
@@ -244,14 +264,17 @@ INSERT INTO `mediopago` (`codMedioPago`, `nombreMedioPago`) VALUES
 --
 
 DROP TABLE IF EXISTS `producto`;
-CREATE TABLE `producto` (
+CREATE TABLE IF NOT EXISTS `producto` (
   `codProducto` int(12) NOT NULL,
   `descripcionProducto` varchar(25) NOT NULL,
   `precioUnitario` int(6) NOT NULL,
   `stock` int(6) NOT NULL,
   `codCategoria` int(12) NOT NULL,
   `numRazonSocialProv` int(8) NOT NULL,
-  `porcentajeDescuento` double(5,5) DEFAULT NULL
+  `porcentajeDescuento` double(5,5) DEFAULT NULL,
+  PRIMARY KEY (`codProducto`),
+  KEY `numRazonSocialProv` (`numRazonSocialProv`),
+  KEY `codCategoria` (`codCategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -271,7 +294,7 @@ INSERT INTO `producto` (`codProducto`, `descripcionProducto`, `precioUnitario`, 
 --
 
 DROP TABLE IF EXISTS `proveedor`;
-CREATE TABLE `proveedor` (
+CREATE TABLE IF NOT EXISTS `proveedor` (
   `numRazonSocialProv` int(8) NOT NULL,
   `dvRazonSocialProv` varchar(1) NOT NULL,
   `nombreProv` varchar(15) NOT NULL,
@@ -280,7 +303,11 @@ CREATE TABLE `proveedor` (
   `codRegion` int(4) NOT NULL,
   `codProvincia` int(4) NOT NULL,
   `codComuna` int(4) NOT NULL,
-  `telefonoProv` int(12) DEFAULT NULL
+  `telefonoProv` int(12) DEFAULT NULL,
+  PRIMARY KEY (`numRazonSocialProv`),
+  KEY `codComuna` (`codComuna`),
+  KEY `codProvincia` (`codProvincia`),
+  KEY `codRegion` (`codRegion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -299,11 +326,13 @@ INSERT INTO `proveedor` (`numRazonSocialProv`, `dvRazonSocialProv`, `nombreProv`
 --
 
 DROP TABLE IF EXISTS `provincia`;
-CREATE TABLE `provincia` (
-  `codProvincia` int(4) NOT NULL,
+CREATE TABLE IF NOT EXISTS `provincia` (
+  `codProvincia` int(4) NOT NULL AUTO_INCREMENT,
   `nomProvincia` varchar(30) NOT NULL,
-  `codRegion` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `codRegion` int(4) NOT NULL,
+  PRIMARY KEY (`codProvincia`),
+  KEY `FK_provincia_region` (`codRegion`)
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `provincia`
@@ -324,10 +353,11 @@ INSERT INTO `provincia` (`codProvincia`, `nomProvincia`, `codRegion`) VALUES
 --
 
 DROP TABLE IF EXISTS `region`;
-CREATE TABLE `region` (
-  `codRegion` int(4) NOT NULL,
-  `nomRegion` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `region` (
+  `codRegion` int(4) NOT NULL AUTO_INCREMENT,
+  `nomRegion` varchar(20) NOT NULL,
+  PRIMARY KEY (`codRegion`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `region`
@@ -346,10 +376,11 @@ INSERT INTO `region` (`codRegion`, `nomRegion`) VALUES
 --
 
 DROP TABLE IF EXISTS `sello`;
-CREATE TABLE `sello` (
-  `codSello` int(5) NOT NULL,
-  `tipoSello` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `sello` (
+  `codSello` int(5) NOT NULL AUTO_INCREMENT,
+  `tipoSello` varchar(20) NOT NULL,
+  PRIMARY KEY (`codSello`)
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sello`
@@ -368,15 +399,16 @@ INSERT INTO `sello` (`codSello`, `tipoSello`) VALUES
 --
 
 DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE `usuario` (
-  `codUsuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `codUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `numRutUsuario` int(8) DEFAULT NULL,
   `dvRutUsuario` varchar(1) DEFAULT NULL,
   `pNombreUsuario` varchar(15) DEFAULT NULL,
   `pApellidoUsuario` varchar(15) DEFAULT NULL,
   `sApellidoUsuario` varchar(15) DEFAULT NULL,
-  `emailUsuario` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `emailUsuario` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`codUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usuario`
@@ -385,164 +417,6 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`codUsuario`, `numRutUsuario`, `dvRutUsuario`, `pNombreUsuario`, `pApellidoUsuario`, `sApellidoUsuario`, `emailUsuario`) VALUES
 (1, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 12345677, '6', 'David', 'Mallma', 'Valverde', 'da.mallma@hola.cl');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`codCategoria`);
-
---
--- Indexes for table `compra`
---
-ALTER TABLE `compra`
-  ADD PRIMARY KEY (`idCompra`),
-  ADD KEY `codUsuario` (`codUsuario`),
-  ADD KEY `codMedioPago` (`codMedioPago`),
-  ADD KEY `numRutEmpleado` (`numRutEmpleado`),
-  ADD KEY `numRazonSocialEmpresa` (`numRazonSocialEmpresa`);
-
---
--- Indexes for table `comuna`
---
-ALTER TABLE `comuna`
-  ADD PRIMARY KEY (`codComuna`),
-  ADD KEY `FK_comuna_provincia` (`codProvincia`),
-  ADD KEY `FK_comuna_region` (`codRegion`);
-
---
--- Indexes for table `detallecompra`
---
-ALTER TABLE `detallecompra`
-  ADD KEY `idCompra` (`idCompra`),
-  ADD KEY `codProducto` (`codProducto`);
-
---
--- Indexes for table `detallesello`
---
-ALTER TABLE `detallesello`
-  ADD KEY `codProducto` (`codProducto`),
-  ADD KEY `codSello` (`codSello`);
-
---
--- Indexes for table `empleado`
---
-ALTER TABLE `empleado`
-  ADD PRIMARY KEY (`numRutEmpleado`),
-  ADD KEY `numRazonSocialEmpresa` (`numRazonSocialEmpresa`),
-  ADD KEY `codComuna` (`codComuna`),
-  ADD KEY `codProvincia` (`codProvincia`),
-  ADD KEY `codRegion` (`codRegion`);
-
---
--- Indexes for table `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`numRazonSocialEmpresa`);
-
---
--- Indexes for table `mediopago`
---
-ALTER TABLE `mediopago`
-  ADD PRIMARY KEY (`codMedioPago`);
-
---
--- Indexes for table `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`codProducto`),
-  ADD KEY `numRazonSocialProv` (`numRazonSocialProv`),
-  ADD KEY `codCategoria` (`codCategoria`);
-
---
--- Indexes for table `proveedor`
---
-ALTER TABLE `proveedor`
-  ADD PRIMARY KEY (`numRazonSocialProv`),
-  ADD KEY `codComuna` (`codComuna`),
-  ADD KEY `codProvincia` (`codProvincia`),
-  ADD KEY `codRegion` (`codRegion`);
-
---
--- Indexes for table `provincia`
---
-ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`codProvincia`),
-  ADD KEY `FK_provincia_region` (`codRegion`);
-
---
--- Indexes for table `region`
---
-ALTER TABLE `region`
-  ADD PRIMARY KEY (`codRegion`);
-
---
--- Indexes for table `sello`
---
-ALTER TABLE `sello`
-  ADD PRIMARY KEY (`codSello`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`codUsuario`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `codCategoria` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
-
---
--- AUTO_INCREMENT for table `compra`
---
-ALTER TABLE `compra`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
-
---
--- AUTO_INCREMENT for table `comuna`
---
-ALTER TABLE `comuna`
-  MODIFY `codComuna` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
-
---
--- AUTO_INCREMENT for table `mediopago`
---
-ALTER TABLE `mediopago`
-  MODIFY `codMedioPago` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
-
---
--- AUTO_INCREMENT for table `provincia`
---
-ALTER TABLE `provincia`
-  MODIFY `codProvincia` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
-
---
--- AUTO_INCREMENT for table `region`
---
-ALTER TABLE `region`
-  MODIFY `codRegion` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `sello`
---
-ALTER TABLE `sello`
-  MODIFY `codSello` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
-
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

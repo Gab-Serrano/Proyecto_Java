@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Empleado;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -128,11 +129,14 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jtxt_busqueda = new javax.swing.JTextField();
+        jrad_rut = new javax.swing.JRadioButton();
+        jrad_rol = new javax.swing.JRadioButton();
+        jbttn_buscarFiltro = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_busquedaFiltro = new javax.swing.JTable();
+        jrad_todos = new javax.swing.JRadioButton();
 
         jLabel2.setText("jLabel2");
 
@@ -738,23 +742,42 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jLabel20.setText("Buscador de empleados");
 
-        jTextField1.setText("jTextField1");
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("RUT");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrad_rut);
+        jrad_rut.setText("RUT");
+        jrad_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jrad_rutActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Rol");
+        buttonGroup1.add(jrad_rol);
+        jrad_rol.setText("Rol");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Localización");
+        jbttn_buscarFiltro.setText("Buscar");
+        jbttn_buscarFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbttn_buscarFiltroActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Región", "Provincia", "Comuna" }));
+        jtbl_busquedaFiltro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "RUT", "DV", "Nombre", "Apellido Paterno", "Apellido Materno", "Email", "Celular", "Fecha nacimiento", "Dirección", "Región", "Provincia", "Comuna", "Usuario", "Rol"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_busquedaFiltro);
+
+        jScrollPane2.setViewportView(jScrollPane1);
+
+        buttonGroup1.add(jrad_todos);
+        jrad_todos.setText("Todos");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -763,18 +786,20 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbttn_buscarFiltro)
                     .addComponent(jLabel20)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
-                        .addComponent(jRadioButton1)
+                        .addComponent(jrad_rut)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jrad_rol)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(238, Short.MAX_VALUE))
+                        .addComponent(jrad_todos)))
+                .addContainerGap(226, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -783,12 +808,15 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(444, Short.MAX_VALUE))
+                    .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrad_rut)
+                    .addComponent(jrad_rol)
+                    .addComponent(jrad_todos))
+                .addGap(18, 18, 18)
+                .addComponent(jbttn_buscarFiltro)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jtabPane_gestionarEmpleado.addTab("Buscar empleados", jPanel6);
@@ -1271,9 +1299,75 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcmbo_rol2ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jrad_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrad_rutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jrad_rutActionPerformed
+
+    private void jbttn_buscarFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbttn_buscarFiltroActionPerformed
+        RegistroEmpleado regEmp = new RegistroEmpleado();
+        String condicion = "";
+        String txtBusqueda = jtxt_busqueda.getText();
+
+        if (jrad_rut.isSelected()) {
+            condicion = "numRutEmpleado";
+        } else if (jrad_rol.isSelected()) {
+            condicion = "codRol";
+        }
+
+        if (jrad_rol.isSelected()) {
+            if (txtBusqueda.equalsIgnoreCase("administrador")) {
+                txtBusqueda = "100";
+            } else if (txtBusqueda.equalsIgnoreCase("cajero")) {
+                txtBusqueda = "101";
+            }
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_busquedaFiltro.getModel();
+        modelo.setRowCount(0);
+
+        if (jrad_todos.isSelected()) {
+             for (Empleado empleado : regEmp.buscarTodos()) {
+            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                empleado.getDvRutEmpleado(),
+                empleado.getpNombreEmpleado(),
+                empleado.getpApellidoEmpleado(),
+                empleado.getsApellidoEmpleado(),
+                empleado.getEmailEmpleado(),
+                empleado.getCelularEmpleado(),
+                dateSql,
+                empleado.getDireccionEmpleado(),
+                empleado.getCodComuna(),
+                empleado.getCodProvincia(),
+                empleado.getCodRegion(),
+                empleado.getUsuarioEmpleado(),
+                empleado.getCodRol()});
+            
+        }
+
+        }else{
+
+        for (Empleado empleado : regEmp.buscarPorFiltro(condicion, txtBusqueda)) {
+            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                empleado.getDvRutEmpleado(),
+                empleado.getpNombreEmpleado(),
+                empleado.getpApellidoEmpleado(),
+                empleado.getsApellidoEmpleado(),
+                empleado.getEmailEmpleado(),
+                empleado.getCelularEmpleado(),
+                dateSql,
+                empleado.getDireccionEmpleado(),
+                empleado.getCodComuna(),
+                empleado.getCodProvincia(),
+                empleado.getCodRegion(),
+                empleado.getUsuarioEmpleado(),
+                empleado.getCodRol()});
+
+        }
+        }
+
+    }//GEN-LAST:event_jbttn_buscarFiltroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1314,7 +1408,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1357,12 +1450,10 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbtn_borrar;
     private javax.swing.JButton jbtn_borrar2;
     private javax.swing.JButton jbtn_buscarRut;
@@ -1374,6 +1465,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_vistaBuscar;
     private javax.swing.JButton jbtn_vistaEliminar;
     private javax.swing.JButton jbtn_vistaModificar;
+    private javax.swing.JButton jbttn_buscarFiltro;
     private javax.swing.JCheckBox jchk_mostraContra;
     private javax.swing.JCheckBox jchk_mostraContra1;
     private javax.swing.JComboBox<String> jcmbo_comuna;
@@ -1386,11 +1478,16 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcmbo_rol2;
     private com.toedter.calendar.JDateChooser jdate_fecNac;
     private com.toedter.calendar.JDateChooser jdate_fecNac2;
+    private javax.swing.JRadioButton jrad_rol;
+    private javax.swing.JRadioButton jrad_rut;
+    private javax.swing.JRadioButton jrad_todos;
     private javax.swing.JTabbedPane jtabPane_gestionarEmpleado;
+    private javax.swing.JTable jtbl_busquedaFiltro;
     private javax.swing.JTextField jtxt_aMaterno;
     private javax.swing.JTextField jtxt_aMaterno2;
     private javax.swing.JTextField jtxt_aPaterno;
     private javax.swing.JTextField jtxt_aPaterno2;
+    private javax.swing.JTextField jtxt_busqueda;
     private javax.swing.JTextField jtxt_celular;
     private javax.swing.JTextField jtxt_celular2;
     private javax.swing.JPasswordField jtxt_contraseña;

@@ -71,7 +71,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jtxt_nombre = new javax.swing.JTextField();
         jtxt_aMaterno = new javax.swing.JTextField();
         jtxt_numRut = new javax.swing.JTextField();
-        jtxt_contraseña = new javax.swing.JTextField();
         jtxt_mail = new javax.swing.JTextField();
         jtxt_celular = new javax.swing.JTextField();
         jtxt_usuario = new javax.swing.JTextField();
@@ -82,6 +81,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jbtn_salir = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jtxt_direccion = new javax.swing.JTextField();
+        jtxt_contraseña = new javax.swing.JPasswordField();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -104,7 +104,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jtxt_nombre2 = new javax.swing.JTextField();
         jtxt_aMaterno2 = new javax.swing.JTextField();
         jtxt_numRut2 = new javax.swing.JTextField();
-        jtxt_contraseña2 = new javax.swing.JTextField();
         jtxt_mail2 = new javax.swing.JTextField();
         jtxt_celular2 = new javax.swing.JTextField();
         jtxt_usuario2 = new javax.swing.JTextField();
@@ -119,6 +118,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jtxt_rutBuscado = new javax.swing.JTextField();
         jbtn_buscarRut = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jtxt_contraseña21 = new javax.swing.JPasswordField();
 
         jLabel2.setText("jLabel2");
 
@@ -245,7 +245,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jLabel14.setText("Nombre:");
 
-        jLabel15.setText("Contraseña");
+        jLabel15.setText("Contraseña:");
 
         jtxt_dvRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +278,12 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jLabel17.setText("Dirección");
 
+        jtxt_contraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_contraseñaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -293,10 +299,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                         .addGap(548, 548, 548))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -321,8 +323,8 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel15)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtxt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(35, 35, 35)
+                                        .addComponent(jtxt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
@@ -357,7 +359,11 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                         .addComponent(jcmbo_comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel11))
                                 .addGap(38, 38, 38)
-                                .addComponent(jLabel12)))
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -488,6 +494,8 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         });
 
+        jtxt_contraseña21.setToolTipText("");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -495,9 +503,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel45)
@@ -506,10 +511,6 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                         .addGap(548, 548, 548))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -548,8 +549,8 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel43)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtxt_contraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jtxt_contraseña21, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel34)
                                         .addGap(18, 18, 18)
@@ -577,7 +578,15 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                                             .addComponent(jLabel41)
                                             .addGap(18, 18, 18)
                                             .addComponent(jcmbo_region2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel37)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxt_celular2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +640,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                     .addComponent(jLabel32)
                     .addComponent(jLabel43)
                     .addComponent(jtxt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_contraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxt_contraseña21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_guardar2)
@@ -885,7 +894,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         empleado.setCodRegion(region);
         empleado.setDireccionEmpleado(jtxt_direccion2.getText());
         empleado.setUsuarioEmpleado(jtxt_usuario2.getText());
-        empleado.setContrasenaEmpleado(jtxt_contraseña2.getText());
+        empleado.setContrasenaEmpleado(jtxt_contraseña21.getText());
         
         regEmp.actualizarEmpleado(empleado);
     }//GEN-LAST:event_jbtn_guardar2ActionPerformed
@@ -904,6 +913,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jcmbo_region2.setSelectedIndex(0);
         jtxt_direccion2.setText("");
         jtxt_usuario2.setText("");
+        jtxt_contraseña21.setText("");
         jtxt_rutBuscado.setText("");
 
     }//GEN-LAST:event_jbtn_borrar2ActionPerformed
@@ -992,8 +1002,12 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jtxt_direccion2.setText(empleado.getDireccionEmpleado());
         jtxt_usuario2.setText(empleado.getUsuarioEmpleado());
-        jtxt_contraseña2.setText(empleado.getContrasenaEmpleado());
+        jtxt_contraseña21.setText(empleado.getContrasenaEmpleado());
     }//GEN-LAST:event_jbtn_buscarRutActionPerformed
+
+    private void jtxt_contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_contraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_contraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1099,8 +1113,8 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_aPaterno2;
     private javax.swing.JTextField jtxt_celular;
     private javax.swing.JTextField jtxt_celular2;
-    private javax.swing.JTextField jtxt_contraseña;
-    private javax.swing.JTextField jtxt_contraseña2;
+    private javax.swing.JPasswordField jtxt_contraseña;
+    private javax.swing.JPasswordField jtxt_contraseña21;
     private javax.swing.JTextField jtxt_direccion;
     private javax.swing.JTextField jtxt_direccion2;
     private javax.swing.JTextField jtxt_dvRut;

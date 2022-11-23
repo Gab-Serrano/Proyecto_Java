@@ -54,6 +54,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
+
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
@@ -62,6 +63,11 @@
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Component id="jBttn_agregar" min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
+
+                  <Component id="jBttn_agregar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBttn_eliminar" alignment="1" min="-2" max="-2" attributes="0"/>
+
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -72,6 +78,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel10" min="-2" pref="60" max="-2" attributes="0"/>
+
               <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
@@ -90,6 +97,19 @@
                       <Component id="jBttn_agregar" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
+
+              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jtxt_codigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBttn_agregar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtxt_cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBttn_eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+
               </Group>
               <Component id="jScrollPane8" pref="174" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -243,6 +263,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBttn_eliminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBttn_eliminarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

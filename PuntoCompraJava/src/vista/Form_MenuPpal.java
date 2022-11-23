@@ -44,11 +44,18 @@ public class Form_MenuPpal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel8.setBackground(new java.awt.Color(255, 204, 204));
+
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagemm.png"))); // NOI18N
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("La Mercadona");
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("La mercadona");
 
@@ -110,8 +117,8 @@ public class Form_MenuPpal extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jBtn_gestionProv, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jbtn_gestionProd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addComponent(jbtn_gestionProd, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -150,7 +157,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Iniciar sesión");
+        jMenuItem1.setText("Iniciar sesiÃ³n");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -235,6 +242,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jBtn_sisVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_sisVentaActionPerformed
+
         Form_sistemaVenta fsp = new Form_sistemaVenta();
         fsp.setVisible(true);
     }//GEN-LAST:event_jBtn_sisVentaActionPerformed

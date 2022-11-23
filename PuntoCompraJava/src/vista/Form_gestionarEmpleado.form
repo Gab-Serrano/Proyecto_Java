@@ -105,7 +105,8 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jtabPane_gestionarEmpleado" min="-2" pref="547" max="-2" attributes="0"/>
+              <Component id="jtabPane_gestionarEmpleado" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -399,7 +400,7 @@
                           <Component id="jbtn_borrar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jbtn_salir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                      <EmptySpace pref="106" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -628,7 +629,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="514" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="537" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel7" max="32767" attributes="0"/>
@@ -847,7 +848,7 @@
                               <Component id="jtxt_contraseña2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jchk_mostraContra1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jbtn_guardar2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jbtn_borrar2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1372,7 +1373,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace pref="128" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jbtn_eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jbtn_salir3" alignment="3" min="-2" max="-2" attributes="0"/>

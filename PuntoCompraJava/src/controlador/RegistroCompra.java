@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Compra;
+import modelo.Producto;
 
 /**
  *
@@ -28,7 +29,7 @@ public class RegistroCompra {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
             
-            String query = "SELECT * FROM compra";
+            String query = "SELECT * FROM compra WHERE ";
             PreparedStatement stmt = cnx.prepareCall(query);        
             ResultSet rs = stmt.executeQuery();
             
@@ -43,13 +44,11 @@ public class RegistroCompra {
                 com.setCodMedioPago(rs.getInt("codMedioPago"));
                 com.setNumRutEmpleado(rs.getInt("numRutEmpleado"));
                 com.setNumRazonSocialEmpresa(rs.getInt("numRazonSocialEmpresa"));
-                com.getDetalleCompra().setCodProducto(rs.getInt("codProducto"));
                 com.getDetalleCompra().setCantidad(rs.getInt("cantidad"));             
                 listaCompra.add(com);
                 
             }
             
-            stmt.executeUpdate();
             stmt.close();
             cnx.close();
 
@@ -86,6 +85,39 @@ public class RegistroCompra {
             flag = false;
         }
         return flag;
+    
+    }
+    
+    public Producto agregarProductoALista(String codProducto){
+        
+        Producto producto = new Producto();
+                
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+            
+            String query = "SELECT * FROM producto WHERE codProducto = ? ";
+            PreparedStatement stmt = cnx.prepareStatement(query);        
+            stmt.setString (1, codProducto);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                
+                producto.setDescripcionProducto(rs.getString("descripcionProducto"));
+                producto.setPrecioUnitario(rs.getInt("precioUnitario"));
+                producto.setPorcentajeDescuento(rs.getDouble("porcentajeDescuento"));
+                
+            }
+            
+            rs.close();
+            stmt.close();
+            cnx.close();
+
+        } catch (SQLException e) {          
+            System.out.println("Error en la consulta SQL consultar todos los datos de la compra, "+ e.getMessage());
+        }
+        
+        return producto;
     
     }
     

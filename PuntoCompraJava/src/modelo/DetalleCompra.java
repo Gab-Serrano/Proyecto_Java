@@ -8,24 +8,28 @@ package modelo;
  *
  * @author david
  */
-public class DetalleCompra {
-    private int codProducto, cantidad;
+public class DetalleCompra extends Compra{
+    private int cantidad, totalProducto;
+    private Producto producto;
 
     public DetalleCompra() {
     }
 
-    public DetalleCompra(int codProducto, int cantidad) {
-        this.codProducto = codProducto;
+    public DetalleCompra(Producto producto, int cantidad, int totalProducto) {
+        this.producto = producto;
         this.cantidad = cantidad;
+        this.totalProducto = totalProducto;
     }
 
-    public int getCodProducto() {
-        return codProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setCodProducto(int codProducto) {
-        this.codProducto = codProducto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
+
+
 
     public int getCantidad() {
         return cantidad;
@@ -35,9 +39,13 @@ public class DetalleCompra {
         this.cantidad = cantidad;
     }
 
-    @Override
-    public String toString() {
-        return "DetalleCompra{" + "codProducto=" + codProducto + ", cantidad=" + cantidad + '}';
+
+    public int getTotalProducto() {
+        return totalProducto;
+    }
+
+    public void setTotalProducto(int totalProducto) {
+        this.totalProducto = totalProducto;
     }
 
 

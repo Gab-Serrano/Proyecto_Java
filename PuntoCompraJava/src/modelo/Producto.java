@@ -25,6 +25,13 @@ public class Producto {
         this.porcentajeDescuento = porcentajeDescuento;
         this.descripcionProducto = descripcionProducto;
     }
+    //item.getDescripcionProducto(), item.getPrecioUnitario(), item.getPorcentajeDescuento(
+    public Producto(int codProducto, String descripcionProducto, int precioUnitario, double porcentajeDescuento){
+        this.codProducto = codProducto;
+        this.precioUnitario = precioUnitario;
+        this.porcentajeDescuento = porcentajeDescuento;
+        this.descripcionProducto = descripcionProducto;
+    }
 
     public int getCodProducto() {
         return codProducto;

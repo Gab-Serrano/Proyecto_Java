@@ -42,7 +42,8 @@ public class Form_metodoPago extends javax.swing.JFrame {
         jbtn_aceptar = new javax.swing.JButton();
         jbtn_salir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Método de pago");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

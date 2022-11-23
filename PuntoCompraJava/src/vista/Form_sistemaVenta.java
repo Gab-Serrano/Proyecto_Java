@@ -50,6 +50,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         jtxt_cantidad = new javax.swing.JTextField();
         jBttn_agregar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jBttn_eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -102,12 +103,19 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
             }
         });
 
+        jBttn_eliminar.setText("Eliminar");
+        jBttn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBttn_eliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -129,7 +137,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
                 .addGap(139, 139, 139)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jBttn_agregar)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jBttn_eliminar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,7 +154,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBttn_eliminar))
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addGap(52, 52, 52)
@@ -206,7 +216,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         RegistroCompra regCom = new RegistroCompra();
         Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText());
         int cantidad = Integer.valueOf(jtxt_cantidad.getText());
-        int total = (int) ((int) cantidad * producto.getPrecioUnitario() -((double)(cantidad * producto.getPrecioUnitario()) * producto.getPorcentajeDescuento()));
+        int total = (int) ((int) cantidad * producto.getPrecioUnitario() - ((double) (cantidad * producto.getPrecioUnitario()) * producto.getPorcentajeDescuento()));
         totalVenta = totalVenta + total;
 
         listaCompra.add(new DetalleCompra(producto, cantidad, total));
@@ -217,11 +227,32 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
             modelo.addRow(new Object[]{item.getProducto().getDescripcionProducto(), item.getProducto().getPrecioUnitario(),
                 item.getProducto().getPorcentajeDescuento(), item.getCantidad(), item.getTotalProducto()});
         }
-        
+
         jTextField1.setText(String.valueOf(totalVenta));
 
 
     }//GEN-LAST:event_jBttn_agregarActionPerformed
+
+    private void jBttn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_eliminarActionPerformed
+//        RegistroCompra regCom = new RegistroCompra();
+//        Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText());
+//        for (DetalleCompra item : listaCompra) {
+//            if (item.getProducto().getDescripcionProducto().equals(producto.getDescripcionProducto())) {
+//                totalVenta = totalVenta - item.getTotalProducto();
+//                listaCompra.remove(item);
+//            }
+//        }
+//
+//        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos.getModel();
+//        modelo.setRowCount(0);
+//
+//        for (DetalleCompra item : listaCompra) {
+//            modelo.addRow(new Object[]{item.getProducto().getDescripcionProducto(), item.getProducto().getPrecioUnitario(),
+//                item.getProducto().getPorcentajeDescuento(), item.getCantidad(), item.getTotalProducto()});
+//        }
+//
+//        jTextField1.setText(String.valueOf(totalVenta));
+    }//GEN-LAST:event_jBttn_eliminarActionPerformed
     public void actualizarTabla() {
 //        while(modelo.getRowCount()>0){
 //            modelo.removeRow(0);
@@ -287,6 +318,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBttn_agregar;
+    private javax.swing.JButton jBttn_eliminar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

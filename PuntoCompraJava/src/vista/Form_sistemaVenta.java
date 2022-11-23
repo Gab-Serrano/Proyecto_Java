@@ -4,11 +4,14 @@
  */
 package vista;
 
+import controlador.RegistroCompra;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Compra;
+import modelo.DetalleCompra;
 import modelo.Producto;
 
 /**
@@ -16,9 +19,10 @@ import modelo.Producto;
  * @author david
  */
 public class Form_sistemaVenta extends javax.swing.JFrame {
-    DefaultTableModel modelo=new DefaultTableModel();
-    ArrayList<Producto>listaProducto =new ArrayList<Producto>();
-    int item;
+
+    List<DetalleCompra> listaCompra = new ArrayList<>();
+    public static int totalVenta = 0;
+
     /**
      * Creates new form Form_nuevaVenta
      */
@@ -41,9 +45,11 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtcodigo = new javax.swing.JTextField();
+        jtxt_codigo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtcantidad = new javax.swing.JTextField();
+        jtxt_cantidad = new javax.swing.JTextField();
+        jBttn_agregar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,33 +71,41 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
         lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTotal.setText("$0.00 CLP");
+        lblTotal.setText("$");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("CODIGO");
 
-        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigoActionPerformed(evt);
+        jtxt_codigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxt_codigoFocusGained(evt);
             }
         });
-        txtcodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_codigoActionPerformed(evt);
+            }
+        });
+        jtxt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtcodigoKeyPressed(evt);
+                jtxt_codigoKeyPressed(evt);
             }
         });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setText("CANTIDAD");
 
+        jBttn_agregar.setText("Agregar");
+        jBttn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBttn_agregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel10)
-                .addContainerGap(142, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,13 +116,21 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtcodigo)
-                            .addComponent(txtcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                            .addComponent(jtxt_codigo)
+                            .addComponent(jtxt_cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(12, 12, 12)
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBttn_agregar)
+                    .addComponent(jLabel10))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,30 +139,32 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                    .addComponent(jtxt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jBttn_agregar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblTotal))
-                .addGap(46, 46, 46))
+                    .addComponent(lblTotal)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
-       
-        
-    }//GEN-LAST:event_txtcodigoActionPerformed
+    private void jtxt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_codigoActionPerformed
 
-    private void txtcodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyPressed
+
+    }//GEN-LAST:event_jtxt_codigoActionPerformed
+
+    private void jtxt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_codigoKeyPressed
 //        if (evt.getKeyCode()== KeyEvent.VK_ENTER) {
 //            if (!"".equals(txtcantidad.getText())) {
 //                String cod = txtcodigo.getText();
@@ -172,8 +196,33 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 //                 JOptionPane.showConfirmDialog(null, "ingrese cantidad");
 //            }
 //        }
-    }//GEN-LAST:event_txtcodigoKeyPressed
-    public void actualizarTabla(){
+    }//GEN-LAST:event_jtxt_codigoKeyPressed
+
+    private void jtxt_codigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_codigoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_codigoFocusGained
+
+    private void jBttn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_agregarActionPerformed
+        RegistroCompra regCom = new RegistroCompra();
+        Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText());
+        int cantidad = Integer.valueOf(jtxt_cantidad.getText());
+        int total = (int) ((int) cantidad * producto.getPrecioUnitario() -((double)(cantidad * producto.getPrecioUnitario()) * producto.getPorcentajeDescuento()));
+        totalVenta = totalVenta + total;
+
+        listaCompra.add(new DetalleCompra(producto, cantidad, total));
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos.getModel();
+        modelo.setRowCount(0);
+
+        for (DetalleCompra item : listaCompra) {
+            modelo.addRow(new Object[]{item.getProducto().getDescripcionProducto(), item.getProducto().getPrecioUnitario(),
+                item.getProducto().getPorcentajeDescuento(), item.getCantidad(), item.getTotalProducto()});
+        }
+        
+        jTextField1.setText(String.valueOf(totalVenta));
+
+
+    }//GEN-LAST:event_jBttn_agregarActionPerformed
+    public void actualizarTabla() {
 //        while(modelo.getRowCount()>0){
 //            modelo.removeRow(0);
 //        }
@@ -195,10 +244,11 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 //        jtbl_productos.setModel(modelo);
 //        
     }
-    public String aMoneda(double precio)
-    {
-        return "$ "+Math.round(precio*100)/100+" CLP";
+
+    public String aMoneda(double precio) {
+        return "$ " + Math.round(precio * 100) / 100 + " CLP";
     }
+
     /**
      * @param args the command line arguments
      */
@@ -236,14 +286,16 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBttn_agregar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable jtbl_productos;
+    private javax.swing.JTextField jtxt_cantidad;
+    private javax.swing.JTextField jtxt_codigo;
     private javax.swing.JLabel lblTotal;
-    private javax.swing.JTextField txtcantidad;
-    private javax.swing.JTextField txtcodigo;
     // End of variables declaration//GEN-END:variables
 }

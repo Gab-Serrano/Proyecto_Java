@@ -23,13 +23,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane8" min="-2" pref="543" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -39,17 +34,27 @@
                       </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtcodigo" max="32767" attributes="0"/>
-                          <Component id="txtcantidad" pref="110" max="32767" attributes="0"/>
+                          <Component id="jtxt_codigo" max="32767" attributes="0"/>
+                          <Component id="jtxt_cantidad" pref="110" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="lblTotal" min="-2" pref="140" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="lblTotal" min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jTextField1" min="-2" pref="137" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jBttn_agregar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,13 +65,14 @@
               <Component id="jLabel10" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtxt_codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBttn_agregar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtcantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtxt_cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="jScrollPane8" pref="190" max="32767" attributes="0"/>
@@ -74,8 +80,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -157,7 +164,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="$0.00 CLP"/>
+        <Property name="text" type="java.lang.String" value="$"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
@@ -168,10 +175,11 @@
         <Property name="text" type="java.lang.String" value="CODIGO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtcodigo">
+    <Component class="javax.swing.JTextField" name="jtxt_codigo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcodigoActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcodigoKeyPressed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtxt_codigoFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_codigoActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxt_codigoKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
@@ -182,7 +190,17 @@
         <Property name="text" type="java.lang.String" value="CANTIDAD"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtcantidad">
+    <Component class="javax.swing.JTextField" name="jtxt_cantidad">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBttn_agregar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBttn_agregarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField1">
     </Component>
   </SubComponents>
 </Form>

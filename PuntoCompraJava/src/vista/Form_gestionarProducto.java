@@ -433,7 +433,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTbP_agregarProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -646,7 +646,6 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxt_codProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel39))
@@ -910,9 +909,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_listar2ActionPerformed
 
     private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
-        String nombre = this.jtxt_descripcion.getText();
+        String nombre_eliminar = this.jtxt_nombreProd.getText();
         RegistroProducto rp = new RegistroProducto();
-        if (rp.eliminarProducto(nombre)) {
+        if (rp.eliminarProducto(nombre_eliminar)) {
             
            JOptionPane.showMessageDialog(null,"Producto Eliminado","Eliminar producto",1);         
         }
@@ -962,12 +961,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_salir2ActionPerformed
 
     private void jbtn_borrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrar2ActionPerformed
-        this.jtxt_direccion.setText("");
-        this.jtxt_dvRazonSocial.setText("");
-        this.jtxt_mail.setText("");
-        this.jtxt_nombre.setText("");
-        this.jtxt_razonSocial.setText("");
-        this.jtxt_telefono.setText("");
+
 
     }//GEN-LAST:event_jbtn_borrar2ActionPerformed
 
@@ -1121,13 +1115,6 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1153,62 +1140,42 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTabbedPane jTbP_agregarProducto;
-    private javax.swing.JButton jbtn_borrar;
     private javax.swing.JButton jbtn_borrar1;
     private javax.swing.JButton jbtn_borrar2;
     private javax.swing.JButton jbtn_borrarCambios;
     private javax.swing.JButton jbtn_buscar;
     private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JButton jbtn_eliminar1;
-    private javax.swing.JButton jbtn_guardar;
     private javax.swing.JButton jbtn_guardar1;
     private javax.swing.JButton jbtn_guardar2;
     private javax.swing.JButton jbtn_guardarCambios;
-    private javax.swing.JButton jbtn_listar;
-    private javax.swing.JButton jbtn_listar1;
     private javax.swing.JButton jbtn_listar2;
     private javax.swing.JButton jbtn_listar3;
     private javax.swing.JButton jbtn_listar4;
     private javax.swing.JButton jbtn_listar5;
-    private javax.swing.JButton jbtn_salir;
     private javax.swing.JButton jbtn_salir1;
     private javax.swing.JButton jbtn_salir2;
     private javax.swing.JButton jbtn_salir3;
-    private javax.swing.JComboBox<String> jcmbo_comuna;
     private javax.swing.JComboBox<String> jcmbo_comuna2;
-    private javax.swing.JComboBox<String> jcmbo_provincia;
     private javax.swing.JComboBox<String> jcmbo_provincia2;
-    private javax.swing.JComboBox<String> jcmbo_region;
     private javax.swing.JComboBox<String> jcmbo_region2;
     private javax.swing.JTable jtbl_productos;
     private javax.swing.JTable jtbl_productos1;
-    private javax.swing.JTable jtbl_proveedor;
-    private javax.swing.JTable jtbl_proveedor1;
     private javax.swing.JTable jtbl_proveedor4;
     private javax.swing.JTable jtbl_proveedor5;
     private javax.swing.JTextField jtxt_codCategoria;
@@ -1219,13 +1186,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_codigo1;
     private javax.swing.JTextField jtxt_descripcion;
     private javax.swing.JTextField jtxt_descripcion1;
-    private javax.swing.JTextField jtxt_direccion;
     private javax.swing.JTextField jtxt_direccion2;
-    private javax.swing.JTextField jtxt_dvRazonSocial;
     private javax.swing.JTextField jtxt_dvRazonSocial2;
-    private javax.swing.JTextField jtxt_mail;
     private javax.swing.JTextField jtxt_mail2;
-    private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_nombre2;
     private javax.swing.JTextField jtxt_nombreBuscar;
     private javax.swing.JTextField jtxt_nombreProd;
@@ -1234,11 +1197,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_porcentajeDescuento1;
     private javax.swing.JTextField jtxt_precio;
     private javax.swing.JTextField jtxt_precio1;
-    private javax.swing.JTextField jtxt_razonSocial;
     private javax.swing.JTextField jtxt_razonSocial2;
     private javax.swing.JTextField jtxt_stock;
     private javax.swing.JTextField jtxt_stock1;
-    private javax.swing.JTextField jtxt_telefono;
     private javax.swing.JTextField jtxt_telefono2;
     // End of variables declaration//GEN-END:variables
 }

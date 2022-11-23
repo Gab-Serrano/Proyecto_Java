@@ -50,7 +50,7 @@ public class RegistroProducto {
         }
     
     }  
-    public boolean eliminarProducto(String nombre){      
+    public boolean eliminarProducto(String nombre_eliminar){      
         
         boolean flag = false;
         try {
@@ -59,7 +59,7 @@ public class RegistroProducto {
             
             String query = "DELETE FROM producto WHERE descripcionProducto = ?";
             PreparedStatement stmt = cnx.prepareCall(query);
-            stmt.setString(1, nombre);
+            stmt.setString(1, nombre_eliminar);
             
             int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar?","Eliminar producto",1);
             if (resp == 0) {           

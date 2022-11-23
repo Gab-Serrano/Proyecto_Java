@@ -6,6 +6,7 @@ package vista;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import static vista.Form_sistemaVenta.totalVenta;
 
 /**
  *
@@ -171,6 +172,7 @@ public class Form_metodoPago extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Total:");
 
+        jtxt_total.setEditable(false);
         jtxt_total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_totalActionPerformed(evt);
@@ -249,7 +251,13 @@ public class Form_metodoPago extends javax.swing.JFrame {
 
     private void jbtn_confirmarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_confirmarPagoActionPerformed
 
-        JOptionPane.showMessageDialog(null,"Usted pagara con: "+eleccion, "Metodo pago",1);
+	if (eleccion==null) {
+            JOptionPane.showMessageDialog(null,"Por favor, escoja un metodo de pago", "Metodo pago",1);   
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Usted pagara con: "+eleccion, "Metodo pago",1);
+            jtxt_total.setText(String.valueOf(totalVenta));
+        }
     }//GEN-LAST:event_jbtn_confirmarPagoActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
@@ -282,8 +290,13 @@ public class Form_metodoPago extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_efectivoActionPerformed
 
     private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
-        JOptionPane.showMessageDialog(null,"Gracias por su compra!", "Compra",1);
-        dispose();
+        if (eleccion==null) {
+            JOptionPane.showMessageDialog(null,"Por favor, escoja un metodo de pago", "Metodo pago",1);   
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Gracias por su compra!", "Compra",1);
+            dispose();
+        }
     }//GEN-LAST:event_jbtn_aceptarActionPerformed
 
     /**

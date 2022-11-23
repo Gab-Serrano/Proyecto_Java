@@ -10,7 +10,7 @@ import static vista.Form_sistemaVenta.totalVenta;
 
 /**
  *
- * @author nearQ
+ * @author nearQ a
  */
 public class Form_metodoPago extends javax.swing.JFrame {
 

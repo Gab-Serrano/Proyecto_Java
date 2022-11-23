@@ -104,7 +104,7 @@ public class Form_login extends javax.swing.JFrame {
             }
         });
 
-        jchk_mostraContra.setText("Mostrar contraseÃ±a");
+        jchk_mostraContra.setText("Mostrar contraseña");
         jchk_mostraContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jchk_mostraContraActionPerformed(evt);

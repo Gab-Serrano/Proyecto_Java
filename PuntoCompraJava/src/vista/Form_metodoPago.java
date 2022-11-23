@@ -4,12 +4,16 @@
  */
 package vista;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nearQ
  */
 public class Form_metodoPago extends javax.swing.JFrame {
 
+    private String eleccion;
     /**
      * Creates new form Form_metodoPago
      */
@@ -28,12 +32,12 @@ public class Form_metodoPago extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jbtn_efectivo = new javax.swing.JButton();
         jbtn_debito = new javax.swing.JButton();
         jbtn_credito = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jbtn_efectivo = new javax.swing.JButton();
         jbtn_confirmarPago = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -51,15 +55,15 @@ public class Form_metodoPago extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jbtn_efectivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/money-75.png"))); // NOI18N
-        jbtn_efectivo.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_debito.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
+        jbtn_debito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tarjeta-de-debito-75.png"))); // NOI18N
+        jbtn_debito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_efectivoActionPerformed(evt);
+                jbtn_debitoActionPerformed(evt);
             }
         });
 
-        jbtn_debito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tarjeta-de-debito-75.png"))); // NOI18N
-
+        jbtn_credito.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         jbtn_credito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Visa.png"))); // NOI18N
         jbtn_credito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,14 +80,22 @@ public class Form_metodoPago extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Debito");
 
+        jbtn_efectivo.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
+        jbtn_efectivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/money-75.png"))); // NOI18N
+        jbtn_efectivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_efectivoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addComponent(jbtn_efectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(44, 44, 44)
                 .addComponent(jbtn_credito, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jbtn_debito, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,11 +113,11 @@ public class Form_metodoPago extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbtn_efectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbtn_credito, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbtn_debito, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbtn_debito, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtn_efectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,6 +199,11 @@ public class Form_metodoPago extends javax.swing.JFrame {
         );
 
         jbtn_aceptar.setText("Aceptar");
+        jbtn_aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_aceptarActionPerformed(evt);
+            }
+        });
 
         jbtn_salir.setText("Cancelar");
         jbtn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -205,10 +222,10 @@ public class Form_metodoPago extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbtn_aceptar)
+                        .addComponent(jbtn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jbtn_salir)
-                        .addGap(11, 11, 11))
+                        .addGap(5, 5, 5))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -231,7 +248,8 @@ public class Form_metodoPago extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_confirmarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_confirmarPagoActionPerformed
-        // TODO add your handling code here:
+
+        JOptionPane.showMessageDialog(null,"Usted pagara con: "+eleccion, "Metodo pago",1);
     }//GEN-LAST:event_jbtn_confirmarPagoActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
@@ -239,16 +257,34 @@ public class Form_metodoPago extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_salirActionPerformed
 
     private void jtxt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_totalActionPerformed
-        System.out.println("$2300");
+        
     }//GEN-LAST:event_jtxt_totalActionPerformed
 
     private void jbtn_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_creditoActionPerformed
-        // TODO add your handling code here:
+        jbtn_efectivo.setBackground(Color.white);
+        jbtn_debito.setBackground(Color.white);
+        jbtn_credito.setBackground(Color.green);
+        eleccion = "Credito";
     }//GEN-LAST:event_jbtn_creditoActionPerformed
 
+    private void jbtn_debitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_debitoActionPerformed
+        jbtn_credito.setBackground(Color.white);
+        jbtn_efectivo.setBackground(Color.white);
+        jbtn_debito.setBackground(Color.green);
+        eleccion = "Debito";
+    }//GEN-LAST:event_jbtn_debitoActionPerformed
+
     private void jbtn_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_efectivoActionPerformed
-        // TODO add your handling code here:
+        jbtn_credito.setBackground(Color.white);    
+        jbtn_debito.setBackground(Color.white);
+        jbtn_efectivo.setBackground(Color.green);
+        eleccion = "Efectivo";
     }//GEN-LAST:event_jbtn_efectivoActionPerformed
+
+    private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
+        JOptionPane.showMessageDialog(null,"Gracias por su compra!", "Compra",1);
+        dispose();
+    }//GEN-LAST:event_jbtn_aceptarActionPerformed
 
     /**
      * @param args the command line arguments

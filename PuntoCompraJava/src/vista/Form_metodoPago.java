@@ -6,6 +6,7 @@ package vista;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import static vista.Form_sistemaVenta.totalVenta;
 
 /**
  *
@@ -169,8 +170,9 @@ public class Form_metodoPago extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Total:");
+        jLabel8.setText("Total:  $");
 
+        jtxt_total.setEditable(false);
         jtxt_total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_totalActionPerformed(evt);
@@ -183,10 +185,10 @@ public class Form_metodoPago extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,6 +256,7 @@ public class Form_metodoPago extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(null,"Usted pagara con: "+eleccion, "Metodo pago",1);
+            jtxt_total.setText(String.valueOf(totalVenta));
         }
     }//GEN-LAST:event_jbtn_confirmarPagoActionPerformed
 
@@ -265,6 +268,7 @@ public class Form_metodoPago extends javax.swing.JFrame {
         jbtn_efectivo.setBackground(Color.white);
         jbtn_debito.setBackground(Color.white);
         jbtn_credito.setBackground(Color.green);
+        
         eleccion = "Credito";
     }//GEN-LAST:event_jbtn_creditoActionPerformed
 
@@ -293,7 +297,7 @@ public class Form_metodoPago extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_aceptarActionPerformed
 
     private void jtxt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_totalActionPerformed
-
+       
     }//GEN-LAST:event_jtxt_totalActionPerformed
 
     /**

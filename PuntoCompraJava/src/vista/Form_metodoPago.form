@@ -30,10 +30,10 @@
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jbtn_aceptar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbtn_aceptar" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jbtn_salir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -119,9 +119,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jbtn_efectivo" min="-2" pref="105" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jbtn_credito" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="jbtn_debito" min="-2" pref="105" max="-2" attributes="0"/>
@@ -142,12 +142,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbtn_efectivo" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jbtn_credito" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
                               <Component id="jbtn_debito" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jbtn_efectivo" min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -163,25 +163,24 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jbtn_efectivo">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/money-75.png"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_efectivoActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="jbtn_debito">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c2" green="c2" id="Button.borderColor" palette="3" red="c2" type="palette"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/tarjeta-de-debito-75.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_debitoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbtn_credito">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c2" green="c2" id="Button.borderColor" palette="3" red="c2" type="palette"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/Visa.png"/>
                 </Property>
@@ -213,6 +212,19 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Debito"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jbtn_efectivo">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c2" green="c2" id="Button.borderColor" palette="3" red="c2" type="palette"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/money-75.png"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_efectivoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -300,6 +312,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_aceptarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbtn_salir">
       <Properties>

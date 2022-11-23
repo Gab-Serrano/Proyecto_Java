@@ -104,7 +104,7 @@ public class Form_login extends javax.swing.JFrame {
             }
         });
 
-        jchk_mostraContra.setText("Mostrar contraseÃ±a");
+        jchk_mostraContra.setText("Mostrar contraseña");
         jchk_mostraContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jchk_mostraContraActionPerformed(evt);
@@ -156,6 +156,8 @@ public class Form_login extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 310, 340));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 240, 400));
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));

@@ -4,6 +4,8 @@
  */
 package vista;
 
+
+
 import controlador.RegistroCompra;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import modelo.Producto;
 
 /**
  *
- * @author david
+ * @author david mallma
  */
 public class Form_sistemaVenta extends javax.swing.JFrame {
 

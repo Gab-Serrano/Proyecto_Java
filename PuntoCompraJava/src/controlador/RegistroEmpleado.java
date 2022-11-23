@@ -74,7 +74,7 @@ public class RegistroEmpleado {
                 cnx.obtenerConexion().close();
 
                 //Mensaje de Ã©xito
-                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con Ã©xito.", "Agregar empleado", 1);
+                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con éxito.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return true;
@@ -207,7 +207,7 @@ public class RegistroEmpleado {
                 cnx.obtenerConexion().close();
 
                 //Mensaje de Ã©xito
-                JOptionPane.showMessageDialog(null, "Se ha cancelado la operaciÃ³n.", "Agregar empleado", 1);
+                JOptionPane.showMessageDialog(null, "Se ha cancelado la operación.", "Modificar empleado", 1);
 
                 //Retorna booleano exitoso
                 return false;
@@ -311,6 +311,53 @@ public class RegistroEmpleado {
         }
 
         return listaEmpleado;
+    }
+    
+    public boolean eliminarEmpleado (String rut){
+        //Instancia conexion
+        Conexion cnx = new Conexion();
+        //Se declara sentencia
+        String sentencia = "DELETE FROM empleado WHERE numRutEmpleado = ?";
+        //Se carga la plantilla de sentencia
+        try {
+            PreparedStatement stmt = cnx.obtenerConexion().prepareStatement(sentencia);
+            stmt.setString(1, rut);
+            
+
+            if (JOptionPane.showConfirmDialog(null, "¿Estás seguro que deseas eliminar este empleado?", "Modificar empleado", 0) == 0) {
+                //Se ejecuta la consulta
+                stmt.executeUpdate();
+
+                //Se cierran las conexiones
+                stmt.close();
+                cnx.obtenerConexion().close();
+
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha eliminado el empleado con Éxito.", "Modificar empleado", 1);
+
+                //Retorna booleano exitoso
+                return true;
+
+            } else {
+                //Se cierran las conexiones
+                stmt.close();
+                cnx.obtenerConexion().close();
+
+                //Mensaje de Ã©xito
+                JOptionPane.showMessageDialog(null, "Se ha cancelado la operación", "Elimnar empleado", 1);
+
+                //Retorna booleano exitoso
+                return false;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+            //Mensaje de alerta de error
+            JOptionPane.showMessageDialog(null, "Error al eliminar empleado: " + ex, "Eliminar empleado", 1);
+            //Mensaje de error en consola
+            System.out.println("Error al modificar empleado: " + ex);
+            return false;
+        }
     }
 
 }

@@ -140,7 +140,7 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
         jLabel1.setText("Gestionar empleados");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agregar Empleado");
+        setTitle("Gestionar proveedor");
 
         jTabbedPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

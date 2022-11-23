@@ -74,7 +74,7 @@ public class RegistroEmpleado {
                 cnx.obtenerConexion().close();
 
                 //Mensaje de éxito
-                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con éxito.", "Agregar empleado", 1);
+                JOptionPane.showMessageDialog(null, "Se ha agregado empleado con �xito.", "Agregar empleado", 1);
 
                 //Retorna booleano exitoso
                 return true;

@@ -155,13 +155,13 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("Dirección:");
+        jLabel27.setText("DirecciÃ³n:");
 
         jLabel28.setText("Email:");
 
         jLabel29.setText("-");
 
-        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "Viña del Mar", "Quilpué" }));
+        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "ViÃ±a del Mar", "QuilpuÃ©" }));
 
         jLabel30.setText("Comuna:");
 
@@ -179,15 +179,15 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setText("Región:");
+        jLabel31.setText("RegiÃ³n:");
 
         jLabel32.setText("Provincia:");
 
         jLabel33.setText("Razon social:");
 
-        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "RM", "Arica", "Maule" }));
+        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "RM", "Arica", "Maule" }));
 
-        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
+        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
         jcmbo_provincia2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbo_provincia2ActionPerformed(evt);
@@ -434,7 +434,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         setTitle("Gestionar Productos");
+
 
         jTbP_agregarProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -910,9 +912,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_listar2ActionPerformed
 
     private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
-        String nombre = this.jtxt_descripcion.getText();
+        String nombre_eliminar = this.jtxt_nombreProd.getText();
         RegistroProducto rp = new RegistroProducto();
-        if (rp.eliminarProducto(nombre)) {
+        if (rp.eliminarProducto(nombre_eliminar)) {
             
            JOptionPane.showMessageDialog(null,"Producto Eliminado","Eliminar producto",1);         
         }

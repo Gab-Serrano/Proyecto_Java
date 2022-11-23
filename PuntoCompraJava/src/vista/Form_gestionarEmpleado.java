@@ -133,10 +133,19 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jrad_rut = new javax.swing.JRadioButton();
         jrad_rol = new javax.swing.JRadioButton();
         jbttn_buscarFiltro = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jrad_todos = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_busquedaFiltro = new javax.swing.JTable();
-        jrad_todos = new javax.swing.JRadioButton();
+        jPanel8 = new javax.swing.JPanel();
+        jbtn_buscarRut1 = new javax.swing.JButton();
+        jtxt_rutBuscado2 = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtbl_busquedaResultado = new javax.swing.JTable();
+        jbtn_eliminar = new javax.swing.JButton();
+        jbtn_salir3 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -218,7 +227,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 .addComponent(jbtn_vistaBuscar)
                 .addGap(42, 42, 42)
                 .addComponent(jbtn_vistaEliminar)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -526,7 +535,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
         jLabel45.setText("Dirección");
 
-        jLabel47.setText("Buscar empleado:");
+        jLabel47.setText("RUT empleado:");
 
         jbtn_buscarRut.setText("Buscar");
         jbtn_buscarRut.addActionListener(new java.awt.event.ActionListener() {
@@ -723,11 +732,11 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 947, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 183, Short.MAX_VALUE)))
+                    .addGap(0, 136, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,6 +769,19 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jrad_todos);
+        jrad_todos.setText("Todos");
+
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
         jtbl_busquedaFiltro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -774,10 +796,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbl_busquedaFiltro);
 
-        jScrollPane2.setViewportView(jScrollPane1);
-
-        buttonGroup1.add(jrad_todos);
-        jrad_todos.setText("Todos");
+        jScrollPane4.setViewportView(jScrollPane1);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -786,20 +805,29 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbttn_buscarFiltro)
-                    .addComponent(jLabel20)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jrad_rut)
-                        .addGap(18, 18, 18)
-                        .addComponent(jrad_rol)
-                        .addGap(18, 18, 18)
-                        .addComponent(jrad_todos)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbttn_buscarFiltro)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jtxt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(jrad_rut)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrad_rol)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrad_todos)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGap(423, 423, 423)
+                .addComponent(jButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -814,12 +842,100 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                     .addComponent(jrad_todos))
                 .addGap(18, 18, 18)
                 .addComponent(jbttn_buscarFiltro)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(31, 31, 31))
         );
 
         jtabPane_gestionarEmpleado.addTab("Buscar empleados", jPanel6);
+
+        jbtn_buscarRut1.setText("Buscar");
+        jbtn_buscarRut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_buscarRut1ActionPerformed(evt);
+            }
+        });
+
+        jtxt_rutBuscado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_rutBuscado2ActionPerformed(evt);
+            }
+        });
+
+        jLabel48.setText("RUT empleado:");
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jtbl_busquedaResultado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RUT", "DV", "Nombre", "Apellido Paterno", "Apellido Materno", "Email", "Celular", "Fecha nacimiento", "Dirección", "Región", "Provincia", "Comuna", "Usuario", "Rol"
+            }
+        ));
+        jtbl_busquedaResultado.setMinimumSize(new java.awt.Dimension(220, 0));
+        jScrollPane3.setViewportView(jtbl_busquedaResultado);
+
+        jbtn_eliminar.setText("Eliminar");
+        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_eliminarActionPerformed(evt);
+            }
+        });
+
+        jbtn_salir3.setText("Salir");
+        jbtn_salir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_salir3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbtn_eliminar)
+                .addGap(114, 114, 114)
+                .addComponent(jbtn_salir3)
+                .addGap(385, 385, 385))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_rutBuscado2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jbtn_buscarRut1))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48)
+                    .addComponent(jtxt_rutBuscado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_buscarRut1))
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_eliminar)
+                    .addComponent(jbtn_salir3))
+                .addGap(183, 183, 183))
+        );
+
+        jtabPane_gestionarEmpleado.addTab("Eliminar empleado", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -828,18 +944,17 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(jtabPane_gestionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1322,53 +1437,98 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
             }
         }
 
-        //Hola
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_busquedaFiltro.getModel();
         modelo.setRowCount(0);
 
         if (jrad_todos.isSelected()) {
-             for (Empleado empleado : regEmp.buscarTodos()) {
-            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
-            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
-                empleado.getDvRutEmpleado(),
-                empleado.getpNombreEmpleado(),
-                empleado.getpApellidoEmpleado(),
-                empleado.getsApellidoEmpleado(),
-                empleado.getEmailEmpleado(),
-                empleado.getCelularEmpleado(),
-                dateSql,
-                empleado.getDireccionEmpleado(),
-                empleado.getCodComuna(),
-                empleado.getCodProvincia(),
-                empleado.getCodRegion(),
-                empleado.getUsuarioEmpleado(),
-                empleado.getCodRol()});
-            
-        }
+            for (Empleado empleado : regEmp.buscarTodos()) {
+                java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+                modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                    empleado.getDvRutEmpleado(),
+                    empleado.getpNombreEmpleado(),
+                    empleado.getpApellidoEmpleado(),
+                    empleado.getsApellidoEmpleado(),
+                    empleado.getEmailEmpleado(),
+                    empleado.getCelularEmpleado(),
+                    dateSql,
+                    empleado.getDireccionEmpleado(),
+                    empleado.getCodComuna(),
+                    empleado.getCodProvincia(),
+                    empleado.getCodRegion(),
+                    empleado.getUsuarioEmpleado(),
+                    empleado.getCodRol()});
 
-        }else{
+            }
 
-        for (Empleado empleado : regEmp.buscarPorFiltro(condicion, txtBusqueda)) {
-            java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
-            modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
-                empleado.getDvRutEmpleado(),
-                empleado.getpNombreEmpleado(),
-                empleado.getpApellidoEmpleado(),
-                empleado.getsApellidoEmpleado(),
-                empleado.getEmailEmpleado(),
-                empleado.getCelularEmpleado(),
-                dateSql,
-                empleado.getDireccionEmpleado(),
-                empleado.getCodComuna(),
-                empleado.getCodProvincia(),
-                empleado.getCodRegion(),
-                empleado.getUsuarioEmpleado(),
-                empleado.getCodRol()});
+        } else {
 
-        }
+            for (Empleado empleado : regEmp.buscarPorFiltro(condicion, txtBusqueda)) {
+                java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+                modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+                    empleado.getDvRutEmpleado(),
+                    empleado.getpNombreEmpleado(),
+                    empleado.getpApellidoEmpleado(),
+                    empleado.getsApellidoEmpleado(),
+                    empleado.getEmailEmpleado(),
+                    empleado.getCelularEmpleado(),
+                    dateSql,
+                    empleado.getDireccionEmpleado(),
+                    empleado.getCodComuna(),
+                    empleado.getCodProvincia(),
+                    empleado.getCodRegion(),
+                    empleado.getUsuarioEmpleado(),
+                    empleado.getCodRol()});
+
+            }
         }
 
     }//GEN-LAST:event_jbttn_buscarFiltroActionPerformed
+
+    private void jbtn_buscarRut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarRut1ActionPerformed
+        RegistroEmpleado regEmp = new RegistroEmpleado();
+        String rut = jtxt_rutBuscado2.getText();
+        Empleado empleado = regEmp.buscarEmpleado(rut);
+
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_busquedaResultado.getModel();
+        modelo.setRowCount(0);
+
+        java.sql.Date dateSql = new java.sql.Date(empleado.getFechaNacEmpleado().getDay(), empleado.getFechaNacEmpleado().getMonth(), empleado.getFechaNacEmpleado().getYear());
+        modelo.addRow(new Object[]{empleado.getNumRutEmpleado(),
+            empleado.getDvRutEmpleado(),
+            empleado.getpNombreEmpleado(),
+            empleado.getpApellidoEmpleado(),
+            empleado.getsApellidoEmpleado(),
+            empleado.getEmailEmpleado(),
+            empleado.getCelularEmpleado(),
+            dateSql,
+            empleado.getDireccionEmpleado(),
+            empleado.getCodComuna(),
+            empleado.getCodProvincia(),
+            empleado.getCodRegion(),
+            empleado.getUsuarioEmpleado(),
+            empleado.getCodRol()});
+
+
+    }//GEN-LAST:event_jbtn_buscarRut1ActionPerformed
+
+    private void jtxt_rutBuscado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutBuscado2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_rutBuscado2ActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+        RegistroEmpleado regEmp = new RegistroEmpleado();
+        String rut = jtxt_rutBuscado2.getText();
+        
+        regEmp.eliminarEmpleado(rut);
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
+
+    private void jbtn_salir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salir3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbtn_salir3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1384,16 +1544,24 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form_gestionarEmpleado.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -1407,6 +1575,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -1439,6 +1608,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1451,17 +1621,22 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jbtn_borrar;
     private javax.swing.JButton jbtn_borrar2;
     private javax.swing.JButton jbtn_buscarRut;
+    private javax.swing.JButton jbtn_buscarRut1;
+    private javax.swing.JButton jbtn_eliminar;
     private javax.swing.JButton jbtn_guardar;
     private javax.swing.JButton jbtn_guardar2;
     private javax.swing.JButton jbtn_salir;
     private javax.swing.JButton jbtn_salir2;
+    private javax.swing.JButton jbtn_salir3;
     private javax.swing.JButton jbtn_vistaAgregar;
     private javax.swing.JButton jbtn_vistaBuscar;
     private javax.swing.JButton jbtn_vistaEliminar;
@@ -1484,6 +1659,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrad_todos;
     private javax.swing.JTabbedPane jtabPane_gestionarEmpleado;
     private javax.swing.JTable jtbl_busquedaFiltro;
+    private javax.swing.JTable jtbl_busquedaResultado;
     private javax.swing.JTextField jtxt_aMaterno;
     private javax.swing.JTextField jtxt_aMaterno2;
     private javax.swing.JTextField jtxt_aPaterno;
@@ -1504,6 +1680,7 @@ public class Form_gestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_numRut;
     private javax.swing.JTextField jtxt_numRut2;
     private javax.swing.JTextField jtxt_rutBuscado;
+    private javax.swing.JTextField jtxt_rutBuscado2;
     private javax.swing.JTextField jtxt_usuario;
     private javax.swing.JTextField jtxt_usuario2;
     // End of variables declaration//GEN-END:variables

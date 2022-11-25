@@ -254,8 +254,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBttn_agregarActionPerformed
 
-    private void jBtn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelarActionPerformed
-	int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas cancelar la compra?","Cancelar compra",1);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+	int resp = JOptionPane.showConfirmDialog(null, "Â¿Seguro que deseas cancelar la compra?","Cancelar compra",1);
         if (resp == 0) {          
             dispose();
         }
@@ -266,7 +266,11 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         Form_metodoPago fmetpag = new Form_metodoPago();
         dispose();
         fmetpag.setVisible(true);
-    }//GEN-LAST:event_jBtn_confirmarActionPerformed
+
+        RegistroCompra regCom = new RegistroCompra(); 
+        cantidad_2 = Integer.valueOf(jtxt_cantidad.getText());
+
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void actualizarTabla() {
 //        while(modelo.getRowCount()>0){
 //            modelo.removeRow(0);

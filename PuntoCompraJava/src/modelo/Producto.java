@@ -4,6 +4,8 @@
  */
 package modelo;
 
+import static vista.Form_sistemaVenta.cantidad_2;
+
 /**
  *
  * @author david

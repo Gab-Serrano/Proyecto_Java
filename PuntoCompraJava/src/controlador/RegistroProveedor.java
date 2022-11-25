@@ -51,7 +51,7 @@ public class RegistroProveedor {
     
     }
     
-    public boolean eliminarProveedor(String nombre){      
+    public boolean eliminarProveedor(String codigo_eliminar){      
         
         boolean flag = false;
         try {
@@ -60,17 +60,15 @@ public class RegistroProveedor {
             
             String query = "DELETE FROM proveedor WHERE nombreProv = ?";
             PreparedStatement stmt = cnx.prepareCall(query);
-            stmt.setString(1, nombre);
-            
+            stmt.setString(1, codigo_eliminar); 
             int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar?","Eliminar proveedor",1);
-            if (resp == 0) {           
+            if (resp == 0) {
                 stmt.executeUpdate();
                 stmt.close();
                 cnx.close();
                 flag = true;
-            }
-            
-        } catch (SQLException e) {
+            }        
+        }catch (SQLException e) {
             
             System.out.println("Error en la consulta SQL eliminar proveedor, "+ e.getMessage());
             flag = false;

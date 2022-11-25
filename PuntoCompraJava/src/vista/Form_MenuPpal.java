@@ -43,21 +43,15 @@ public class Form_MenuPpal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("La mercadona");
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel8.setBackground(new java.awt.Color(255, 204, 204));
-
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagemm.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("La Mercadona");
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("La mercadona");
+        jLabel5.setText("La Mercadona");
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +149,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Iniciar sesiÃ³n");
+        jMenuItem1.setText("Iniciar sesión");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -199,7 +193,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    //100 administrador - 101 cajero
     private void jBtn_gestionProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_gestionProvActionPerformed
         Form_gestionarProveedor fgp = new Form_gestionarProveedor();
         Form_login log = new Form_login();
@@ -209,8 +203,6 @@ public class Form_MenuPpal extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No tienes acceso a esta opcion.", "Error de acceso", 0);
         }
-
-
     }//GEN-LAST:event_jBtn_gestionProvActionPerformed
 
     private void jbtn_gestionProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_gestionProdActionPerformed
@@ -240,9 +232,14 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jBtn_sisVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_sisVentaActionPerformed
+        Form_login log = new Form_login();
+        if (log.rolEmp == 100 || log.rolEmp == 101) {
+            Form_sistemaVenta fsp = new Form_sistemaVenta();
+            fsp.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No tienes acceso a esta opcion.", "Error de acceso", 0);
+        }
 
-        Form_sistemaVenta fsp = new Form_sistemaVenta();
-        fsp.setVisible(true);
     }//GEN-LAST:event_jBtn_sisVentaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

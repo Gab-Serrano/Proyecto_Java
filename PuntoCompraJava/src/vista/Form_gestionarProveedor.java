@@ -79,7 +79,7 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
         jtbl_proveedor = new javax.swing.JTable();
         jbtn_listar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jbtn_eliminar = new javax.swing.JButton();
+        jbtn_eliminarProv = new javax.swing.JButton();
         jtxt_nombreProv = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -368,10 +368,16 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Lista Proveedores", jPanel2);
 
-        jbtn_eliminar.setText("Eliminar");
-        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_eliminarProv.setText("Eliminar");
+        jbtn_eliminarProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_eliminarActionPerformed(evt);
+                jbtn_eliminarProvActionPerformed(evt);
+            }
+        });
+
+        jtxt_nombreProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_nombreProvActionPerformed(evt);
             }
         });
 
@@ -406,7 +412,7 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jtxt_nombreProv, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_eliminarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 128, Short.MAX_VALUE))
             .addComponent(jScrollPane3)
         );
@@ -418,7 +424,7 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jtxt_nombreProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_eliminarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_listar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
@@ -585,18 +591,18 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtn_listarActionPerformed
 
-    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
-       String nombre = this.jtxt_nombreProv.getText();
+    private void jbtn_eliminarProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarProvActionPerformed
+       String nombre_eliminar = this.jtxt_nombreProv.getText();
        RegistroProveedor rProv = new RegistroProveedor();
-       if (rProv.eliminarProveedor(nombre)) {
-            
+       if (rProv.eliminarProveedor(nombre_eliminar)) {
+           
            JOptionPane.showMessageDialog(null,"Proveedor Eliminado","Eliminar proveedor",1);         
         }
        else{
            JOptionPane.showMessageDialog(null,"Proveedor no Eliminado","Eliminar proveedor",0);  
         }
 
-    }//GEN-LAST:event_jbtn_eliminarActionPerformed
+    }//GEN-LAST:event_jbtn_eliminarProvActionPerformed
 
     private void jbtn_listar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listar1ActionPerformed
         String dvRazonSocialProv,nombreProv,emailProv,direccionProv;
@@ -620,6 +626,10 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jbtn_listar1ActionPerformed
+
+    private void jtxt_nombreProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreProvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_nombreProvActionPerformed
 
     
     
@@ -687,7 +697,7 @@ public class Form_gestionarProveedor extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton jbtn_borrar;
-    private javax.swing.JButton jbtn_eliminar;
+    private javax.swing.JButton jbtn_eliminarProv;
     private javax.swing.JButton jbtn_guardar;
     private javax.swing.JButton jbtn_listar;
     private javax.swing.JButton jbtn_listar1;

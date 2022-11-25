@@ -24,7 +24,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     List<DetalleCompra> listaCompra = new ArrayList<>();
     public static int totalVenta = 0;
-
+    
+    
     /**
      * Creates new form Form_nuevaVenta
      */
@@ -52,13 +53,14 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         jtxt_cantidad = new javax.swing.JTextField();
         jBttn_agregar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBtn_cancelar = new javax.swing.JButton();
+        jBtn_confirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Carro de compras");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel10.setText("Carrito De Compras");
+        jLabel10.setText("Carro De Compras");
 
         jtbl_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,17 +110,17 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_cancelar.setText("Cancelar");
+        jBtn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBtn_cancelarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Confirmar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_confirmar.setText("Confirmar");
+        jBtn_confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBtn_confirmarActionPerformed(evt);
             }
         });
 
@@ -148,15 +150,18 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBttn_agregar)
-                    .addComponent(jLabel10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jBttn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -164,24 +169,28 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jBttn_agregar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBttn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblTotal)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBtn_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
@@ -194,37 +203,30 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_codigoActionPerformed
 
     private void jtxt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_codigoKeyPressed
-//        if (evt.getKeyCode()== KeyEvent.VK_ENTER) {
-//            if (!"".equals(txtcantidad.getText())) {
-//                String cod = txtcodigo.getText();
-//                int cant = Integer.parseInt(txtcodigo.getText());
-//                double precio = Double.parseDouble(lblPrecio.getText());
-//                double total  = cant *precio ;
-//                int stock = Integer.parseInt(txtstock.getText());
-//                if (stock>= cant) {
-//                    item = item +1;
-//                    modelo = (DefaultTableModel) jtbl_productos.getModel();
-//                    ArrayList lista = new ArrayList();
-//                    lista.add(item);
-//                    lista.add(cod);
-//                    lista.add(cant);
-//                    lista.add(precio);
-//                    lista.add(total);
-//                    Object[] O = new Object[5];
-//                    O[0]=lista.get(1);
-//                    O[1]=lista.get(2);
-//                    O[2]=lista.get(3);
-//                    O[3]=lista.get(4);
-//                    modelo.addRow(O);
-//                    jtbl_productos.setModel(modelo);
-//                    
-//                }else{
-//                    JOptionPane.showConfirmDialog(null, "Stock no disponible");
-//                }
-//            }else{
-//                 JOptionPane.showConfirmDialog(null, "ingrese cantidad");
-//            }
-//        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            jtxt_cantidad.setText("1");
+        }
+        
+        RegistroCompra regCom = new RegistroCompra(); 
+        Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText()); //objeto producto con atributos, de lo almacenado del producto en la bd
+        int cantidad = Integer.valueOf(jtxt_cantidad.getText());
+        int total = (int) ((int) cantidad * producto.getPrecioUnitario() -((double)(cantidad * producto.getPrecioUnitario()) * producto.getPorcentajeDescuento()));
+        totalVenta = totalVenta + total;
+
+        listaCompra.add(new DetalleCompra(producto, cantidad, total));
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos.getModel();
+        modelo.setRowCount(0);
+
+        for (DetalleCompra item : listaCompra) {
+            modelo.addRow(new Object[]{item.getProducto().getDescripcionProducto(), item.getProducto().getPrecioUnitario(),
+                item.getProducto().getPorcentajeDescuento(), item.getCantidad(), item.getTotalProducto()});
+        }
+        
+        jTextField1.setText(String.valueOf(totalVenta));
+        
+        jtxt_cantidad.setText("");
+        jtxt_codigo.setText("");
+        
     }//GEN-LAST:event_jtxt_codigoKeyPressed
 
     private void jtxt_codigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_codigoFocusGained
@@ -232,8 +234,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_codigoFocusGained
 
     private void jBttn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_agregarActionPerformed
-        RegistroCompra regCom = new RegistroCompra();
-        Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText());
+        RegistroCompra regCom = new RegistroCompra(); 
+        Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText()); //objeto producto con atributos, de lo almacenado del producto en la bd
         int cantidad = Integer.valueOf(jtxt_cantidad.getText());
         int total = (int) ((int) cantidad * producto.getPrecioUnitario() -((double)(cantidad * producto.getPrecioUnitario()) * producto.getPorcentajeDescuento()));
         totalVenta = totalVenta + total;
@@ -252,19 +254,19 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBttn_agregarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBtn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelarActionPerformed
 	int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas cancelar la compra?","Cancelar compra",1);
         if (resp == 0) {          
             dispose();
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBtn_cancelarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBtn_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_confirmarActionPerformed
         Form_metodoPago fmetpag = new Form_metodoPago();
         dispose();
         fmetpag.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBtn_confirmarActionPerformed
     public void actualizarTabla() {
 //        while(modelo.getRowCount()>0){
 //            modelo.removeRow(0);
@@ -329,9 +331,9 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtn_cancelar;
+    private javax.swing.JButton jBtn_confirmar;
     private javax.swing.JButton jBttn_agregar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

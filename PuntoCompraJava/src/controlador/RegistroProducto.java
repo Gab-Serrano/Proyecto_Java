@@ -29,7 +29,7 @@ public class RegistroProducto {
             
             String query = "INSERT INTO producto(codProducto,descripcionProducto,precioUnitario,stock,codCategoria,numRazonSocialProv,porcentajeDescuento) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareCall(query);
-            stmt.setInt(1, producto.getCodProducto());
+            stmt.setString(1, producto.getCodProducto());
             stmt.setString(2, producto.getDescripcionProducto());
             stmt.setInt(3, producto.getPrecioUnitario());
             stmt.setInt(4, producto.getStock());
@@ -86,7 +86,7 @@ public class RegistroProducto {
             
             String query = "UPDATE producto SET codProducto = ?, descripcionProducto = ?, precioUnitario = ?, stock = ?, codCategoria = ?, numRazonSocialProv = ?, porcentajeDescuento = ? WHERE descripcionProducto = ?";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, producto.getCodProducto());
+            stmt.setString(1, producto.getCodProducto());
             stmt.setString(2, producto.getDescripcionProducto());
             stmt.setInt(3, producto.getPrecioUnitario());
             stmt.setInt(4, producto.getStock());
@@ -121,7 +121,7 @@ public class RegistroProducto {
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
-                pro.setCodProducto(rs.getInt("codProducto"));
+                pro.setCodProducto(rs.getString("codProducto"));
                 pro.setDescripcionProducto(rs.getString("descripcionProducto"));
                 pro.setPrecioUnitario(rs.getInt("precioUnitario"));
                 pro.setStock(rs.getInt("stock"));
@@ -158,7 +158,7 @@ public class RegistroProducto {
             
             while (rs.next()) {
                 Producto pro = new Producto();
-                pro.setCodProducto(rs.getInt("codProducto"));
+                pro.setCodProducto(rs.getString("codProducto"));
                 pro.setDescripcionProducto(rs.getString("descripcionProducto"));
                 pro.setPrecioUnitario(rs.getInt("precioUnitario"));
                 pro.setStock(rs.getInt("stock")); 

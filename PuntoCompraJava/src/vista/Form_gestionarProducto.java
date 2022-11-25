@@ -888,9 +888,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
 
     private void jbtn_listar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listar2ActionPerformed
 
-        int codProducto,precioUnitario,stock,codCategoria,numRazonSocialProv;
+        int precioUnitario,stock,codCategoria,numRazonSocialProv;
         double porcentajeDescuento;
-        String descripcionProducto;
+        String descripcionProducto, codProducto;
         
         RegistroProducto rp = new RegistroProducto();
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos.getModel();
@@ -924,9 +924,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_eliminarActionPerformed
 
     private void jbtn_listar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listar3ActionPerformed
-        int codProducto,precioUnitario,stock,codCategoria,numRazonSocialProv;
+        int precioUnitario,stock,codCategoria,numRazonSocialProv;
         double porcentajeDescuento;
-        String descripcionProducto;
+        String descripcionProducto, codProducto;
         
         RegistroProducto rp = new RegistroProducto();
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos1.getModel();
@@ -990,7 +990,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
 
     private void jbtn_guardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardar1ActionPerformed
         RegistroProducto regProd = new RegistroProducto();
-        int codProducto = ((Integer.valueOf(jtxt_codigo.getText())));
+        String codProducto = ((jtxt_codigo.getText()));
         String descripcionProducto = (jtxt_descripcion.getText());
         int precioUnitario = ((Integer.valueOf(jtxt_precio.getText())));
         int stock = ((Integer.valueOf(jtxt_stock.getText())));
@@ -1023,7 +1023,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private void jbtn_guardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardarCambiosActionPerformed
         RegistroProducto rp = new RegistroProducto();
         Producto pr = new Producto();       
-        pr.setCodProducto((Integer.valueOf(this.jtxt_codigo1.getText())));
+        pr.setCodProducto((this.jtxt_codigo1.getText()));
         pr.setDescripcionProducto(this.jtxt_descripcion1.getText());
         pr.setPrecioUnitario((Integer.valueOf(this.jtxt_precio1.getText())));
         pr.setStock((Integer.valueOf(this.jtxt_stock1.getText())));

@@ -9,14 +9,14 @@ package modelo;
  * @author david
  */
 public class Producto {
-    private int codProducto, precioUnitario, stock,codigoCategoria,numRazonSocialProv;
+    private int precioUnitario, stock,codigoCategoria,numRazonSocialProv;
     private double porcentajeDescuento;
-    private String descripcionProducto;
+    private String codProducto, descripcionProducto;
 
     public Producto() {
     }
 
-    public Producto(int codProducto, int precioUnitario, int stock, int codigoCategoria, int numRazonSocialProv, double porcentajeDescuento, String descripcionProducto) {
+    public Producto(String codProducto, int precioUnitario, int stock, int codigoCategoria, int numRazonSocialProv, double porcentajeDescuento, String descripcionProducto) {
         this.codProducto = codProducto;
         this.precioUnitario = precioUnitario;
         this.stock = stock;
@@ -26,18 +26,18 @@ public class Producto {
         this.descripcionProducto = descripcionProducto;
     }
     //item.getDescripcionProducto(), item.getPrecioUnitario(), item.getPorcentajeDescuento(
-    public Producto(int codProducto, String descripcionProducto, int precioUnitario, double porcentajeDescuento){
+    public Producto(String codProducto, String descripcionProducto, int precioUnitario, double porcentajeDescuento){
         this.codProducto = codProducto;
         this.precioUnitario = precioUnitario;
         this.porcentajeDescuento = porcentajeDescuento;
         this.descripcionProducto = descripcionProducto;
     }
 
-    public int getCodProducto() {
+    public String getCodProducto() {
         return codProducto;
     }
 
-    public void setCodProducto(int codProducto) {
+    public void setCodProducto(String codProducto) {
         this.codProducto = codProducto;
     }
 

@@ -204,8 +204,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             jtxt_cantidad.setText("1");
-        }
-        
+                    
         RegistroCompra regCom = new RegistroCompra(); 
         Producto producto = regCom.agregarProductoALista(jtxt_codigo.getText()); //objeto producto con atributos, de lo almacenado del producto en la bd
         int cantidad = Integer.valueOf(jtxt_cantidad.getText());
@@ -225,6 +224,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         
         jtxt_cantidad.setText("");
         jtxt_codigo.setText("");
+        }
+
     }//GEN-LAST:event_jtxt_codigoKeyPressed
 
     private void jtxt_codigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_codigoFocusGained

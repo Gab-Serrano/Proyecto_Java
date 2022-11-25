@@ -45,12 +45,19 @@ public class Form_MenuPpal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel8.setBackground(new java.awt.Color(255, 204, 204));
+
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagemm.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("La Mercadona");
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("La mercadona");
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +155,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Iniciar sesión");
+        jMenuItem1.setText("Iniciar sesiÃ³n");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);

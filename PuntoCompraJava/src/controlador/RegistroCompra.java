@@ -121,4 +121,26 @@ public class RegistroCompra {
     
     }
     
+    
+    public boolean reducirStock(int reducirStock, String consulta){      
+        
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+            String query = "UPDATE producto SET stock = ? WHERE descripcionProducto = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, reducirStock);
+            stmt.setString(2, consulta);
+            stmt.executeUpdate();
+            stmt.close();
+            cnx.close();
+            return true;
+
+        } catch (SQLException e) {          
+            System.out.println("Error en la consulta SQL en actualizar producto, "+ e.getMessage());
+            return false;
+        }
+    
+    }
+    
 }

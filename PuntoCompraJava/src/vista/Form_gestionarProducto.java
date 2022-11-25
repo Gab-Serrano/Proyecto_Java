@@ -9,14 +9,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Producto;
-import static vista.Form_sistemaVenta.cantidad_2;
 
 /**
  *
  * @author nearQ
  */
 public class Form_gestionarProducto extends javax.swing.JFrame {
-   
     private String nombre;
     /**
      * Creates new form Form_gestionarProducto
@@ -892,7 +890,8 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
 
         int codProducto,precioUnitario,stock,codCategoria,numRazonSocialProv;
         double porcentajeDescuento;
-        String descripcionProducto;  
+        String descripcionProducto;
+        
         RegistroProducto rp = new RegistroProducto();
         DefaultTableModel modelo = (DefaultTableModel) this.jtbl_productos.getModel();
         modelo.setRowCount(0);
@@ -1020,7 +1019,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private void jbtn_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salir1ActionPerformed
         dispose();
     }//GEN-LAST:event_jbtn_salir1ActionPerformed
-    
+
     private void jbtn_guardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardarCambiosActionPerformed
         RegistroProducto rp = new RegistroProducto();
         Producto pr = new Producto();       

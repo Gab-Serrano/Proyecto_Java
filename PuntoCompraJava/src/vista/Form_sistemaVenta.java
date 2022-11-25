@@ -272,6 +272,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         Form_metodoPago fmetpag = new Form_metodoPago();
         dispose();
         fmetpag.setVisible(true);
+        RegistroCompra regCom = new RegistroCompra();
+        
         cantidad_2 = Integer.valueOf(jtxt_cantidad.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 

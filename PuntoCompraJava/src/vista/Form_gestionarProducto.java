@@ -157,13 +157,13 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("DirecciÃ³n:");
+        jLabel27.setText("Dirección:");
 
         jLabel28.setText("Email:");
 
         jLabel29.setText("-");
 
-        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "ViÃ±a del Mar", "QuilpuÃ©" }));
+        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "Viña del Mar", "Quilpué" }));
 
         jLabel30.setText("Comuna:");
 
@@ -181,15 +181,15 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setText("RegiÃ³n:");
+        jLabel31.setText("Región:");
 
         jLabel32.setText("Provincia:");
 
         jLabel33.setText("Razon social:");
 
-        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "RM", "Arica", "Maule" }));
+        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "RM", "Arica", "Maule" }));
 
-        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
+        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
         jcmbo_provincia2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbo_provincia2ActionPerformed(evt);
@@ -436,9 +436,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         setTitle("Gestionar Productos");
-
 
         jTbP_agregarProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -788,17 +786,19 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(jbtn_guardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(jbtn_borrarCambios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtn_salir3)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(jtxt_nombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jbtn_buscar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jtxt_nombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jbtn_buscar)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jbtn_borrarCambios)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtn_salir3)
+                                .addGap(16, 16, 16)))))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(

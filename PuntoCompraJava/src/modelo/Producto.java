@@ -11,7 +11,7 @@ package modelo;
 public class Producto {
     private int precioUnitario, stock,codigoCategoria,numRazonSocialProv;
     private double porcentajeDescuento;
-    private String codProducto, descripcionProducto;
+    private String descripcionProducto, codProducto;
 
     public Producto() {
     }

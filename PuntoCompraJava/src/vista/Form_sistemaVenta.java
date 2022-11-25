@@ -24,8 +24,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     List<DetalleCompra> listaCompra = new ArrayList<>();
     public static int totalVenta = 0;
-    
-    
+
     /**
      * Creates new form Form_nuevaVenta
      */
@@ -57,10 +56,9 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         jBtn_confirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Carro de compras");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel10.setText("Carro De Compras");
+        jLabel10.setText("Carrito De Compras");
 
         jtbl_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,6 +201,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_codigoActionPerformed
 
     private void jtxt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_codigoKeyPressed
+
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             jtxt_cantidad.setText("1");
         }
@@ -226,7 +225,6 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         
         jtxt_cantidad.setText("");
         jtxt_codigo.setText("");
-        
     }//GEN-LAST:event_jtxt_codigoKeyPressed
 
     private void jtxt_codigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_codigoFocusGained
@@ -254,8 +252,8 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBttn_agregarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-	int resp = JOptionPane.showConfirmDialog(null, "Â¿Seguro que deseas cancelar la compra?","Cancelar compra",1);
+    private void jBtn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_cancelarActionPerformed
+	int resp = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas cancelar la compra?","Cancelar compra",1);
         if (resp == 0) {          
             dispose();
         }
@@ -266,11 +264,7 @@ public class Form_sistemaVenta extends javax.swing.JFrame {
         Form_metodoPago fmetpag = new Form_metodoPago();
         dispose();
         fmetpag.setVisible(true);
-
-        RegistroCompra regCom = new RegistroCompra(); 
-        cantidad_2 = Integer.valueOf(jtxt_cantidad.getText());
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBtn_confirmarActionPerformed
     public void actualizarTabla() {
 //        while(modelo.getRowCount()>0){
 //            modelo.removeRow(0);

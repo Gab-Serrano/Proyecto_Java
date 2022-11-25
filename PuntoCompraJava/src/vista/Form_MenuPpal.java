@@ -43,7 +43,6 @@ public class Form_MenuPpal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("La mercadona");
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -232,6 +231,7 @@ public class Form_MenuPpal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jBtn_sisVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_sisVentaActionPerformed
+
         Form_login log = new Form_login();
         if (log.rolEmp == 100 || log.rolEmp == 101) {
             Form_sistemaVenta fsp = new Form_sistemaVenta();

@@ -155,13 +155,13 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("Dirección:");
+        jLabel27.setText("DirecciÃ³n:");
 
         jLabel28.setText("Email:");
 
         jLabel29.setText("-");
 
-        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "Viña del Mar", "Quilpué" }));
+        jcmbo_comuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Santiago", "ViÃ±a del Mar", "QuilpuÃ©" }));
 
         jLabel30.setText("Comuna:");
 
@@ -179,15 +179,15 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setText("Región:");
+        jLabel31.setText("RegiÃ³n:");
 
         jLabel32.setText("Provincia:");
 
         jLabel33.setText("Razon social:");
 
-        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "RM", "Arica", "Maule" }));
+        jcmbo_region2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "RM", "Arica", "Maule" }));
 
-        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Valparaíso", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
+        jcmbo_provincia2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "ValparaÃ­so", "Marga-marga", "Talca", "Putre", "Limache", "Santiago" }));
         jcmbo_provincia2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbo_provincia2ActionPerformed(evt);
@@ -434,7 +434,9 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         setTitle("Gestionar Productos");
+
 
         jTbP_agregarProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -784,19 +786,17 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(jbtn_guardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jtxt_nombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jbtn_buscar)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jbtn_borrarCambios)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbtn_salir3)
-                                .addGap(16, 16, 16)))))
+                        .addGap(66, 66, 66)
+                        .addComponent(jbtn_borrarCambios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtn_salir3)
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(jtxt_nombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jbtn_buscar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -990,7 +990,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
 
     private void jbtn_guardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardar1ActionPerformed
         RegistroProducto regProd = new RegistroProducto();
-        String codProducto = ((jtxt_codigo.getText()));
+        String codProducto = (jtxt_codigo.getText());
         String descripcionProducto = (jtxt_descripcion.getText());
         int precioUnitario = ((Integer.valueOf(jtxt_precio.getText())));
         int stock = ((Integer.valueOf(jtxt_stock.getText())));
@@ -1023,7 +1023,7 @@ public class Form_gestionarProducto extends javax.swing.JFrame {
     private void jbtn_guardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_guardarCambiosActionPerformed
         RegistroProducto rp = new RegistroProducto();
         Producto pr = new Producto();       
-        pr.setCodProducto((this.jtxt_codigo1.getText()));
+        pr.setCodProducto(this.jtxt_codigo1.getText());
         pr.setDescripcionProducto(this.jtxt_descripcion1.getText());
         pr.setPrecioUnitario((Integer.valueOf(this.jtxt_precio1.getText())));
         pr.setStock((Integer.valueOf(this.jtxt_stock1.getText())));
